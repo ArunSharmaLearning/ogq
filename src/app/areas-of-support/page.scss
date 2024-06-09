@@ -1,0 +1,76 @@
+.main-support-tab {
+	position: relative;
+}
+
+.support-tab {
+	position: absolute;
+	z-index: 4;
+	cursor: pointer;
+}
+
+.support-tab-1 {
+	top: 20%;
+	left: 13.6%;
+}
+
+.support-tab-2 {
+	top: 77%;
+	left: 24.6%;
+}
+
+.support-tab-3 {
+	top: 100%;
+	left: 43.4%;
+}
+
+.support-tab-4 {
+	right: 25.1%;
+	top: 76.1%;
+}
+
+.support-tab-5 {
+	right: 17%;
+	top: 20%;
+}
+
+%hover-effect {
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+
+.participation,
+.foreign,
+.equipment,
+.sports,
+.administrative {
+	// opacity: 0;
+	z-index: 4;
+}
+
+// .participation:hover,
+// .foreign:hover,
+// .equipment:hover,
+// .sports:hover,
+// .administrative:hover {
+// 	@extend %hover-effect;
+// }
+
+// body:has(.support-tab-1:hover) .participation {
+// 	@extend %hover-effect;
+// }
+
+// body:has(.support-tab-2:hover) .foreign {
+// 	@extend %hover-effect;
+// }
+
+// body:has(.support-tab-3:hover) .equipment {
+// 	@extend %hover-effect;
+// }
+
+// body:has(.support-tab-4:hover) .sports {
+// 	@extend %hover-effect;
+// }
+
+// body:has(.support-tab-5:hover) .administrative {
+// 	@extend %hover-effect;
+// }
