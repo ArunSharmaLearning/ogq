@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import ThemeProvider from '@/theme'
-import DashboardLayout from '@/layouts/dashboard';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <DashboardLayout>
-            {children}
-          </DashboardLayout>
+          {children}
         </ThemeProvider>
       </body>
     </html>

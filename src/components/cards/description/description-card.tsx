@@ -7,16 +7,20 @@ import {
 	DialogContent,
 	DialogContentText,
 	DialogTitle,
+	IconButton,
 	Stack,
 	Typography,
+	useTheme,
 } from "@mui/material";
 import { useState } from "react";
 import { OverlayBox } from "./description.style";
 import Image from "next/image";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import Iconify from "@/components/iconify";
 
 const DescriptionCard = () => {
 	const [open, setOpen] = useState(false);
-
+	const theme = useTheme()
 	const handleClickOpen = () => {
 		setOpen(true);
 	};
@@ -26,19 +30,22 @@ const DescriptionCard = () => {
 	};
 
 	return (
-		<Box sx={{ flex: 1, maxWidth: "33%", minWidth: '20rem', px: 1 }}>
+		<Box sx={{ flex: 1, maxWidth: "33%", minWidth: '20rem' }}>
 
 			<OverlayBox backgroundImage="test.jpg" className="overlay-animation">
 				<span className="overlay-text" onClick={() => handleClickOpen()}>
-					See more
+					<Iconify sx={{
+						'&:hover': {
+							color: theme.palette.primary.main
+						}
+					}} width={30} icon="gg:add" />
 				</span>
 			</OverlayBox>
 
 			<Typography
 				sx={{
 					textAlign: "center",
-					fontWeight: 600,
-					backgroundColor: "#fff",
+					backgroundColor: theme.palette.common.white,
 					boxShadow: "0 0 15px 0 rgba(0, 0, 0, 0.1)",
 					padding: "1rem",
 					transform: "translateY(-50%)",
@@ -63,7 +70,7 @@ const DescriptionCard = () => {
 				aria-describedby="alert-dialog-description"
 			>
 				<DialogActions sx={{ textAlign: "end" }}>
-					<Button onClick={handleClose}>ICON</Button>
+					<IconButton sx={{ color: theme.palette.primary.main }} onClick={handleClose}><Iconify ml={0} width={26} icon="material-symbols:close" /></IconButton>
 				</DialogActions>
 
 

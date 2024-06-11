@@ -38,5 +38,6 @@ export const OverlayBox = styled(Box, {
     opacity: 1,
     zIndex: 3,
     width: "70%",
+    textAlign: "center",
   },
 }));

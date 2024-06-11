@@ -66,9 +66,9 @@ export const typography = {
   h6: {
 
     fontWeight: 600,
-    lineHeight: 1.5,
-    fontSize: pxToRem(11),
-    ...responsiveFontSizes({ sm: 12, md: 12 }),
+    lineHeight: 1.4,
+    fontSize: pxToRem(13),
+    ...responsiveFontSizes({ sm: 13, md: 13 }),
   },
   subtitle1: {
     fontWeight: 600,
@@ -82,8 +82,8 @@ export const typography = {
   },
   body1: {
     lineHeight: 1.6,
-    fontSize: pxToRem(13),
-    fontWeight: 500
+    fontSize: pxToRem(14),
+    fontWeight: 400
   },
   body2: {
     lineHeight: 22 / 14,

@@ -2,11 +2,11 @@
 import { useRouter } from "@/hooks/use-router"
 import { Button } from "@mui/material"
 
-const CommonButton = ({ link, children, sx }: { link?: string, children: any, sx?: object }) => {
+const CommonButton = ({ link, children, sx, type }: { link?: string, children: any, sx?: object, type?: "submit" }) => {
 
 	const router = useRouter()
 	return (
-		<Button variant="outlined" onClick={() => link ? router.push(link) : void 0} sx={(theme) => ({
+		<Button type={type} variant="outlined" onClick={() => link ? router.push(link) : void 0} sx={(theme) => ({
 			marginY: 3,
 			...sx,
 			background: theme.palette.primary.main,
