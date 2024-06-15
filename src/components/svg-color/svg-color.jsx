@@ -23,6 +23,9 @@ const SvgColor = forwardRef(({ src, sx, ...other }, ref) => (
   />
 ));
 
+
+SvgColor.displayName = "Iconify";
+
 SvgColor.propTypes = {
   src: PropTypes.string,
   sx: PropTypes.object,
