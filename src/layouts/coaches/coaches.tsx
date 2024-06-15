@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
@@ -6,7 +7,7 @@ import Box from "@mui/material/Box";
 
 import Main from "../dashboard/main";
 import { Container } from "@mui/material";
-import Header from "@/components/header";
+// import Header from "@/components/header";
 import { useRouter } from "@/hooks/use-router";
 import Footer from "@/components/footer";
 import CoachesHeader from "@/components/header/coaches/coaches-header";

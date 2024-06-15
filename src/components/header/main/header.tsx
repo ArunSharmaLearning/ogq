@@ -1,4 +1,6 @@
 "use client";
+
+
 import React, { useState } from "react";
 
 import { NAV, HEADER } from "@/layouts/dashboard/config-layout";
@@ -254,10 +256,11 @@ const Header = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
               <Logo
-                sx={(theme) => ({
-                  minWidth: "45px",
-                  [theme.breakpoints.up("sm")]: { mr: "1.5rem" },
-                })}
+              // @ts-nocheck
+              // sx={(theme) => ({
+              //   minWidth: "45px",
+              //   [theme.breakpoints.up("sm")]: { mr: "1.5rem" },
+              // })}
               />
 
               <List

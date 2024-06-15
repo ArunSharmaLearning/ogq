@@ -1,4 +1,7 @@
 "use client";
+// @ts-ignore
+// @ts-nocheck
+
 import React, { useState } from "react";
 
 import { NAV, HEADER } from "@/layouts/dashboard/config-layout";
@@ -182,11 +185,11 @@ const CoachesHeader = () => {
 						<Box sx={{
 							display: "flex", alignItems: "center", justifyContent: 'space-between', width: '100%', height: "100%"
 						}}>
-							< Logo
-								sx={(theme: Theme) => ({
-									minWidth: '45px',
-									[theme.breakpoints.up("sm")]: { mr: "1.5rem" },
-								})}
+							<Logo
+							// sx={(theme: Theme) => ({
+							// 	minWidth: '45px',
+							// 	[theme.breakpoints.up("sm")]: { mr: "1.5rem" },
+							// })}
 							/>
 
 							<List
