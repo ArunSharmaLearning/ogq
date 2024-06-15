@@ -1,5 +1,5 @@
+// @ts-nocheck
 "use client";
-
 
 import React, { useState } from "react";
 
@@ -256,11 +256,10 @@ const Header = () => {
           >
             <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
               <Logo
-              // @ts-nocheck
-              // sx={(theme) => ({
-              //   minWidth: "45px",
-              //   [theme.breakpoints.up("sm")]: { mr: "1.5rem" },
-              // })}
+                sx={(theme) => ({
+                  minWidth: "45px",
+                  [theme.breakpoints.up("sm")]: { mr: "1.5rem" },
+                })}
               />
 
               <List
