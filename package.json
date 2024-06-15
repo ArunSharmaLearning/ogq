@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "clean": "rmdir /s /q .next",
-    "build": "yarn run clean && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
