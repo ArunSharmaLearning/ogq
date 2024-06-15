@@ -8,12 +8,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import CommonButton from '@/components/button/common/common-button';
+import { useResponsive } from '@/hooks/use-responsive';
 
 
 export default function Home() {
 
   const theme = useTheme()
-
+  const isMobile = useResponsive("down", "md");
+  console.log(isMobile)
   useEffect(() => {
     AOS.init({ once: true, duration: 600 })
   }, [])
@@ -25,10 +27,10 @@ export default function Home() {
       <Container>
 
         <Box sx={{ paddingY: 10 }} data-aos="fade-up" data-aos-delay={200}>
-          <Stack direction='row' spacing={2} alignItems={'center'}>
+          <Stack direction={isMobile ? 'column' : 'row'} spacing={2} alignItems={'center'}>
             <Box sx={{
-              flex: '0 0 50%',
-              maxWidth: '50%'
+              flex: !isMobile ? '1 1 50%' : '1 1 100%',
+              maxWidth: !isMobile ? '50%' : '100%'
             }}>
               <Typography variant="h6">
                 OLYMPIC GOLD QUEST (OGQ)
@@ -39,8 +41,8 @@ export default function Home() {
             </Box>
 
             <Stack direction={'column'} sx={{
-              flex: '0 0 50%',
-              maxWidth: '50%'
+              flex: !isMobile ? '0 0 50%' : 1,
+              maxWidth: !isMobile ? '50%' : '100%'
             }}>
 
 
@@ -62,10 +64,10 @@ export default function Home() {
               PARIS 2024 OLYMPIC GAMES
             </strong>
             </Typography>
-            <CountDown eventDateTime={new Date('2025-05-31T23:59:59')} />
+            <CountDown eventDateTime={new Date('2025-05-31T23:59:59')} sx={{ flexDirection: isMobile ? "column" : "row" }} />
           </Box>
 
-        </Box>
+        </Box >
       </Container >
       <Stack direction={'row'}>
         <Box sx={{ position: 'relative', flex: '0 0 50%', maxWidth: '50%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
@@ -87,7 +89,7 @@ export default function Home() {
             <Typography variant="h4" >
               Olympics
 
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={9} duration={1} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} /></Typography>
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={9} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} /></Typography>
             <Typography variant="h4" >
               World Championships
               <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={15} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
@@ -133,7 +135,7 @@ export default function Home() {
           <Box data-aos="fade-up">
             <Typography variant="h4" >
               Total Athletes
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={351} duration={1} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={351} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
             <Typography variant="h4" >
               Senior Athletes

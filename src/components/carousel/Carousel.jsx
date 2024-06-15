@@ -126,22 +126,27 @@ const ControlledCarousel = ({ data }) => {
     //     ))}
     // </Carousel>
 
-    <Carousel className="mainPage_carousel" interval={40000} indicators={true}>
+    <Carousel className="mainPage_carousel" interval={40000} indicators={false}>
       <Carousel.Item key={1}>
         <img
           loading="lazy"
           className="d-block w-100"
-          src="/next.svg"
-          style={{ height: "100%", filter: "brightness(85%)" }}
+          src="/carousel2.jpg"
+          style={{ height: "100%", filter: "brightness(75%)" }}
           alt="Pre Slide"
         />
 
         <Carousel.Caption className="carousel_caption">
-          <h3> {"val.news ? val.news.title : val.event.name"}</h3>
+          <h3 className="float-animation">
+            {" "}
+            {"Integrity, Liberity, Freedom & Prosperity"}
+          </h3>
           <div className="dropdown">
-            <StyledButtonLink href={"/dnew"}>{"Read More"}</StyledButtonLink>
-            <StyledButtonLink href={"/dnew"}>{"Donate Now"}</StyledButtonLink>
+            <Stack direction={"row"} className="">
+              <StyledButtonLink href={"/dnew"}>{"Know More"}</StyledButtonLink>
 
+              <StyledButtonLink href={"/dnew"}>{"Donate Now"}</StyledButtonLink>
+            </Stack>
           </div>
         </Carousel.Caption>
       </Carousel.Item>
@@ -157,7 +162,7 @@ const ControlledCarousel = ({ data }) => {
         <Carousel.Caption className="carousel_caption">
           <h3 className="float-animation">
             {" "}
-            {"val.news ? val.new s. title : va l.eve nt.name"}
+            {"We kept our promises & always deliver"}
           </h3>
           <div className="dropdown">
             <Stack direction={"row"} className="">

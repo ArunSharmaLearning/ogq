@@ -1,3 +1,4 @@
+'use client'
 
 import { default as RouterLink } from "next/link";
 
@@ -24,12 +25,14 @@ export const Link = styled(RouterLink)(({ theme }) => ({
 	whiteSpace: "nowrap",
 	margin: 0,
 	textDecoration: "none",
-	padding: theme.spacing(0, 2),
+	padding: theme.spacing(1.3, 2),
 	display: 'flex',
 	alignItems: 'center',
 	[theme.breakpoints.down('lg')]: {
-		fontSize: '0.8rem',
-		padding: theme.spacing(0, 1),
+		'&.parent-link': {
+			fontSize: '0.8rem',
+			padding: theme.spacing(0.5, 1),
+		}
 	},
 	"&.active": {
 		color: theme.palette.primary.main,
@@ -39,6 +42,11 @@ export const Link = styled(RouterLink)(({ theme }) => ({
 	"&:hover": {
 		color: theme.palette.primary.dark,
 		backgroundColor: theme.palette.secondary.light,
+	},
+
+	'&:hover + div': {
+
+		display: 'block',
 	},
 }));
 
@@ -97,30 +105,61 @@ export const Login = styled(MuiLink)(() => ({
 	},
 }));
 
-export const Dropdown = styled(Box)(() => ({
-	// display: "none",
-	position: "absolute",
-	background: "rgba(0, 0, 0, 1)",
-	"-webkit-backdrop-filter": "blur(10px)",
-	"backdrop-filter": "blur(10px)",
-	minWidth: "220px",
-	boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2)",
-	zIndex: 200,
-	"&:hover": {
-		display: "block",
-	},
-}));
+// export const Dropdown = styled(Box)(() => ({
+// 	// display: "none",
+// 	position: "absolute",
+// 	background: "rgba(0, 0, 0, 1)",
+// 	"-webkit-backdrop-filter": "blur(10px)",
+// 	"backdrop-filter": "blur(10px)",
+// 	minWidth: "220px",
+// 	boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2)",
+// 	zIndex: 200,
+// 	"&:hover": {
+// 		display: "block",
+// 	},
+// }));
 
-export const DropdownContent = styled(Box)(() => ({
-	"&:hover": {
-		display: "block",
-	},
-}));
 
 export const ListItem = styled(MuiListItem)(({ theme }) => ({
 	padding: 0,
 	"&:hover .parent-link": {
 		color: theme.palette.primary.main,
 		backgroundColor: theme.palette.secondary.light
-	}
+	},
+	[theme.breakpoints.down("md")]: {
+		padding: '0.2rem',
+		flexDirection: 'column',
+		'&:hover .dropdown-content': {
+			display: 'block',
+			background: 'none'
+		}
+	},
+	
 }))
+
+export const DropdownContent = styled('div')(({ theme }) => ({
+	display: 'none',
+	position: 'absolute',
+	cursor: 'initial',
+	background: theme.palette.grey[0],
+	top: '69.6px',
+	boxShadow: `
+	  0 4px 6px rgba(0, 0, 0, 0.1),
+	  4px 0 6px rgba(0, 0, 0, 0.1),
+	  -4px 0 6px rgba(0, 0, 0, 0.1)`,
+	zIndex: 201,
+	padding: '0 0 0',
+	"&:hover": {
+		display: "block",
+	},
+	[theme.breakpoints.down('md')]: {
+		position: 'relative',
+		boxShadow: 'none',
+		top: 0,
+		width: '90%',
+		background: 'none',
+		'& > a': {
+			padding: theme.spacing(0.5, 1),
+		},
+	},
+}));

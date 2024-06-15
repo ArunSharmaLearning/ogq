@@ -4,7 +4,7 @@ import { Box, Container, Typography } from "@mui/material";
 const CoachesProgram = () => {
 	return (
 		<Box>
-			<Banner image="test.jpg" text="Coaches Program" />
+			<Banner image="test.jpg" text="OGQ COACHES FOUNDATION PROGRAM (CFP)" subText="Learning and Training program to nurture world class Indian coaches in Badminton and Shooting" />
 
 			<Container>
 

@@ -11,6 +11,7 @@ import {
 	Drawer,
 	List,
 	SelectChangeEvent,
+	Theme,
 	Toolbar,
 	Typography,
 	alpha,
@@ -19,7 +20,6 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 
-import "@/components/common/header.scss";
 import * as Styles from "@/components/common/header.styles";
 import Iconify from "../../iconify";
 import Logo from "../../logo";
@@ -30,6 +30,9 @@ import { usePathname } from "next/navigation";
 const CoachesHeader = () => {
 	const pathname = usePathname();
 	const theme = useTheme();
+	const isActive = (paths: string[]): boolean =>
+		paths.some((origPath) => pathname === '/programs/' + origPath)
+
 
 	const lgUp = useResponsive("up", "md");
 
@@ -64,7 +67,6 @@ const CoachesHeader = () => {
 				<Styles.ListItem>
 					<Styles.Link
 						onClick={handleDrawerToggle}
-						className={pathname == "/" && "active"}
 						href="/"
 					>
 						Home
@@ -82,7 +84,7 @@ const CoachesHeader = () => {
 				</Styles.ListItem>
 				<Styles.ListItem className="dropdown">
 					<Box>
-						<Typography variant="span">
+						<Typography >
 							About <Iconify sx={{ ml: 1 }} icon={"gridicons:dropdown"} />
 						</Typography>
 						<Box className="dropdown-content">
@@ -111,7 +113,7 @@ const CoachesHeader = () => {
 				</Styles.ListItem>
 				<Styles.ListItem className="dropdown">
 					<Box>
-						<Typography variant="span">
+						<Typography>
 							Gallery&apos;s <Iconify icon={"gridicons:dropdown"} />
 						</Typography>
 						<Box className="dropdown-content">
@@ -155,17 +157,17 @@ const CoachesHeader = () => {
 					borderBottom: `1px solid ${theme.palette.primary.dark}`,
 					height: HEADER.H_MOBILE,
 					zIndex: theme.zIndex.appBar + 1,
-					...bgBlur({
-						color: theme.palette.background.default,
-						blur: 8,
-					}),
+					backgroundColor: alpha(theme.palette.common.white, 0.9),
 					transition: theme.transitions.create(["height"], {
 						duration: theme.transitions.duration.shorter,
 					}),
 					...(lgUp && {
 						height: HEADER.H_DESKTOP,
 					}),
-					backgroundColor: alpha(theme.palette.common.white, 0.9)
+					...bgBlur({
+						color: theme.palette.background.default,
+						blur: 8,
+					}),
 				}}
 			>
 				<Container sx={{ height: "100%" }}>
@@ -177,9 +179,11 @@ const CoachesHeader = () => {
 							minHeight: "100%",
 						}}
 					>
-						<Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
-							<Logo
-								sx={(theme) => ({
+						<Box sx={{
+							display: "flex", alignItems: "center", justifyContent: 'space-between', width: '100%', height: "100%"
+						}}>
+							< Logo
+								sx={(theme: Theme) => ({
 									minWidth: '45px',
 									[theme.breakpoints.up("sm")]: { mr: "1.5rem" },
 								})}
@@ -193,37 +197,48 @@ const CoachesHeader = () => {
 								}}
 							>
 
-								<Styles.ListItem className="dropdown">
-									<Styles.Link className="parent-link" href="/paralympics/archery">
-										Paralympics
+								<Styles.ListItem>
+									<Styles.Link className={`parent-link ${isActive(['coaches']) && 'active'}`} href="/programs/coaches">
+										Coaches Program
 									</Styles.Link>
 								</Styles.ListItem>
+
+								<Styles.ListItem>
+									<Styles.Link className={`parent-link ${isActive(['cfp']) && 'active'}`} href="/programs/cfp">
+										CFP
+									</Styles.Link>
+								</Styles.ListItem>
+
+								<Styles.ListItem >
+									<Styles.Link className={`parent-link ${isActive(['cep']) && 'active'}`} href="/programs/cep">
+										CEP
+									</Styles.Link>
+								</Styles.ListItem>
+
+
+								<Styles.ListItem >
+									<Styles.Link className={`parent-link ${isActive(['clp']) && 'active'}`} href="/programs/clb">
+										CLP
+									</Styles.Link>
+								</Styles.ListItem>
+
 
 								<Styles.ListItem className="dropdown">
 									<Styles.Link className="parent-link" href="/about-us">
-										Olympic Results<Iconify icon={"gridicons:dropdown"} />
+										About Us<Iconify icon={"gridicons:dropdown"} />
 									</Styles.Link>
 									<Box className="dropdown-content">
-										<Styles.Link href="/about-us">Rio 2016</Styles.Link>
-										<Styles.Link href="/executives">London 2012</Styles.Link>
+										<Styles.Link href="/about-us">Trainers</Styles.Link>
+										<Styles.Link href="/about-us">Partners</Styles.Link>
+										<Styles.Link href="/executives">Program Team</Styles.Link>
 									</Box>
 								</Styles.ListItem>
 
-								<Styles.ListItem className="dropdown">
-									<Styles.Link className="parent-link" href="/donate-now">
-										Donate Now <Iconify icon={"gridicons:dropdown"} />
-									</Styles.Link>
-									<Box className="dropdown-content">
-										<Styles.Link href="/donate-now">Contribute</Styles.Link>
-										<Styles.Link href="/corporate">CSR for Corporate</Styles.Link>
-										<Styles.Link href="/testimonials">Testimonials</Styles.Link>
-									</Box>
-								</Styles.ListItem>
 							</List>
 						</Box>
 					</Toolbar>
 				</Container>
-			</AppBar>
+			</AppBar >
 			<Box component="nav">
 				<Drawer
 					anchor="right"

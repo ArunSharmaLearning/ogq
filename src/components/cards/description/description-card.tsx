@@ -30,15 +30,15 @@ const DescriptionCard = () => {
 	};
 
 	return (
-		<Box sx={{ flex: 1, maxWidth: "33%", minWidth: '20rem' }}>
+		<Box sx={{ flex: 1, maxWidth: "32%", minWidth: '20rem' }}>
 
-			<OverlayBox backgroundImage="test.jpg" className="overlay-animation">
+			<OverlayBox backgroundImage="/test.jpg" className="overlay-animation">
 				<span className="overlay-text" onClick={() => handleClickOpen()}>
 					<Iconify sx={{
 						'&:hover': {
 							color: theme.palette.primary.main
 						}
-					}} width={30} icon="gg:add" />
+					}} width={34} icon="gg:add" />
 				</span>
 			</OverlayBox>
 

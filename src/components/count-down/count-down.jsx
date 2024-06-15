@@ -3,6 +3,7 @@
 import { Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useResponsive } from "@/hooks/use-responsive";
 
 
 
@@ -32,7 +33,7 @@ const CountdownBox = ({ value, label }) => {
 			>
 				{value}
 			</Typography>
-			<Typography sx={{ margin: 'auto' }}>
+			<Typography variant="h6" sx={{ margin: 'auto' }}>
 				{label}
 			</Typography>
 		</Stack>
@@ -66,6 +67,7 @@ const CountDown = ({ eventDateTime, ...other }) => {
 
 	const [eventDateTimeLeft, setEventDateTimeLeft] = useState(calculateTimeLeft(eventDateTime));
 
+
 	useEffect(() => {
 		const updateCountdown = () => {
 			setEventDateTimeLeft(calculateTimeLeft(eventDateTime));
@@ -78,7 +80,7 @@ const CountDown = ({ eventDateTime, ...other }) => {
 
 	return (
 		<>
-			<Stack direction={"row"} flexWrap={"wrap"} maxWidth={'90%'} margin="auto" {...other} >
+			<Stack justifyContent={'center'} flexWrap={"wrap"} maxWidth={'90%'} margin="auto" spacing={1} alignItems={'center'} {...other} >
 				<CountdownBox value={eventDateTimeLeft.days} label={"Days"} />
 				<CountdownBox value={eventDateTimeLeft.hours} label={"Hours"} />
 				<CountdownBox value={eventDateTimeLeft.minutes} label={"Minutes"} />

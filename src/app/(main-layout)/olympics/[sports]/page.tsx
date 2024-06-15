@@ -5,7 +5,7 @@ const OlympicSport = ({ params }: { params: { sports: string } }) => {
 
 	return (
 		<>
-			<Stack direction={'row'} flexWrap={'wrap'}>
+			<Stack direction={'row'} flexWrap={'wrap'} justifyContent={"space-between"}>
 				<DescriptionCard />
 				<DescriptionCard />
 				<DescriptionCard />

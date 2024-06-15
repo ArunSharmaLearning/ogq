@@ -21,8 +21,9 @@ export const StyledButtonLink = styled(Link)(({ theme }) => ({
 		color: theme.palette.primary.main,
 		backdropFilter: 'blur(4px)'
 	},
-	"@media (max-width: 900px)": {
-		fontSize: "2.5rem",
+	[theme.breakpoints.down('md')]: {
+		fontSize: "0.7rem",
+		padding: "0.2rem 0.5rem",
 		maxHeight: "3rem",
 		marginRight: "0.5rem",
 	},
