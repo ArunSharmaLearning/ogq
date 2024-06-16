@@ -74,8 +74,8 @@ export default function Home() {
       <Stack direction={isMobile ? 'column' : 'row'}>
         <Box sx={{ height: isMobile ? '100vh' : 'auto', position: 'relative', flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
           <Box sx={{ backgroundColor: alpha(theme.palette.primary.main, 0.8), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}>
-            <Box sx={{ p: isMobile ? 4 : 6, width: isMobile ? '65%' : 'auto', border: `2px solid ${theme.palette.common.white}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <Typography variant="h3" sx={{ color: theme.palette.common.white }}> Tell Us we us what can we do for your life</Typography>
+            <Box sx={{ p: isMobile ? theme.spacing(8, 4) : 6, width: isMobile ? '80%' : 'auto', border: `2px solid ${theme.palette.common.white}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+              <Typography variant="h2" sx={{ color: theme.palette.common.white }}> Tell Us we us what can we do for your life can we do for your life</Typography>
             </Box>
           </Box>
         </Box>
@@ -156,8 +156,8 @@ export default function Home() {
 
         <Box order={isMobile && 0} sx={{ height: isMobile ? '100vh' : 'auto', position: 'relative', flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
           <Box sx={{ backgroundColor: alpha(theme.palette.secondary.main, 0.8), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}>
-            <Box sx={{ p: isMobile ? 4 : 6, width: isMobile ? '65%' : 'auto', border: `2px solid ${theme.palette.primary.main}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <Typography variant="h3" sx={{ color: theme.palette.primary.main }}> Tell Us we us what can we do for your life</Typography>
+            <Box sx={{ p: isMobile ? theme.spacing(8, 4) : 6, width: isMobile ? '80%' : 'auto', border: `2px solid ${theme.palette.primary.main}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+              <Typography variant="h2" sx={{ color: theme.palette.primary.main }}> Tell Us we us what can we do for your life</Typography>
             </Box>
           </Box>
         </Box>
