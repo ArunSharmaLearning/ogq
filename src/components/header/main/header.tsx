@@ -126,7 +126,7 @@ const Header = () => {
   };
 
   const handleAccordian = (key: string) => {
-    setAccordianExpand({})
+    setAccordianExpand({ [key]: accordianExpand[key] })
     setAccordianExpand((prev) => ({
       ...prev,
       [key]: prev[key] ? !prev[key] : true,

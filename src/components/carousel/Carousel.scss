@@ -239,14 +239,14 @@ input.MuiSelect-nativeInput:hover {
 			&::before {
 				width: 2rem; /* Width of the frame */
 				height: 1rem; /* Height of the frame */
-				top: -0.7rem;
+				top: -0.5rem;
 				left: -1rem;
 			}
 			.dropdown {
 				&::after {
 					width: 2rem; /* Width of the frame */
 					height: 1rem; /* Height of the frame */
-					bottom: -1rem;
+					bottom: -0.5rem;
 					right: -1rem;
 				}
 			}

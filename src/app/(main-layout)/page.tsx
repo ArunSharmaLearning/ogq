@@ -15,7 +15,6 @@ export default function Home() {
 
   const theme = useTheme()
   const isMobile = useResponsive("down", "md");
-  console.log(isMobile)
   useEffect(() => {
     AOS.init({ once: true, duration: 600 })
   }, [])
@@ -26,11 +25,14 @@ export default function Home() {
       <Carousel data={null} />
       <Container>
 
-        <Box sx={{ paddingY: 10 }} data-aos="fade-up" data-aos-delay={200}>
+        <Box sx={{ paddingY: isMobile ? 5 : 10 }}
+        // data-aos="fade-up" data-aos-delay={200}
+        >
           <Stack direction={isMobile ? 'column' : 'row'} spacing={2} alignItems={'center'}>
             <Box sx={{
               flex: !isMobile ? '1 1 50%' : '1 1 100%',
-              maxWidth: !isMobile ? '50%' : '100%'
+              maxWidth: !isMobile ? '50%' : '100%',
+              width: !isMobile ? 'auto' : '100%'
             }}>
               <Typography variant="h6">
                 OLYMPIC GOLD QUEST (OGQ)
@@ -60,25 +62,25 @@ export default function Home() {
           </Stack>
 
           <Box>
-            <Typography sx={{ textAlign: 'center', marginY: 4 }} variant="h3">COUNTDOWN TO <strong className='highlight'>
+            <Typography sx={{ textAlign: 'center', marginY: 4 }} variant="h3">COUNTDOWN TO {isMobile && <br />}<strong className='highlight'>
               PARIS 2024 OLYMPIC GAMES
             </strong>
             </Typography>
-            <CountDown eventDateTime={new Date('2025-05-31T23:59:59')} sx={{ flexDirection: isMobile ? "column" : "row" }} />
+            <CountDown eventDateTime={new Date('2025-05-31T23:59:59')} sx={{ flexDirection: "row", maxWidth: isMobile ? '90%' : '100%', gap: isMobile ? theme.spacing(5) : theme.spacing(2), flexWrap: isMobile ? 'wrap' : 'no-wrap' }} />
           </Box>
 
         </Box >
       </Container >
-      <Stack direction={'row'}>
-        <Box sx={{ position: 'relative', flex: '0 0 50%', maxWidth: '50%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
+      <Stack direction={isMobile ? 'column' : 'row'}>
+        <Box sx={{ height: isMobile ? '100vh' : 'auto', position: 'relative', flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
           <Box sx={{ backgroundColor: alpha(theme.palette.primary.main, 0.8), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}>
-            <Box sx={{ p: 6, border: `2px solid ${theme.palette.common.white}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <Box sx={{ p: isMobile ? 4 : 6, width: isMobile ? '65%' : 'auto', border: `2px solid ${theme.palette.common.white}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
               <Typography variant="h3" sx={{ color: theme.palette.common.white }}> Tell Us we us what can we do for your life</Typography>
             </Box>
           </Box>
         </Box>
 
-        <Box sx={{ flex: '0 0 50%', background: theme.palette.common.white, maxWidth: '50%', p: '10rem 4rem' }}>
+        <Box sx={{ flex: !isMobile && '0 0 50%', background: theme.palette.common.white, maxWidth: !isMobile ? '50%' : '100%', p: isMobile ? '5rem 2rem' : '10rem 4rem' }}>
           <Typography variant="h6">
             Supported by OGQ
           </Typography>
@@ -125,9 +127,9 @@ export default function Home() {
           </Box>
         </Box>
       </Stack >
-      <Stack direction={'row'}>
+      <Stack direction={isMobile ? 'column' : 'row'}>
 
-        <Box sx={{ flex: '0 0 50%', background: theme.palette.common.white, maxWidth: '50%', p: '10rem 4rem' }}>
+        <Box order={isMobile && 1} sx={{ background: theme.palette.common.white, flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', p: isMobile ? '5rem 2rem' : '10rem 4rem' }}>
           <Typography variant="h6">
             Supported by OGQ
           </Typography>
@@ -152,9 +154,9 @@ export default function Home() {
           </Box>
         </Box>
 
-        <Box sx={{ position: 'relative', flex: '0 0 50%', maxWidth: '50%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
+        <Box order={isMobile && 0} sx={{ height: isMobile ? '100vh' : 'auto', position: 'relative', flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
           <Box sx={{ backgroundColor: alpha(theme.palette.secondary.main, 0.8), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}>
-            <Box sx={{ p: 6, border: `2px solid ${theme.palette.primary.main}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <Box sx={{ p: isMobile ? 4 : 6, width: isMobile ? '65%' : 'auto', border: `2px solid ${theme.palette.primary.main}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
               <Typography variant="h3" sx={{ color: theme.palette.primary.main }}> Tell Us we us what can we do for your life</Typography>
             </Box>
           </Box>
@@ -167,10 +169,10 @@ export default function Home() {
         <Box sx={{ backgroundColor: alpha(theme.palette.secondary.main, 0.7), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}></Box>
         <Stack position={'relative'} direction={'column'} justifyContent={'center'} alignItems={'center'} py={12}>
           <Typography variant="h5" sx={{ mb: 1 }} className='underlineAfter' color={theme.palette.common.white}>Vote for us</Typography>
-          <Typography variant="h5" color={theme.palette.common.white}>In the last two Olympic Games,
+          <Typography variant="h5" color={theme.palette.common.white} sx={{ textAlign: 'center' }}>In the last two Olympic Games,
             5 out of 8 medal winners were supported by OGQ.
           </Typography>
-          <Typography variant="h3" color={theme.palette.common.white}>Your Support will help us</Typography>
+          <Typography variant="h3" color={theme.palette.common.white} mt={1}>Your Support will help us</Typography>
           <Stack direction={'row'} spacing={1} flexWrap={'nowrap'} py={2}>
             <CommonButton>Know More</CommonButton>
             <CommonButton>Donate Now</CommonButton>
@@ -178,7 +180,7 @@ export default function Home() {
         </Stack>
       </Box >
       <Container>
-        <Stack direction={'row'} py={6} justifyContent={'space-between'}>
+        <Stack direction={!isMobile ? 'row' : 'column'} paddingTop={10} spacing={2} justifyContent={'space-between'}>
           <GeneralCard title="OGQ IMPACT" text='Learn how we power more talents to their road to success' />
           <GeneralCard title="HISTORY" text='OGQ has supported the training of more than 300 athletes since its inception' />
           <GeneralCard title="TEAM OGQ" text='Meet our group of hard-working & humble problem solvers' />

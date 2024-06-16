@@ -19,25 +19,7 @@ const Team = () => {
 			<Banner image='test.jpg' text='Team OGQ' />
 
 			<Container>
-				<List sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', maxWidth: 'sm', alignItems: 'center', margin: 'auto' }}>
-					<ListItem>
-						<Styles.Link href="link1" className={`parent-link justify-content-center ${isActive(['link1']) && 'active'}`}>
-							Link 1
-						</Styles.Link>
-					</ListItem>
 
-					<ListItem>
-						<Styles.Link href="link2" className={`parent-link justify-content-center ${isActive(['link2']) && 'active'}`}>
-							Link 2
-						</Styles.Link>
-					</ListItem>
-
-					<ListItem>Link 3</ListItem>
-
-					<ListItem>Link 4</ListItem>
-
-					<ListItem>Link 5</ListItem>
-				</List>
 
 				<Stack direction={'row'} flexWrap={'wrap'} justifyContent={"space-between"}>
 					<DescriptionCard />

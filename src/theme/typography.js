@@ -45,23 +45,23 @@ export const typography = {
   h3: {
 
     fontWeight: 800,
-    lineHeight: 2,
+    lineHeight: 1.5,
     fontSize: pxToRem(30),
-    ...responsiveFontSizes({ sm: 26, md: 30 }),
+    ...responsiveFontSizes({ sm: 20, md: 22 }),
   },
   h4: {
     fontWeight: 800,
     lineHeight: 1.5,
     fontSize: pxToRem(26),
     margin: `${pxToRem(10)} 0`,
-    ...responsiveFontSizes({ sm: 20, md: 24 }),
+    ...responsiveFontSizes({ sm: 18, md: 20 }),
   },
   h5: {
 
     fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(18),
-    ...responsiveFontSizes({ sm: 19, md: 20 }),
+    ...responsiveFontSizes({ sm: 14, md: 18 }),
   },
   h6: {
 

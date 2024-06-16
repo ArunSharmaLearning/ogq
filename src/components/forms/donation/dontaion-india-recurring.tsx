@@ -35,9 +35,7 @@ const DonationIndiaRecurring = () => {
 	};
 
 	const handleSubmit = (values: any) => {
-		//TODO
-
-		console.log("VALUES", values);
+		
 	};
 
 	const a11yProps = (index: number) => {
@@ -88,7 +86,6 @@ const DonationIndiaRecurring = () => {
 						amount: Yup.string().required(),
 					})}
 					onSubmit={async (values) => {
-						console.log("VALUES", values);
 						handleSubmit(values);
 					}}
 				>

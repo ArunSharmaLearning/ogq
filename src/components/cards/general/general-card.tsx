@@ -8,7 +8,7 @@ const GeneralCard = ({ text, title }: { text: string, title: string }) => {
 
 	const { push } = useRouter();
 	return (
-		<Box sx={{ flex: 1, maxWidth: '33%', px: 1 }}>
+		<Box sx={{ flex: 1, maxWidth: '100%' }}>
 			<OverlayBox backgroundImage="test.jpg" className="overlay-animation">
 				<Stack direction={'column'} justifyContent={'center'} alignItems={'center'} textAlign={'center'} className="overlay-text">
 					<Typography component='p'> {text}</Typography>

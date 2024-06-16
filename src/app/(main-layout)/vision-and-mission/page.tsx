@@ -8,7 +8,7 @@ const VisionAndMission = () => {
 		<Box component={"main"}>
 			<Banner image="test.jpg" text="Vision and Mission" />
 			<Container>
-				<Stack direction={"row"} my={2}>
+				<Stack direction={{ sm: "row" }} my={2}>
 					<Box
 						sx={(theme) => ({
 							flex: 1,

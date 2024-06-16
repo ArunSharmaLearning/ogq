@@ -27,7 +27,7 @@ export const OverlayBox = styled(Box, {
   "& .overlay-text": {
     position: "absolute",
     opacity: 0,
-    transition: "all 300ms ease 100ms",
+    transition: "all 300ms ease 0ms",
     transform: "translate(-50%,-50%)",
     top: "30%",
     left: "50%",

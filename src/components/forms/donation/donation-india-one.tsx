@@ -31,7 +31,6 @@ const DonationIndiaOne = () => {
 	const handleSubmit = (values: any) => {
 		//TODO
 
-		console.log("VALUES", values);
 	};
 
 	const a11yProps = (index: number) => {
@@ -90,7 +89,6 @@ const DonationIndiaOne = () => {
 						amount: Yup.string().optional(),
 					})}
 					onSubmit={async (values) => {
-						console.log("VALUES", values);
 						handleSubmit(values);
 					}}
 				>

@@ -7,7 +7,7 @@ const Banner = ({ image, text, subText, sx = {} }: { image: string, text: string
 	const theme = useTheme()
 
 	return (
-		<Box sx={{ display: 'flex', position: 'relative', height: '20rem', backgroundImage: `url(/${image})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center center', textAlign: 'center', backgroundAttachment: 'fixed', mb: 5, ...sx }}>
+		<Box sx={{ p: 1, display: 'flex', position: 'relative', height: '20rem', backgroundImage: `url(/${image})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center center', textAlign: 'center', backgroundAttachment: 'fixed', mb: 5, ...sx }}>
 			<Box sx={{ backgroundColor: alpha(theme.palette.secondary.main, 0.7), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'no-repeat' }}></Box>
 			<Stack direction='column' zIndex={1} justifyContent={'center'} alignItems={'center'} sx={{ width: '100%', color: theme.palette.common.white }}>
 				<Typography variant="h3">{text}</Typography>

@@ -14,10 +14,10 @@ import Iconify from "../iconify";
 const Footer = () => {
 	return (
 		<Box component="footer">
-			<Box sx={(theme) => ({ backgroundColor: '#22262a', py: '5rem' })}>
+			<Box sx={(theme) => ({ backgroundColor: '#22262a', py: { md: '5rem', xs: '2rem' } })}>
 				<Container>
 
-					<Stack direction={{ 'sm': "column", 'md': 'row' }} spacing={2}>
+					<Stack direction={{ 'sm': "column", 'md': 'row' }} gap={3} >
 						<Stack flex={1} data-aos="fade-up" >
 							<Box>
 								<Typography color={'white'} className="underlineAfter" sx={{ mb: 1.2 }}>About us</Typography>

@@ -264,7 +264,7 @@
 	backdrop-filter: blur(2px);
 
 	transform: translate(-50%, -50%);
-	transition: width 600ms, padding-top 600ms;
+	transition: all 600ms;
 }
 
 .overlay-animation:hover::after {

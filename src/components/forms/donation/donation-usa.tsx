@@ -31,7 +31,6 @@ const DonationUsa = () => {
 	const handleSubmit = (values: any) => {
 		//TODO
 
-		console.log("VALUES", values);
 	};
 
 	const a11yProps = (index: number) => {
