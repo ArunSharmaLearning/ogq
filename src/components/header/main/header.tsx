@@ -74,7 +74,7 @@ const Header = () => {
     },
     {
       title: "What We Do",
-      href: "",
+      href: "{}",
       childrens: [
         {
           title: "Area of Support",
@@ -181,7 +181,7 @@ const Header = () => {
                 </AccordionSummary>
                 <AccordionDetails sx={{ paddingY: 0.5, paddingX: 1 }}>
                   <Box>
-                    {state.href &&
+                    {state.href != "{}" &&
                       <Styles.Link
                         key={0}
                         href={state.href}

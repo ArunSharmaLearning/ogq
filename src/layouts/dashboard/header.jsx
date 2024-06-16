@@ -48,9 +48,6 @@ export default function Header({ onOpenNav }) {
         spacing={1}
       >
         <NavItems items={navConfig} />
-
-        {/* <LanguagePopover />
-        <AccountPopover /> */}
       </Stack>
     </Stack>
   );

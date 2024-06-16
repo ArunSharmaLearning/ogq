@@ -29,21 +29,18 @@ export const typography = {
   fontWeightBold: 700,
   fontFamily: 'inherit',
   h1: {
-
     fontWeight: 800,
     lineHeight: 80 / 64,
     fontSize: pxToRem(40),
     ...responsiveFontSizes({ sm: 52, md: 58 }),
   },
   h2: {
-
     fontWeight: 800,
     lineHeight: 1.8,
     fontSize: pxToRem(34),
     ...responsiveFontSizes({ sm: 28, md: 30 }),
   },
   h3: {
-
     fontWeight: 800,
     lineHeight: 1.5,
     fontSize: pxToRem(30),
@@ -57,7 +54,6 @@ export const typography = {
     ...responsiveFontSizes({ sm: 18, md: 20 }),
   },
   h5: {
-
     fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(18),
