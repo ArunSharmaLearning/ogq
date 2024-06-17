@@ -30,7 +30,7 @@ const DescriptionCard = () => {
 	};
 
 	return (
-		<Box sx={{ flex: 1, maxWidth: "32%", minWidth: '20rem' }}>
+		<Box sx={{ flex: 1, maxWidth: { md: "33%", xs: '100%' }, minWidth: '20rem' }}>
 
 			<OverlayBox backgroundImage="/test.jpg" className="overlay-animation">
 				<span className="overlay-text" onClick={() => handleClickOpen()}>

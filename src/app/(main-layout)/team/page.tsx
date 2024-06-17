@@ -21,7 +21,7 @@ const Team = () => {
 			<Container>
 
 
-				<Stack direction={'row'} flexWrap={'wrap'} justifyContent={"space-between"}>
+				<Stack direction={'row'} flexWrap={'wrap'} gap={2} justifyContent={"flex-start"}>
 					<DescriptionCard />
 					<DescriptionCard />
 					<DescriptionCard />
