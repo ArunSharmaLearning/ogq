@@ -1,3 +1,4 @@
+// @ts-nocheck
 import useSWR from "swr";
 
 const defaultFetcher = (...args) => fetch(...args).then((res) => res.json());

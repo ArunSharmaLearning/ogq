@@ -202,7 +202,7 @@ const Header = () => {
                         {children.title}
                       </Styles.Link>
                     ))}
-                  </Box>
+                </Box>
                 </AccordionDetails>
               </Accordion>) :
               (

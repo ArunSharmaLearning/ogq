@@ -19,11 +19,7 @@ const CSRPolicy = () => {
 					Click on the link below to download
 				</Typography>
 				<Stack direction={"row"} spacing={0} flexWrap={"wrap"}>
-					<DownloadButton text={"Performance Report 2022-2023"} />
-					<DownloadButton text={"Performance Report 2022-23"} />
-					<DownloadButton text={"Performance Report 2022-23"} />
-					<DownloadButton text={"Performance Report 2022-23"} />
-					<DownloadButton text={"Performance Report 2022-23"} />
+					jkd
 				</Stack>
 			</Container>
 		</Box>
