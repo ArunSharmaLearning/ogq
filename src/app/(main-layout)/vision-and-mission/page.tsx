@@ -1,9 +1,13 @@
 "use client";
 
 import Banner from "@/components/banner/banner";
+import { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
+import Loading from "@/components/loader";
 
 const VisionAndMission = () => {
+	const { data: post, isLoading, isValidating } = useAPI("vission");
+
 	return (
 		<Box component={"main"}>
 			<Banner image="test.jpg" text="Vision and Mission" />
@@ -50,22 +54,18 @@ const VisionAndMission = () => {
 					</Box>
 				</Stack>
 				<Typography variant="h2"> How we do it</Typography>
-				<Typography>
-					OGQ strives to compliment the efforts of the Indian Government and
-					various Sports Federations in identifying and funding the best and
-					most deserving medal prospects for the Olympic games. OGQ has
-					short-listed Nine individual Olympic disciplines viz. shooting,
-					athletics, boxing, wrestling, archery, swimming, table tennis,
-					weightlifting and badminton as the ones in which Indian athletes have
-					the strongest potential to win Olympic medals. OGQ experts
-					systematically oversee and benchmark the progress of athletes and
-					provide support for the best coaching, training, equipment and sport
-					science facilities.
+				{!(isLoading && isValidating) ? post && (
+					<Box dangerouslySetInnerHTML={{ __html: post.content }}></Box>
+				) :
+					<Loading />
+				}
+				<Typography variant="body1" sx={{ textAlign: "center", mt: 2 }}>
+					It takes just 6 grams of Gold to lift the worth of a nation. Come Join
+					Us in our quest for GOLD!
 				</Typography>
-				<Typography variant="body1" sx={{ textAlign: 'center', mt: 2 }}>It takes just 6 grams of Gold to lift the worth of a nation. Come Join Us in our quest for GOLD!</Typography>
 			</Container>
 		</Box>
-	);
+	)
 };
 
 export default VisionAndMission;

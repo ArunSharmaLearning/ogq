@@ -1,11 +1,24 @@
 import Banner from "@/components/banner/banner";
 import DownloadButton from "@/components/button/download/download-button";
+import callApi from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 
-const AnnualReport = ({ params }: { params: { type: string } }) => {
+const AnnualReport = async ({ params }: { params: { type: string } }) => {
+
+	let bannerText, coverImage, endpoint;
+	if (params.type == 'investor-return') {
+		bannerText = "Invetor Return"
+		endpoint = "annual_return"
+	}
+	else {
+		bannerText = "Performance Report"
+		endpoint = "annual_report"
+	}
+	const reports = await callApi(endpoint);
+
 	return (
 		<Box>
-			<Banner image="test.jpg" text={params.type} />
+			<Banner image="test.jpg" text={bannerText} />
 
 			<Container>
 				<Typography sx={{ mb: 2 }} variant="body1">
@@ -16,11 +29,11 @@ const AnnualReport = ({ params }: { params: { type: string } }) => {
 				</Typography>
 
 				<Stack direction={'row'} spacing={0} flexWrap={'wrap'}>
-					<DownloadButton text={'Performance Report 2022-23'} />
-					<DownloadButton text={'Performance Report 2022-23'} />
-					<DownloadButton text={'Performance Report 2022-23'} />
-					<DownloadButton text={'Performance Report 2022-23'} />
-					<DownloadButton text={'Performance Report 2022-23'} />
+					{reports.map((report: any) => (
+						<DownloadButton key={report.id} text={report.name} file={report.file} />
+					))}
+
+
 				</Stack>
 			</Container>
 		</Box>

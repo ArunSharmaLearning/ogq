@@ -126,7 +126,7 @@ const ControlledCarousel = ({ data }) => {
     //     ))}
     // </Carousel>
 
-    <Carousel className="mainPage_carousel" interval={40000} indicators={false}>
+    <Carousel className="mainPage_carousel" interval={4000} pause={false} indicators={false}>
       <Carousel.Item key={1}>
         <img
           loading="lazy"

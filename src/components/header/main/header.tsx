@@ -206,7 +206,6 @@ const Header = () => {
                 </AccordionDetails>
               </Accordion>) :
               (
-                <Styles.ListItem>
                   <Styles.Link onClick={handleDrawerToggle} className={`parent-link ${isActive(
                     [state.href.substring(1)]
                   ) && "active"
@@ -214,7 +213,6 @@ const Header = () => {
                     href={state.href}>
                     {state.title}
                   </Styles.Link>
-                </Styles.ListItem>
               )}
           </Styles.ListItem>))}
 

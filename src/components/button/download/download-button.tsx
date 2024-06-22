@@ -2,7 +2,7 @@ import Iconify from "@/components/iconify";
 import { Button, Tooltip } from "@mui/material"
 
 
-const DownloadButton = ({ text }: { text: string }) => {
+const DownloadButton = ({ text, file }: { text: string, file: string }) => {
 	const truncateText = ({ text, maxLength = 20 }: { text: string; maxLength?: number }): string => {
 		return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 	};
@@ -25,6 +25,8 @@ const DownloadButton = ({ text }: { text: string }) => {
 					left: 17,
 				}
 			}} variant="contained"
+				target="_blank"
+				href={'https://ogqbackend.pythonanywhere.com' + file}
 				endIcon={< Iconify width={22} icon={'line-md:download-loop'} ml={1} />}
 			>
 				{truncatedText}
