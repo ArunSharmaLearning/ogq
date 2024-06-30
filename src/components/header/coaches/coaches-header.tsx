@@ -25,7 +25,7 @@ import IconButton from "@mui/material/IconButton";
 
 import * as Styles from "@/components/common/header.styles";
 import Iconify from "../../iconify";
-import Logo from "../../logo";
+import Logo from "../../loader/logo";
 import { bgBlur } from "@/theme/css";
 import { useResponsive } from "@/hooks/use-responsive";
 import { usePathname } from "next/navigation";

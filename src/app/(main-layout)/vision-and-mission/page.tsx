@@ -6,7 +6,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import Loading from "@/components/loader";
 
 const VisionAndMission = () => {
-	const { data: post, isLoading, isValidating } = useAPI("vission");
+	const { data: post, isLoading } = useAPI("vission");
 
 	return (
 		<Box component={"main"}>
@@ -53,16 +53,12 @@ const VisionAndMission = () => {
 						</Typography>
 					</Box>
 				</Stack>
-				<Typography variant="h2"> How we do it</Typography>
-				{!(isLoading && isValidating) ? post && (
-					<Box dangerouslySetInnerHTML={{ __html: post.content }}></Box>
+				<Typography variant="h2" sx={{ mx: 'auto', width: 'fit-content' }} className="underlineAfter"> How we do it</Typography>
+				{!isLoading ? (
+					<Box dangerouslySetInnerHTML={{ __html: post?.content }}></Box>
 				) :
 					<Loading />
 				}
-				<Typography variant="body1" sx={{ textAlign: "center", mt: 2 }}>
-					It takes just 6 grams of Gold to lift the worth of a nation. Come Join
-					Us in our quest for GOLD!
-				</Typography>
 			</Container>
 		</Box>
 	)

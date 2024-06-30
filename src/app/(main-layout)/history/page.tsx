@@ -6,7 +6,7 @@ import { Box, Container, Typography } from "@mui/material";
 
 const History = async () => {
 
-	const post = await callApi('/history');
+	const { error, content } = await callApi('/history');
 
 	return (
 		<Box>
@@ -14,8 +14,8 @@ const History = async () => {
 
 			<Container>
 
-				<Box dangerouslySetInnerHTML={{ __html: post.content }}
-				></Box>
+				{!error && <Box dangerouslySetInnerHTML={{ __html: content }}
+				></Box>}
 			</Container>
 		</Box>
 	);

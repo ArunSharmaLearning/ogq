@@ -7,9 +7,15 @@ import 'aos/dist/aos.css';
 import { Box, Container, List, ListItem, Stack, Tooltip, Typography } from "@mui/material";
 import './page.scss'
 import { useEffect } from "react";
+import { useAPI } from "@/hooks/use-swr";
+import Loading from "@/components/loader/section-loading";
 
 
 const AreaOfSupport = () => {
+
+
+	const { data, isLoading } = useAPI("areas_of_support");
+
 	useEffect(() => {
 		AOS.init({ once: true, duration: 700 })
 
@@ -21,17 +27,11 @@ const AreaOfSupport = () => {
 
 			<Box >
 				<Container sx={{ position: 'relative' }}>
-					<Typography variant="body1">
-						We, at Olympic Gold Quest, scout for athletes who have displayed in
-						them the drive and the potential to win medals at the Olympic Games.
-						The selection takes place through a well-laid down process that has
-						been developed by the experts and has been chiseled with experience.
-						Once the athletes are selected, OGQ assumes all responsibility for
-						providing them with full-fledged support in their preparation towards
-						winning at the Olympic Games. The support that we provide to our
-						athletes falls into the following broad categories:
-					</Typography>
 
+					{!isLoading ? <Box dangerouslySetInnerHTML={{ __html: data.content }}></Box>
+						:
+						<Loading />
+					}
 					<Box sx={{ mt: '5rem', mb: '20rem' }}>
 						<section className="areas-support">
 							<Box data-aos="fade-up" className="container">

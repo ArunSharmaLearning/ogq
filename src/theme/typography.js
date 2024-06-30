@@ -79,11 +79,13 @@ export const typography = {
   body1: {
     lineHeight: 1.6,
     fontSize: pxToRem(14),
-    fontWeight: 400
+    fontWeight: 400,
+    paddingBottom: pxToRem(8)
   },
   body2: {
-    lineHeight: 22 / 14,
+    lineHeight: 1.6,
     fontSize: pxToRem(14),
+    fontWeight: 400,
   },
   caption: {
     lineHeight: 1.5,
@@ -101,5 +103,4 @@ export const typography = {
     fontSize: pxToRem(14),
     textTransform: 'unset',
   },
-
 };

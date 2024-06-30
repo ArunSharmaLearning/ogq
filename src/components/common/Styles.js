@@ -1,3 +1,4 @@
+'use client'
 import { default as RouteLink } from "next/link";
 
 import { styled, Link as MuiLink } from "@mui/material";

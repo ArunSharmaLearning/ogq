@@ -1,14 +1,13 @@
-'use client'
+"use client";
 import ProfileCard from "@/components/cards/profile/profile-card";
-import Loading from "@/components/loader";
 import NoResults from "@/components/loader/no-results";
 import { useAPI } from "@/hooks/use-swr";
-import { Stack } from "@mui/material"
+import { Stack, Typography } from "@mui/material";
+import Loading from "@/components/loader";
 
-const OlympicSport = ({ params }: { params: { sports: string } }) => {
-
+const OlympicResult = ({ params }: { params: { sports: string } }) => {
 	const { data: profiles, isLoading } = useAPI(
-		`paralympics?sport=${params.sports}`
+		`olympics_result?year=${params.sports}`
 	);
 
 	return (
@@ -31,8 +30,6 @@ const OlympicSport = ({ params }: { params: { sports: string } }) => {
 			)}
 		</>
 	);
+};
 
-}
-
-
-export default OlympicSport
+export default OlympicResult;

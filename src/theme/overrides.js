@@ -1,5 +1,6 @@
 import { alpha } from '@mui/material/styles';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import { pxToRem } from './typography';
 
 // ----------------------------------------------------------------------
 
@@ -143,6 +144,13 @@ export function overrides(theme) {
         },
       },
     },
-    
+    p: {
+      lineHeight: 1.6,
+      fontSize: pxToRem(14),
+      fontWeight: 400,
+      paddingLeft: 0,
+      paddingRight: 0,
+    }
+
   };
 }

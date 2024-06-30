@@ -9,20 +9,37 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import CommonButton from '@/components/button/common/common-button';
 import { useResponsive } from '@/hooks/use-responsive';
+import { useAPI } from '@/hooks/use-swr';
 
 
 export default function Home() {
 
   const theme = useTheme()
   const isMobile = useResponsive("down", "md");
+
+  const { data: carouselData, isLoading: carouselLoading } = useAPI('home_carousel')
+  const { data: sportEvent, isLoading: sportEventLoading } = useAPI('countdown')
+  const { data: athleteStats, isLoading: athleteStatsLoading } = useAPI('athlete_stats')
+  const { data: medalStats, isLoading: medalStatsLoading } = useAPI('medal_stats')
+
+
   useEffect(() => {
     AOS.init({ once: true, duration: 600 })
   }, [])
 
+  const isEventGoingOn = () => {
+    const today = new Date();
+    const eventStartDate = new Date(sportEvent?.start_date)
+
+    if (today < eventStartDate)
+      return false // Event will start after sometime
+    return true // Event going on
+
+  }
 
   return (
     <>
-      <Carousel data={null} />
+      <Carousel data={carouselData} />
       <Container>
 
         <Box sx={{ paddingY: isMobile ? 5 : 10 }}
@@ -56,17 +73,20 @@ export default function Home() {
                   In the last three Olympic Games, 9 out of the 14 individual-sport medal winners for India
                   were supported by OGQ
                 </Typography>
+                {<Box dangerouslySetInnerHTML={{ __html: sportEvent?.content }}>
+                </Box>}
 
               </Box>
             </Stack>
           </Stack>
 
           <Box>
-            <Typography sx={{ textAlign: 'center', marginY: 4 }} variant="h3">COUNTDOWN TO {isMobile && <br />}<strong className='highlight'>
-              PARIS 2024 OLYMPIC GAMES
-            </strong>
+            <Typography sx={{ textAlign: 'center', marginY: 4 }} variant="h3">
+              {!isEventGoingOn() ? <>COUNTDOWN TO</> : <>CLOSING OUT</>} {isMobile && <br />}<strong className='highlight'>
+                {sportEvent?.text.toUpperCase()}
+              </strong>
             </Typography>
-            <CountDown eventDateTime={new Date('2025-05-31T23:59:59')} sx={{ flexDirection: "row", maxWidth: isMobile ? '90%' : '100%', gap: isMobile ? theme.spacing(5) : theme.spacing(2), flexWrap: isMobile ? 'wrap' : 'no-wrap' }} />
+            <CountDown isEventGoingOn={isEventGoingOn()} eventDateTime={new Date(sportEvent?.end_date)} sx={{ flexDirection: "row", maxWidth: isMobile ? '90%' : '100%', gap: isMobile ? theme.spacing(5) : theme.spacing(2), flexWrap: isMobile ? 'wrap' : 'no-wrap' }} />
           </Box>
 
         </Box >
@@ -74,8 +94,8 @@ export default function Home() {
       <Stack direction={isMobile ? 'column' : 'row'}>
         <Box sx={{ height: isMobile ? '100vh' : 'auto', position: 'relative', flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
           <Box sx={{ backgroundColor: alpha(theme.palette.primary.main, 0.8), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}>
-            <Box sx={{ p: isMobile ? theme.spacing(8, 4) : 6, width: isMobile ? '80%' : 'auto', border: `2px solid ${theme.palette.common.white}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <Typography variant="h2" sx={{ color: theme.palette.common.white }}> Tell Us we us what can we do for your life can we do for your life</Typography>
+            <Box sx={{ p: isMobile ? theme.spacing(8, 4) : theme.spacing(8, 4), width: isMobile ? '80%' : 'auto', border: `2px solid ${theme.palette.common.white}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+              <Typography variant="h2" sx={{ color: theme.palette.common.white }}> Our champions have made their mark, earning medals in elite competitions worldwide</Typography>
             </Box>
           </Box>
         </Box>
@@ -84,44 +104,44 @@ export default function Home() {
           <Typography variant="h6">
             Supported by OGQ
           </Typography>
-          <Typography variant="h4" className='underlineAfter'>Medals won by Athletes</Typography>
+          <Typography variant="h3" className='underlineAfter'>Medals won by Athletes</Typography>
           <Box data-aos="fade-up">
 
 
             <Typography variant="h4" >
               Olympics
 
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={9} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} /></Typography>
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.olympics} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} /></Typography>
             <Typography variant="h4" >
               World Championships
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={15} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.world_championships} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
 
 
             <Typography variant="h4" >
               Asian Games
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={312} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.asian_games} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
             <Typography variant="h4" >
               Commonwealth Games
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={55} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.commonwealth_games} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
 
 
             <Typography variant="h4" >
               Youth Olympics
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={6} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.youth_olympics} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
             <Typography variant="h4" >
               Junior World C&apos;ships
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={17} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.junior_world_championships} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
 
 
 
             <Typography variant="h4" >
               Paralympics
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={10} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={medalStats?.paralympics} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
 
           </Box>
@@ -137,19 +157,19 @@ export default function Home() {
           <Box data-aos="fade-up">
             <Typography variant="h4" >
               Total Athletes
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={351} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={athleteStats?.total_athletes} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
             <Typography variant="h4" >
               Senior Athletes
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={142} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={athleteStats?.senior_athletes} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
             <Typography variant="h4" >
               Junior Athletes
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={136} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={athleteStats?.junior_athletes} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
             <Typography variant="h4" >
               Para Athletes
-              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={72} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
+              <CountUp style={{ color: theme.palette.primary.main }} enableScrollSpy scrollSpyOnce end={athleteStats?.para_athletes} duration={2} formattingFn={(num) => num < 10 ? ` 0${num} ` : ` ${num}`} />
             </Typography>
           </Box>
         </Box>
@@ -157,7 +177,7 @@ export default function Home() {
         <Box order={isMobile && 0} sx={{ height: isMobile ? '100vh' : 'auto', position: 'relative', flex: !isMobile && '0 0 50%', maxWidth: !isMobile ? '50%' : '100%', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%' }}>
           <Box sx={{ backgroundColor: alpha(theme.palette.secondary.main, 0.8), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}>
             <Box sx={{ p: isMobile ? theme.spacing(8, 4) : 6, width: isMobile ? '80%' : 'auto', border: `2px solid ${theme.palette.primary.main}`, position: 'absolute', backgroundPosition: 'center center', backgroundRepeat: 'repeat', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <Typography variant="h2" sx={{ color: theme.palette.primary.main }}> Tell Us we us what can we do for your life</Typography>
+              <Typography variant="h2" sx={{ color: theme.palette.primary.main }}> OGQ supports a diverse group of senior, junior, and para athletes</Typography>
             </Box>
           </Box>
         </Box>
@@ -165,10 +185,10 @@ export default function Home() {
 
       </Stack>
 
-      <Box sx={{ position: 'relative', backgroundImage: 'url(test.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%', backgroundAttachment: 'fixed' }}>
+      <Box sx={{ position: 'relative', backgroundImage: 'url(india-flag.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: '50% 50%', backgroundAttachment: 'fixed' }}>
         <Box sx={{ backgroundColor: alpha(theme.palette.secondary.main, 0.7), height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, backgroundPosition: 'center center', backgroundRepeat: 'repeat' }}></Box>
         <Stack position={'relative'} direction={'column'} justifyContent={'center'} alignItems={'center'} py={12}>
-          <Typography variant="h5" sx={{ mb: 1 }} className='underlineAfter' color={theme.palette.common.white}>Vote for us</Typography>
+          <Typography variant="h5" sx={{ mb: 1 }} className='underlineAfter' color={theme.palette.common.white}>Join Our Cause </Typography>
           <Typography variant="h5" color={theme.palette.common.white} sx={{ textAlign: 'center' }}>In the last two Olympic Games,
             5 out of 8 medal winners were supported by OGQ.
           </Typography>

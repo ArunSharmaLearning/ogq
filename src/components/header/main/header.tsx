@@ -24,7 +24,7 @@ import {
 import IconButton from "@mui/material/IconButton";
 import * as Styles from "@/components/common/header.styles.js";
 import Iconify from "@/components/iconify/index.js";
-import Logo from "@/components/logo/index.js";
+import Logo from "@/components/loader/logo/index.js";
 import { bgBlur } from "@/theme/css";
 import { useResponsive } from "@/hooks/use-responsive";
 import { usePathname } from "next/navigation";
@@ -107,6 +107,10 @@ const Header = () => {
   const theme = useTheme();
   const isActive = (paths: string[]): boolean => {
     return paths.some((origPath) => pathname === "/" + origPath);
+  }
+
+  const isParentActive = (path: string): boolean => {
+    return path === pathname.split('/')[1];
   }
 
   const lgUp = useResponsive("up", "md");
@@ -202,17 +206,17 @@ const Header = () => {
                         {children.title}
                       </Styles.Link>
                     ))}
-                </Box>
+                  </Box>
                 </AccordionDetails>
               </Accordion>) :
               (
-                  <Styles.Link onClick={handleDrawerToggle} className={`parent-link ${isActive(
-                    [state.href.substring(1)]
-                  ) && "active"
-                    }`}
-                    href={state.href}>
-                    {state.title}
-                  </Styles.Link>
+                <Styles.Link onClick={handleDrawerToggle} className={`parent-link ${isActive(
+                  [state.href.substring(1)]
+                ) && "active"
+                  }`}
+                  href={state.href}>
+                  {state.title}
+                </Styles.Link>
               )}
           </Styles.ListItem>))}
 
@@ -284,7 +288,7 @@ const Header = () => {
 
                 <Styles.ListItem>
                   <Styles.Link
-                    href="/about-us"
+                    href={{}}
                     className={`parent-link ${isActive([
                       "about-us",
                       "history",
@@ -303,7 +307,8 @@ const Header = () => {
                       Vision and Mission
                     </Styles.Link>
                     <Styles.Link href="/history">History</Styles.Link>
-                    <Styles.Link href="/team">Team OGQ</Styles.Link>
+                    <Styles.Link href="/team/india">Team OGQ</Styles.Link>
+                    <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
                     <Styles.Link href="/media">OGQ in Media</Styles.Link>
                     <Styles.Link href="/careers">Careers</Styles.Link>
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>
@@ -311,7 +316,7 @@ const Header = () => {
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/about-us">
+                  <Styles.Link className="parent-link" href={{}}>
                     What We Do <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
@@ -333,14 +338,22 @@ const Header = () => {
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/olympics/archery">
-                    Olympics
+                  <Styles.Link className={`parent-link ${isParentActive('olympics') || isParentActive('junior') && 'active'}`} href={{}}>
+                    Olympics <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
+                  <Styles.DropdownContent>
+                    <Styles.Link href="/olympics/archery">
+                      The Olympics
+                    </Styles.Link>
+                    <Styles.Link href="/junior/archery">
+                      Junior Scholorship Athletes
+                    </Styles.Link>
+                  </Styles.DropdownContent>
                 </Styles.ListItem>
 
                 <Styles.ListItem>
                   <Styles.Link
-                    className="parent-link"
+                    className={`parent-link  ${isParentActive('paralympics') && 'active'}`}
                     href="/paralympics/archery"
                   >
                     Paralympics
@@ -348,14 +361,14 @@ const Header = () => {
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/about-us">
+                  <Styles.Link className="parent-link" href="/olympic-result/rio 2016">
                     Olympic Results
-                    <Iconify icon={"gridicons:dropdown"} />
+                    {/* <Iconify icon={"gridicons:dropdown"} /> */}
                   </Styles.Link>
-                  <Styles.DropdownContent>
+                  {/* <Styles.DropdownContent>
                     <Styles.Link href="/about-us">Rio 2016</Styles.Link>
                     <Styles.Link href="/executives">London 2012</Styles.Link>
-                  </Styles.DropdownContent>
+                  </Styles.DropdownContent> */}
                 </Styles.ListItem>
 
                 <Styles.ListItem>

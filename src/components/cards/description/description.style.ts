@@ -13,8 +13,9 @@ export const OverlayBox = styled(Box, {
 })<OverlayBoxProps>(({ theme, backgroundImage }) => ({
   position: "relative",
   backgroundImage: `url(${backgroundImage})`,
+  backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  height: "15rem",
+  height: "22rem",
   width: "100%",
   backgroundPosition: "center center",
   display: "flex",

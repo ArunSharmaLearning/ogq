@@ -106,9 +106,8 @@ export function bgGradient(props) {
 
   if (imgUrl) {
     return {
-      background: `linear-gradient(${direction}, ${startColor || color}, ${
-        endColor || color
-      }), url(${imgUrl})`,
+      background: `linear-gradient(${direction}, ${startColor || color}, ${endColor || color
+        }), url(${imgUrl})`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
@@ -129,24 +128,3 @@ export function textGradient(value) {
     WebkitTextFillColor: 'transparent',
   };
 }
-
-// ----------------------------------------------------------------------
-
-export const hideScroll = {
-  x: {
-    msOverflowStyle: 'none',
-    scrollbarWidth: 'none',
-    overflowX: 'scroll',
-    '&::-webkit-scrollbar': {
-      display: 'none',
-    },
-  },
-  y: {
-    msOverflowStyle: 'none',
-    scrollbarWidth: 'none',
-    overflowY: 'scroll',
-    '&::-webkit-scrollbar': {
-      display: 'none',
-    },
-  },
-};

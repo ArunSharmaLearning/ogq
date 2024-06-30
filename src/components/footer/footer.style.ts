@@ -1,3 +1,4 @@
+"use client";
 import { default as RouterLink } from "next/link";
 
 import { ListItem as MuiListItem } from "@mui/material";
@@ -12,7 +13,6 @@ export const Link = styled(RouterLink)(({ theme }) => ({
   margin: 0,
   display: "flex",
   alignItems: "center",
-  textDecoration: "none",
   [theme.breakpoints.down("lg")]: {
     fontSize: "0.8rem",
     padding: theme.spacing(0, 1),

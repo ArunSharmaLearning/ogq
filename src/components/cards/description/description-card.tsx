@@ -17,8 +17,9 @@ import { OverlayBox } from "./description.style";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Iconify from "@/components/iconify";
+import { API_URL } from "@/constants/api";
 
-const DescriptionCard = () => {
+const DescriptionCard = ({ team }: { team: any }) => {
 	const [open, setOpen] = useState(false);
 	const theme = useTheme()
 	const handleClickOpen = () => {
@@ -30,9 +31,9 @@ const DescriptionCard = () => {
 	};
 
 	return (
-		<Box sx={{ flex: 1, maxWidth: { md: "33%", xs: '100%' }, minWidth: '20rem' }}>
+		<Box sx={{ flex: 1, maxWidth: { sm: "32.2%", xs: '100%' }, minWidth: '20rem' }}>
 
-			<OverlayBox backgroundImage="/test.jpg" className="overlay-animation">
+			<OverlayBox backgroundImage={`${API_URL}/${team.image}`} className="overlay-animation">
 				<span className="overlay-text" onClick={() => handleClickOpen()}>
 					<Iconify sx={{
 						'&:hover': {
@@ -54,14 +55,14 @@ const DescriptionCard = () => {
 				}}
 				variant="h5"
 			>
-				Content
+				{team.name}
 			</Typography>
 
 			<Dialog
 				sx={{
 					"& .MuiDialog-paper": {
 						boxShadow: "none",
-						maxWidth: '800px'
+						maxWidth: '720px'
 					},
 				}}
 				open={open}
@@ -77,48 +78,24 @@ const DescriptionCard = () => {
 				<DialogContent sx={{
 
 				}}>
-					<Stack direction={'row'} spacing={2}>
+					<Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
 
-						<Box sx={{ flex: 1, margin: 'auto' }}>
-							<Box sx={{ height: '20rem', position: 'relative', borderRadius: '1rem', overflow: 'hidden' }}>
-								<Image src={'/test.jpg'} layout="fill"
+						<Box sx={{ flex: 1, margin: 'auto', height: 'fit-content', position: { sm: 'sticky', xs: 'relative' }, top: 0 }}>
+							<Box sx={{ height: '20rem', position: 'relative', borderRadius: '1rem', overflow: 'hidden', mb: 1 }}>
+								<Image src={`${API_URL}${team.image}`} layout="fill"
 									objectFit="cover" alt='personality' />
 							</Box>
+							<Typography variant="h5" className="underlineAfter" mb={0.5}>{team.name}</Typography>
+							<Typography variant="h6">{team.designation}</Typography>
 
-							<Typography variant="h6">Co founder</Typography>
-							<Typography variant="h5">Geet Sethi</Typography>
 							<Typography variant="h6">
-								Former All England Champion and
+								{team.sporting_achivements}
 							</Typography>
-							<Typography variant="h6">World Number 1</Typography>
 
 						</Box>
 						<Box sx={{ flex: 1 }}>
-							<Typography component={"p"}>
-								Known as the ‘Gentle Tiger’ on court, Prakash Padukone, is the
-								first Indian to reach the top of the World Badminton honours by
-								winning the All England Championship in 1980. Born on June 10th
-								1956 he won his first National Men’s singles at the Indian
-								Nationals when he was only 15 years old (he also won the Juniors
-								title at that Nationals). He won the Nationals 9 years in a row
-								from 1971 till 1979 and did not play at the nationals again till
-								1989. At the Commonwealth games in 1978, he was the gold
-								medalist. 1980 was his best year, in the months leading up to
-								the All-England, he dominated the top European players,
-								consistently beating Fleming Delfs, Morten Frost Hansen and
-								Svend Pri (all All-England champions themselves), and won the
-								Danish Open and the Swedish Open. Seeded third at the
-								All-England, he beat Morten Frost in the semifinals and Liem
-								Swie King in the finals in straight games title at that Nationals). He won the Nationals 9 years in a row
-								from 1971 till 1979 and did not play at the nationals again till
-								1989. At the Commonwealth games in 1978, he was the gold
-								medalist. 1980 was his best year, in the months leading up to
-								the All-England, he dominated the top European players,
-								consistently beating Fleming Delfs, Morten Frost Hansen and
-								Svend Pri (all All-England champions themselves), and won the
-								Danish Open and the Swedish Open. Seeded third at the
-								All-England, he beat Morten Frost in the semifinals and Liem
-								Swie King in the finals in straight games
+							<Typography variant="body1">
+								{team.about_them}
 							</Typography>
 						</Box>
 

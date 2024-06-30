@@ -1,3 +1,4 @@
+'use client'
 
 import { default as Link } from "next/link";
 

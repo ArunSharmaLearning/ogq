@@ -1,24 +1,20 @@
 import Banner from "@/components/banner/banner";
+import callApi from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
-const History = () => {
+const SelectionProcess = async () => {
+
+	const selection = await callApi('selection');
+
 	return (
 		<Box>
 			<Banner image="test.jpg" text="Selection process" />
 
 			<Container>
-				<Typography>
-					No two sports are same and hence, the same methodology cannot be
-					replicated in the same form for different sports. Having established
-					that, it can be said that there are some basic tenets that can be
-					followed and adapted according to the sport (or sportsperson) being
-					analysed. At OGQ, in line with our mission of supporting athletes to
-					win Olympic Gold medals, we are primarily trying to judge if a certain
-					athlete has that potential. We can accomplish this through a
-					Quantitative analysis (fact-based) or Qualitative one (opinion-based)
-					or as it often happens – a mix of both.
-				</Typography>
+
+				<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
+
 			</Container>
 
 			<Box
@@ -38,10 +34,11 @@ const History = () => {
 					and Consistency.
 				</Typography>
 
-				<Stack direction="row" spacing={1} mb={5}>
+				<Stack direction="row" spacing={3} mb={5}>
 					<Box
 						sx={{
-							p: 2,
+							p: 4,
+							borderRadius: 1,
 							pt: 8,
 							backgroundColor: "white",
 							color: "black",
@@ -86,8 +83,9 @@ const History = () => {
 
 					<Box
 						sx={{
-							p: 2,
+							p: 4,
 							pt: 8,
+							borderRadius: 1,
 							backgroundColor: "white",
 							color: "black",
 							position: "relative",
@@ -148,4 +146,4 @@ const History = () => {
 	);
 };
 
-export default History;
+export default SelectionProcess;
