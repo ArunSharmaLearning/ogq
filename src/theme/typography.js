@@ -84,8 +84,9 @@ export const typography = {
   },
   body2: {
     lineHeight: 1.6,
-    fontSize: pxToRem(14),
+    fontSize: pxToRem(12),
     fontWeight: 400,
+    ...responsiveFontSizes({ sm: 7 }),
   },
   caption: {
     lineHeight: 1.5,

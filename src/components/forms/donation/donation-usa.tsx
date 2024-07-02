@@ -48,7 +48,6 @@ const DonationUsa = () => {
 				position: "relative",
 				flex: 1,
 				height: "fit-content",
-				maxWidth: "50%",
 			}}
 		>
 			<Stack

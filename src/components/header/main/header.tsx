@@ -52,7 +52,7 @@ const Header = () => {
     },
     {
       title: "About OGQ",
-      href: "/about-us",
+      href: "{}",
       childrens: [
         {
           title: "Vision and Mission",
@@ -64,7 +64,11 @@ const Header = () => {
         },
         {
           title: "Team OGQ",
-          href: "/team",
+          href: "/team/india",
+        },
+        {
+          title: "Team OGQ, USA",
+          href: "/team/usa",
         },
         {
           title: "OGQ in Media",
@@ -96,11 +100,37 @@ const Header = () => {
     },
     {
       title: 'Olympics',
-      href: '/olympics/archery'
+      href: '/olympics/archery',
+      childrens: [{
+        title: 'Junior Scholorship Athletes',
+        href: '/junior/archery',
+
+      }]
     },
     {
       title: 'Paralympics',
       href: '/paralympics/archery',
+    },
+    {
+      title: 'Olympic Results',
+      href: '/olympic-result/rio%202016',
+    },
+    {
+      title: 'Donate Now',
+      href: '{}',
+      childrens: [{
+        title: 'Contribute',
+        href: '/donate-now',
+      },
+      {
+        title: 'CSR for Corporate',
+        href: '/corporate'
+      },
+      {
+        title: "Testimonials",
+        href: '/testimonials'
+      }
+      ]
     }
   ]);
   const pathname = usePathname();
@@ -146,7 +176,7 @@ const Header = () => {
         sx={{ ml: "auto" }}
         onClick={handleDrawerToggle}
       >
-        <Iconify ml={0} icon={"material-symbols:close"} />
+        <Iconify ml={0} width={24} icon={"material-symbols:close"} />
       </IconButton>
       <List sx={{ width: "100%", p: 0 }}>
         {states.map((state, index) => (
@@ -361,7 +391,7 @@ const Header = () => {
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/olympic-result/rio 2016">
+                  <Styles.Link className="parent-link" href="/olympic-result/rio%202016">
                     Olympic Results
                     {/* <Iconify icon={"gridicons:dropdown"} /> */}
                   </Styles.Link>
@@ -404,7 +434,7 @@ const Header = () => {
               sx={{ color: "text.disabled", display: { md: "none" } }}
               onClick={handleDrawerToggle}
             >
-              <Iconify ml={0} icon={"fe:bar"} />
+              <Iconify ml={0} width={24} icon={"fe:bar"} />
             </IconButton>
           </Toolbar>
         </Container>

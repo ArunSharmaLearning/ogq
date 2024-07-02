@@ -35,7 +35,7 @@ const DonationIndiaRecurring = () => {
 	};
 
 	const handleSubmit = (values: any) => {
-		
+
 	};
 
 	const a11yProps = (index: number) => {
@@ -48,7 +48,7 @@ const DonationIndiaRecurring = () => {
 	return (
 		<Paper
 			elevation={1}
-			sx={{ p: 1, position: "relative", flex: 1, maxWidth: "50%" }}
+			sx={{ p: 1, position: "relative", flex: 1, maxWidth: { xs: "100%", sm: "50%" } }}
 		>
 			<Stack
 				position={"absolute"}

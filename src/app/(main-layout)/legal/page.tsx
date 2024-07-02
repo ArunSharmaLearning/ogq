@@ -8,7 +8,7 @@ const PreventionHarassment = async () => {
 			<Banner image="test.jpg" text="LEGAL" />
 
 			<Container>
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Disclaimer
 					</Typography>
@@ -33,7 +33,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 				</Box>
 
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Terms of Use
 					</Typography>
@@ -98,7 +98,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 				</Box>
 
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Privacy Policy
 					</Typography>
@@ -123,7 +123,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 				</Box>
 
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Online Donations
 					</Typography>
@@ -158,7 +158,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 				</Box>
 
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Tax Benefits
 					</Typography>
@@ -175,7 +175,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 				</Box>
 
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Litigation
 					</Typography>
@@ -188,7 +188,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 				</Box>
 
-				<Box>
+				<Box data-aos="fade-up">
 					<Typography variant="h4" className="underlineAfter">
 						Registration
 					</Typography>

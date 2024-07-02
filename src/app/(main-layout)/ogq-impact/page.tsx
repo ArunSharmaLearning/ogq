@@ -21,7 +21,6 @@ const OGQImpact = async () => {
 					{profiles.map((profile: any) =>
 						<>
 							<ProfileCard key={profile.id} name={profile.name} title={profile.caption} image={profile.image} />
-							<ProfileCard key={profile.id} name={profile.name} title={profile.caption} image={profile.image} />
 						</>
 					)}
 				</Stack>

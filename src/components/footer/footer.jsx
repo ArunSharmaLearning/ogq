@@ -152,24 +152,24 @@ const Footer = () => {
 					</Stack>
 				</Container>
 			</Box>
-
-			<Container>
-				<Stack
-					justifyContent={"space-between"}
-					alignItems={"center"}
-					backgroundColor="white"
-					direction="row"
-				>
-					<Typography variant="body2">All Rights Reserved.</Typography>
-					<Typography variant="body2">
-						Copyright 2020 © Olympic Gold Quest
-					</Typography>
-					<Typography variant="body2">
-						OGQ&apos;s In-House Maintenance
-					</Typography>
-				</Stack>
-			</Container>
-		</Box>
+			<Box backgroundColor="white">
+				<Container>
+					<Stack
+						justifyContent={{ sm: "space-evenly", xs: 'space-between' }}
+						alignItems={"center"}
+						direction="row"
+					>
+						<Typography variant="body2">All Rights Reserved</Typography>
+						<Typography variant="body2">
+							Copyright 2020 © Olympic Gold Quest
+						</Typography>
+						<Typography variant="body2">
+							OGQ&apos;s In-House Maintenance
+						</Typography>
+					</Stack>
+				</Container >
+			</Box >
+		</Box >
 	);
 };
 

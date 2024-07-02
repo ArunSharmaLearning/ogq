@@ -17,8 +17,8 @@ const DontateNow = () => {
 					achieve their <br /> dreams of winning an Olympic Gold medal.
 				</Typography>
 
-				<Stack direction={'column'} spacing={5}>
-					<Stack direction={'row'} spacing={2}>
+				<Stack direction={'column'} gap={4}>
+					<Stack direction={{ xs: 'column', sm: 'row' }} gap={4}>
 						<DonationIndiaOne />
 						<DonationUsa />
 					</Stack>

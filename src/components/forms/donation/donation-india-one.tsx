@@ -43,7 +43,7 @@ const DonationIndiaOne = () => {
 	return (
 		<Paper
 			elevation={1}
-			sx={{ p: 1, position: "relative", flex: 1, maxWidth: "50%" }}
+			sx={{ p: 1, position: "relative", flex: 1 }}
 		>
 			<Stack
 				position={"absolute"}

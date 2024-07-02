@@ -39,7 +39,7 @@ export default function OlympicLayout({
 						}}
 					>
 						<Select
-							sx={{ height: "100%", textAlign: "left" }}
+							sx={{ height: "100%", textAlign: "left", p: 0 }}
 							value={state.sport}
 							className="input-label-select"
 							onChange={handleChange}
@@ -48,11 +48,15 @@ export default function OlympicLayout({
 						>
 							{!isLoading ? sportCategory.olympics.map((category) => (
 								<MenuItem key={category} value={category}>
-									{category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
+									<Typography variant="h6">
+										{category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
+									</Typography>
 								</MenuItem>))
 								:
 								<MenuItem value={state.sport}>
-									{state.sport.charAt(0).toUpperCase()}{state.sport.slice(1).replace(/%20|-|_/g, ' ')}
+									<Typography variant="h6">
+										{state.sport.charAt(0).toUpperCase()}{state.sport.slice(1).replace(/%20|-|_/g, ' ')}
+									</Typography>
 								</MenuItem>
 							}
 						</Select>
