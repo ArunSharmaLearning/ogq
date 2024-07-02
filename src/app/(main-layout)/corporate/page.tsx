@@ -100,7 +100,7 @@ const Corporate = () => {
 							sm: "0 0 50%",
 						},
 
-						height: { xs: "100vh" },
+						height: { xs: "90vh", sm: 'auto' },
 						backgroundImage: "url(test.jpg)",
 						backgroundRepeat: "no-repeat",
 						backgroundSize: "cover",
@@ -168,7 +168,7 @@ const Corporate = () => {
 							xs: "0 0 100%",
 							sm: "0 0 50%",
 						},
-						p: { xs: "1.2rem", md: "5rem 4rem" },
+						p: { xs: "3rem 1.2rem", md: "5rem 4rem" },
 						background: "white",
 					}}
 				>
