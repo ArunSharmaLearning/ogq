@@ -13,7 +13,6 @@ import Loading from "@/components/loader/section-loading";
 
 const AreaOfSupport = () => {
 
-
 	const { data, isLoading } = useAPI("areas_of_support");
 
 	useEffect(() => {

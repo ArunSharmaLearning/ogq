@@ -109,7 +109,7 @@ export default function Home() {
             </Typography>
             <CountDown
               isEventGoingOn={isEventGoingOn()}
-              eventDateTime={new Date(sportEvent?.end_date)}
+              eventDateTime={new Date(isEventGoingOn() ? sportEvent?.end_date : sportEvent?.start_date)}
               sx={{
                 flexDirection: "row",
                 maxWidth: isMobile ? "90%" : "100%",
@@ -147,7 +147,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? theme.spacing(4) : theme.spacing(8, 4),
+                p: isMobile ? '14vw 10vw' : theme.spacing(8, 4),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.common.white}`,
                 position: "absolute",
@@ -162,7 +162,6 @@ export default function Home() {
                 variant="h2"
                 sx={{ color: theme.palette.common.white }}
               >
-                {" "}
                 Our champions have made their mark, earning medals in elite
                 competitions worldwide
               </Typography>
@@ -355,7 +354,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? theme.spacing(6, 4) : 6,
+                p: isMobile ? '20vw 12vw' : theme.spacing(3, 6),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.primary.main}`,
                 position: "absolute",
@@ -370,7 +369,6 @@ export default function Home() {
                 variant="h2"
                 sx={{ color: theme.palette.primary.main }}
               >
-                {" "}
                 OGQ supports a diverse group of senior, junior, and para
                 athletes
               </Typography>

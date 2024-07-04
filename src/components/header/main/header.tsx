@@ -96,6 +96,10 @@ const Header = () => {
           title: "Annual Performance Report",
           href: "/report/performance",
         },
+        {
+          title: "CSR Policy",
+          href: "csr-policy"
+        }
       ],
     },
     {
@@ -122,10 +126,10 @@ const Header = () => {
         title: 'Contribute',
         href: '/donate-now',
       },
-      {
-        title: 'CSR for Corporate',
-        href: '/corporate'
-      },
+      // {
+      //   title: 'CSR for Corporate',
+      //   href: '/corporate'
+      // },
       {
         title: "Testimonials",
         href: '/testimonials'
@@ -339,8 +343,8 @@ const Header = () => {
                     <Styles.Link href="/history">History</Styles.Link>
                     <Styles.Link href="/team/india">Team OGQ</Styles.Link>
                     <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
-                    <Styles.Link href="/media">OGQ in Media</Styles.Link>
-                    <Styles.Link href="/careers">Careers</Styles.Link>
+                    {/* <Styles.Link href="/media">OGQ in Media</Styles.Link>
+                    <Styles.Link href="/careers">Careers</Styles.Link> */}
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
@@ -406,10 +410,10 @@ const Header = () => {
                     Donate Now <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
-                    <Styles.Link href="/donate-now">Contribute</Styles.Link>
-                    <Styles.Link href="/corporate">
+                    <Styles.Link href="/donate-now">Contribute Now</Styles.Link>
+                    {/* <Styles.Link href="/corporate">
                       CSR for Corporate
-                    </Styles.Link>
+                    </Styles.Link> */}
                     <Styles.Link href="/testimonials">Testimonials</Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
