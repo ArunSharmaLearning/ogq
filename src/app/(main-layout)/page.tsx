@@ -51,8 +51,8 @@ export default function Home() {
       <Container>
         <Box
           sx={{ paddingY: isMobile ? 5 : 10 }}
-          data-aos="fade-up"
-          data-aos-delay={200}
+          data-aos={!isMobile && "fade-up"}
+          data-aos-delay={!isMobile && 200}
         >
           <Stack
             direction={isMobile ? "column" : "row"}
@@ -68,8 +68,8 @@ export default function Home() {
             >
               <Typography variant="h6">OLYMPIC GOLD QUEST (OGQ)</Typography>
               <Typography variant="h4" className="underlineAfter">
-                IT Takes Just 6 gram of Gold To Lift The <br />
-                Worth of a Nation
+                IT Takes Just 6 gram of Gold To Lift <br />
+                The Worth of a Nation
               </Typography>
             </Box>
 
@@ -123,7 +123,7 @@ export default function Home() {
       <Stack direction={isMobile ? "column" : "row"}>
         <Box
           sx={{
-            height: isMobile ? "100vh" : "auto",
+            height: isMobile ? "90vh" : "auto",
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",
@@ -330,7 +330,7 @@ export default function Home() {
         <Box
           order={isMobile && 0}
           sx={{
-            height: isMobile ? "100vh" : "auto",
+            height: isMobile ? "90vh" : "auto",
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",

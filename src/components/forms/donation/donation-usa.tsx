@@ -83,7 +83,7 @@ const DonationUsa = () => {
 				/>
 
 				<Box sx={{ width: '100%', textAlign: 'center' }}>
-					<CommonButton type="submit">
+					<CommonButton link="https://www.paypal.com/donate?token=SvaBIup-tfEPlRXs6IgxWfA3surhaZiC92TDjX7ylJD-cI2xWKMZR_Wzjch64MBC_J0gpWGwuBp5CCQx" type="submit">
 						Donate Now
 					</CommonButton>
 				</Box>
