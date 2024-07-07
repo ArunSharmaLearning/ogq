@@ -1,48 +1,57 @@
-'use client'
+"use client";
 
 import Banner from "@/components/banner/banner";
 import { useRouter } from "@/hooks/use-router";
 import { useAPI } from "@/hooks/use-swr";
-import { Container, FormControl, MenuItem, Select, SelectChangeEvent, Stack, Typography } from "@mui/material";
+import {
+	Container,
+	FormControl,
+	MenuItem,
+	Select,
+	SelectChangeEvent,
+	Stack,
+	Typography,
+} from "@mui/material";
 // import { useRouter } from "next/router";
 import { useState } from "react";
-
 
 export default function TeamLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const router = useRouter()
+	const router = useRouter();
 
-	const [state, setState] = useState({ sport: 'all' })
-	const nation = router.pathname().split('/')[2];
+	const [state, setState] = useState({ team: router.pathname().split('/').filter(Boolean).pop()?.replace(/%20|-|_/g, ' ') || '' });
+	const nation = router.pathname().split("/")[2];
 	let bannerText = "Team OGQ";
-	if (nation == 'india') {
-		bannerText = "Team OGQ, INDIA"
+	if (nation == "india") {
+		bannerText = "Team OGQ, INDIA";
+	} else {
+		bannerText = "Team OGQ, USA";
 	}
-	else {
-		bannerText = "Team OGQ, USA"
-
-	}
-	const { data: teamCategory, isLoading } = useAPI('dropdown')
+	const { data: teamCategory, isLoading } = useAPI("dropdown");
 	const handleChange = (event: SelectChangeEvent<string>) => {
 		const name = event.target.name;
 		const value = event.target.value;
-		setState(prev => ({ ...prev, [name]: value }));
-		router.push(`${router.pathname().split('/').slice(0, -1).join('/')}/${value}`)
+		setState((prev) => ({ ...prev, [name]: value }));
+		router.push(
+			`${router.pathname().split("/").slice(0, -1).join("/")}/${value}`
+		);
 	};
 
 	return (
 		<>
-			<Banner image="/test.jpg" text={bannerText.toUpperCase().replace(/%20|-|_/g, ' ')} />
+			<Banner
+				image="/test.jpg"
+				text={bannerText.toUpperCase().replace(/%20|-|_/g, " ")}
+			/>
 			<Container>
-				<Typography variant="h6">
-					Meet Our Team
-				</Typography>
-				<Stack direction='row' alignItems={'center'} gap={3} mb={3}>
-
-					<Typography variant='h4' className="underlineAfter" mt={0} mb={2}>Choose Team</Typography>
+				<Typography variant="h6">Meet Our Team</Typography>
+				<Stack direction="row" alignItems={"center"} gap={3} mb={3}>
+					<Typography variant="h4" className="underlineAfter" mt={0} mb={2}>
+						Choose Team
+					</Typography>
 					<FormControl
 						variant="outlined"
 						sx={{
@@ -52,32 +61,35 @@ export default function TeamLayout({
 						}}
 					>
 						<Select
-							sx={{ height: "100%", textAlign: "left", p: 0 }}
-							value={state.sport}
+							sx={{ height: "100%", textAlign: "left", p: 0  , mt:'-1rem'}}
+							value={state.team}
 							className="input-label-select"
 							onChange={handleChange}
 							displayEmpty
-							name="sport"
+							name="team"
 						>
-							<MenuItem value={'all'}>
-								<Typography variant="h6">
-									All
-								</Typography>
-							</MenuItem>
-							{!isLoading && teamCategory.team_ogq_india_groups.map((category) => (
-								<MenuItem key={category} value={category}>
+							{isLoading ? (
+								<MenuItem value={state.team}>
 									<Typography variant="h6">
-										{category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
+										{state.team.charAt(0).toUpperCase()}
+										{state.team.slice(1).replace(/%20|-|_/g, " ")}
 									</Typography>
 								</MenuItem>
-							))
-							}
-
+							) : (
+								teamCategory.team_ogq_india_groups.map((category) => (
+									<MenuItem key={category} value={category}>
+										<Typography variant="h6">
+											{category.charAt(0).toUpperCase()}
+											{category.slice(1).replace(/%20|-|_/g, " ")}
+										</Typography>
+									</MenuItem>
+								))
+							)}
 						</Select>
 					</FormControl>
 				</Stack>
 				{children}
-			</Container >
+			</Container>
 		</>
 	);
 }

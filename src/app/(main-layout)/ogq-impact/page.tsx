@@ -1,6 +1,5 @@
 import Banner from "@/components/banner/banner"
-import GeneralCard from "@/components/cards/general"
-import ProfileCard from "@/components/cards/profile/profile-card"
+import DescriptionCard from "@/components/cards/description/description-card"
 import callApi from "@/hooks/use-swr"
 import { Container, Stack, Typography } from "@mui/material"
 
@@ -11,7 +10,7 @@ const OGQImpact = async () => {
 
 	return (
 		<>
-			<Banner image="test.jpg" text="OGQ Impact" />
+			<Banner image="test.jpg" text="OGQ IMPACT" />
 
 			<Container>
 				<Typography variant="h4" mb={4} className="underlineAfter">
@@ -20,7 +19,7 @@ const OGQImpact = async () => {
 				<Stack direction={'row'} flexWrap={'wrap'} columnGap={3} rowGap={1}>
 					{profiles.map((profile: any) =>
 						<>
-							<ProfileCard key={profile.id} name={profile.name} title={profile.caption} image={profile.image} />
+							<DescriptionCard key={profile.id} team={profile} />
 						</>
 					)}
 				</Stack>

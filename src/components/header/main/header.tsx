@@ -63,11 +63,11 @@ const Header = () => {
         },
         {
           title: "Team OGQ",
-          href: "/team/india/all",
+          href: "/team/india/Board of Directors",
         },
         {
           title: "Team OGQ, USA",
-          href: "/team/usa/all",
+          href: "/team/usa/Board of Directors",
         },
         {
           title: "OGQ in Media",
@@ -116,7 +116,7 @@ const Header = () => {
     },
     {
       title: 'Olympic Results',
-      href: '/olympic-result/rio%202016',
+      href: '/olympic-result/Rio%202016',
     },
     {
       title: 'Donate Now',
@@ -338,8 +338,8 @@ const Header = () => {
                       Vision and Mission
                     </Styles.Link>
                     <Styles.Link href="/history">History</Styles.Link>
-                    <Styles.Link href="/team/india/all">Team OGQ</Styles.Link>
-                    <Styles.Link href="/team/usa/all">Team OGQ USA</Styles.Link>
+                    <Styles.Link href="/team/india/Board of Directors">Team OGQ</Styles.Link>
+                    <Styles.Link href="/team/usa/Board of Directors">Team OGQ USA</Styles.Link>
                     {/* <Styles.Link href="/media">OGQ in Media</Styles.Link>
                     <Styles.Link href="/careers">Careers</Styles.Link> */}
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>

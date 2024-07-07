@@ -1,5 +1,42 @@
+.areas-support-md {
+	display: block;
+	@media screen and (max-width: "600px") {
+		display: none;
+	}
+}
+
+.areas-support-sm {
+	display: none;
+	@media screen and (max-width: "600px") {
+		display: block;
+	}
+	& .accordian-summary {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+	& .img-responsive {
+		height: 3rem;
+	}
+}
+
 .main-support-tab {
 	position: relative;
+	& .img-responsive.main-area-support-img {
+		@media screen and (max-width: "1200px") {
+			width: 22rem;
+		}
+		@media screen and (max-width: "1000px") {
+			left: 40%;
+			width: 20rem;
+		}
+	}
+
+	& .img-responsive {
+		@media screen and (max-width: "1000px") {
+			width: 5rem;
+		}
+	}
 }
 
 .support-tab {
@@ -11,26 +48,72 @@
 .support-tab-1 {
 	top: 20%;
 	left: 14.5%;
+	transform: translate(-50%, -50%);
+
+	@media screen and (max-width: "1000px") {
+		left: 8%;
+		top: 22%;
+	}
+	@media screen and (max-width: "767px") {
+		left: -7%;
+		top: 24%;
+	}
 }
 
 .support-tab-2 {
 	top: 77%;
 	left: 24.6%;
+	transform: translate(-50%, -50%);
+	@media screen and (max-width: "1000px") {
+		left: 22%;
+		top: 78%;
+	}
+	@media screen and (max-width: "767px") {
+		left: 12%;
+		top: 80%;
+	}
 }
 
 .support-tab-3 {
 	top: 100%;
 	left: 43.4%;
+	transform: translate(-50%, -50%);
+	@media screen and (max-width: "1000px") {
+		left: 42%;
+		top: 100%;
+	}
+	@media screen and (max-width: "767px") {
+		left: 39%;
+		top: 100%;
+	}
 }
 
 .support-tab-4 {
 	right: 25.1%;
 	top: 76.1%;
+	transform: translate(-50%, -50%);
+	@media screen and (max-width: "1000px") {
+		right: 23%;
+		top: 78%;
+	}
+	@media screen and (max-width: "767px") {
+		right: 14%;
+		top: 79%;
+	}
 }
 
 .support-tab-5 {
 	right: 17%;
 	top: 20%;
+	transform: translate(-50%, -50%);
+	@media screen and (max-width: "1000px") {
+		right: 15%;
+		top: 22%;
+	}
+	@media screen and (max-width: "767px") {
+		right: 3%;
+		top: 24%;
+	}
 }
 
 %hover-effect {

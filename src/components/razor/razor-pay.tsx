@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import CommonButton from '../button/common/common-button';
 import { useTheme } from '@mui/material';
+import { RAZOR_PAY_KEY } from '@/constants/api';
 // import { useTheme } from '@';
 
 // Make sure to include Razorpay script in your index.html or dynamically load it
@@ -28,7 +29,7 @@ const RazorpayPayment = () => {
 
 	const handlePayment = () => {
 		const options = {
-			"key": "rzp_live_OputbbGc4fa7vn", // Enter the Key ID generated from the Dashboard
+			"key": RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
 			"amount": 5000 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
 			"currency": "INR",
 			"name": "Acme Corp", //your business name
@@ -45,7 +46,7 @@ const RazorpayPayment = () => {
 				"address": "Razorpay Corporate Office"
 			},
 			"theme": {
-				"color": theme.palette.primary.main
+				"color": '#3333cc'
 			}
 		};
 

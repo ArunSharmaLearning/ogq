@@ -21,9 +21,9 @@ const Team = async ({ params }: { params: { slug: string } }) => {
 	console.log("TEAM", nation, team);
 	let endpoint = "";
 	if (nation == "usa") {
-		endpoint = team == 'all' ? `team_ogq_usa` : `team_ogq_usa?group=${team}`
+		endpoint = `team_ogq_usa?group=${team}`
 	} else {
-		endpoint = team == 'all' ? `team_ogq_india` : `team_ogq_india?group=${team}`;
+		endpoint = `team_ogq_india?group=${team}`;
 	}
 	const teams = await callApi(endpoint);
 
@@ -41,7 +41,7 @@ const Team = async ({ params }: { params: { slug: string } }) => {
 					))}
 				</Stack>
 			) : (
-				<NoResults text="Teams"/>
+				<NoResults text="Teams" />
 			)}
 		</Box>
 	);
