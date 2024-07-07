@@ -9,7 +9,7 @@ const ContactUs = async () => {
 
 	return (
 		<Box>
-			<Banner image="test.jpg" text="Contact Us" />
+			<Banner image="test.jpg" text="CONTACT US" />
 
 			<Container>
 				<Box dangerouslySetInnerHTML={{ __html: post.content }}></Box>

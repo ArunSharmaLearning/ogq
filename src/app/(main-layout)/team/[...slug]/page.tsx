@@ -1,7 +1,8 @@
-// 'use client'
+'use client'
 import DescriptionCard from "@/components/cards/description/description-card";
 import NoResults from "@/components/loader/no-results";
-import callApi from "@/hooks/use-swr";
+import Loading from "@/components/loader/section-loading";
+import { useAPI } from "@/hooks/use-swr";
 import {
 	Box,
 	Container,
@@ -13,7 +14,7 @@ import {
 // import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 
-const Team = async ({ params }: { params: { slug: string } }) => {
+const Team = ({ params }: { params: { slug: string } }) => {
 	// const searchParams = useSearchParams()
 	const nation = params.slug[0];
 	const team = params.slug[1];
@@ -25,11 +26,13 @@ const Team = async ({ params }: { params: { slug: string } }) => {
 	} else {
 		endpoint = `team_ogq_india?group=${team}`;
 	}
-	const teams = await callApi(endpoint);
+	const { data: teams, isLoading } = useAPI(endpoint);
 
 	return (
 		<Box>
-			{teams && teams.length > 0 ? (
+			{isLoading ? (
+				<Loading />
+			) : teams && teams.length > 0 ? (
 				<Stack
 					direction={"row"}
 					flexWrap={"wrap"}

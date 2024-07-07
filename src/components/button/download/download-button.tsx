@@ -21,7 +21,7 @@ const DownloadButton = ({ text, file }: { text: string, file: string }) => {
 					content: '""',
 					width: 10,
 					height: "100%",
-					background: '#040252',
+					background: '#060363',
 					left: 17,
 				}
 			}} variant="contained"
