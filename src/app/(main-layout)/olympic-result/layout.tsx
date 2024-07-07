@@ -15,7 +15,7 @@ export default function OlympicResultLayout({
 
 	const router = useRouter()
 	const [state, setState] = useState({ sport: router.pathname().split('/').filter(Boolean).pop()?.replace(/%20|-/g, ' ') || '' })
-	const { data: sportCategory, isLoading } = useAPI('sports_in_navbar')
+	const { data: sportCategory, isLoading } = useAPI('dropdown')
 
 	const handleChange = (event: SelectChangeEvent<string>) => {
 		const name = event.target.name;
@@ -40,7 +40,7 @@ export default function OlympicResultLayout({
 						}}
 					>
 						<Select
-							sx={{ height: "100%", textAlign: "left" }}
+							sx={{ height: "100%", textAlign: "left", p: 0 }}
 							value={state.sport}
 							className="input-label-select"
 							onChange={handleChange}
@@ -48,18 +48,19 @@ export default function OlympicResultLayout({
 							name="sport"
 						>
 
-							{/* {!isLoading ? sportCategory.olympics.map((category) => (
+							{!isLoading ? sportCategory.olympic_result.map((category) => (
 								<MenuItem key={category} value={category}>
-									{category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
+									<Typography variant="h6">
+										{category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
+									</Typography>
 								</MenuItem>))
 								:
 								<MenuItem value={state.sport}>
-									{state.sport.charAt(0).toUpperCase()}{state.sport.slice(1).replace(/%20|-|_/g, ' ')}
+									<Typography variant="h6">
+										{state.sport.charAt(0).toUpperCase()}{state.sport.slice(1).replace(/%20|-|_/g, ' ')}
+									</Typography>
 								</MenuItem>
-							} */}
-							<MenuItem key={2} value={'rio 2016'}>
-								Rio 2016
-							</MenuItem>
+							}
 
 						</Select>
 					</FormControl>

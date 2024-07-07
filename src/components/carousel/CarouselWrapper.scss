@@ -1,25 +1,8 @@
 .carouselwrapper_container {
-  // padding: 2rem 30vw;
-  max-width: 75%;
+  max-width: 92%;
   margin: auto;
-  // @media only screen and (max-width: 900px) {
-  //   padding: 1rem 0rem;
-  // }
+  padding-bottom: 3rem;
 }
-
-// .slick-list {
-//   .slick-track {
-//     width: auto;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     align-content: center;
-//     text-align: center;
-//     margin: 0;
-//     padding: 0;
-//     border: none;
-//   }
-// }
 
 .slide_image {
   display: flex !important;
@@ -28,9 +11,6 @@
   align-content: center;
   align-items: center;
 
-  // max-width: 90%;
-  // margin: auto;
-
   img {
     border-radius: 50%;
   }
@@ -38,10 +18,9 @@
 
 .slick-slider {
   .slick-slide > div {
-    margin: 0 1rem;
+    margin: 0 0.7rem;
   }
 
-  /* the parent */
   .slick-list {
     margin: 0 -1rem;
   }
@@ -52,5 +31,33 @@
   }
   .slick-prev {
     left: -2.4rem;
+  }
+
+  @media (max-width: 600px) {
+    & .slick-prev {
+      top: 110%;
+      left: 50%;
+      transform: translate(-150%, -50%);
+    }
+    & .slick-next {
+      top: 110%;
+      left: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
+}
+
+.announcement_container {
+  .slick-slider {
+    & .slick-prev {
+      top: 110%;
+      left: 50%;
+      transform: translate(-150%, -50%);
+    }
+    & .slick-next {
+      top: 110%;
+      left: 50%;
+      transform: translate(50%, -50%);
+    }
   }
 }

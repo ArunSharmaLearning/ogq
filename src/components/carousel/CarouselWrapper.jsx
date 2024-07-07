@@ -15,20 +15,28 @@ import Iconify from "../iconify/iconify";
 const CarouselWrapper = () => {
   const setting = {
     dots: false,
-    navigation: true,
+    navigation: false,
     infinite: true,
     speed: 1000,
     autoplaySpeed: 100000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          navigation: false,
+          dots: false,
+        }
+      },
+    ]
   };
 
   return (
     <Box className="carouselwrapper_container" sx={(theme) => ({ '--color': theme.palette.primary.main })}>
       <Slider {...setting}
       >
-
         <Box
           className="slide_image"
           sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
@@ -115,8 +123,6 @@ const CarouselWrapper = () => {
             them
           </Typography>
         </Box>
-
-        {/* ))} */}
       </Slider >
     </Box >
   );

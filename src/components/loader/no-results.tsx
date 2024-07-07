@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import Lottie from "lottie-react";
 import Loader from '../../../public/no-result.json'
 
-const NoResults = () => {
+const NoResults = ({ text = "Results" }: { text?: string }) => {
 
 	return (
 		<Stack flexDirection={'column'}>
@@ -14,7 +14,7 @@ const NoResults = () => {
 					loop={true}
 				/>
 			</Box>
-			<Typography variant="h4" sx={{ mx: 'auto', width: 'fit-content' }} className="underlineAfter"> No Result Found!</Typography>
+			<Typography variant="h4" sx={{ mx: 'auto', width: 'fit-content' }} className="underlineAfter"> No {text} Found!</Typography>
 		</Stack>
 	)
 

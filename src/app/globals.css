@@ -224,7 +224,7 @@
 .underlineAfter::after {
 	content: '';
 	position: absolute;
-	width: 2rem;
+	width: 1.5rem;
 	height: 2px;
 	background-color: var(--primary-color);
 	bottom: 0;

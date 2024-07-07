@@ -2,12 +2,10 @@
 import { Carousel } from "@/components/carousel";
 import {
   Box,
-  Button,
   Container,
   Stack,
   Typography,
   alpha,
-  duration,
   useTheme,
 } from "@mui/material";
 import CountDown from "@/components/count-down";
@@ -19,6 +17,7 @@ import { useEffect } from "react";
 import CommonButton from "@/components/button/common/common-button";
 import { useResponsive } from "@/hooks/use-responsive";
 import { useAPI } from "@/hooks/use-swr";
+import Announcement from "@/components/announcement";
 
 export default function Home() {
   const theme = useTheme();
@@ -32,6 +31,8 @@ export default function Home() {
     useAPI("athlete_stats");
   const { data: medalStats, isLoading: medalStatsLoading } =
     useAPI("medal_stats");
+  const { data: announcements, isLoading: announcementsLoading } =
+    useAPI("announcement");
 
   useEffect(() => {
     AOS.init({ once: true, duration: 800 });
@@ -49,76 +50,84 @@ export default function Home() {
     <>
       <Carousel data={carouselData} />
       <Container>
-        <Box
-          sx={{ paddingY: isMobile ? 5 : 10 }}
-          data-aos={!isMobile && "fade-up"}
-          data-aos-delay={!isMobile && 200}
-        >
-          <Stack
-            direction={isMobile ? "column" : "row"}
-            spacing={2}
-            alignItems={"center"}
+        {!sportEventLoading && (
+          <Box
+            sx={{ paddingY: isMobile ? 5 : 10 }}
+            data-aos={!isMobile && "fade-up"}
+            data-aos-delay={!isMobile && 200}
           >
-            <Box
-              sx={{
-                flex: !isMobile ? "1 1 50%" : "1 1 100%",
-                maxWidth: !isMobile ? "50%" : "100%",
-                width: !isMobile ? "auto" : "100%",
-              }}
-            >
-              <Typography variant="h6">OLYMPIC GOLD QUEST (OGQ)</Typography>
-              <Typography variant="h4" className="underlineAfter">
-                IT Takes Just 6 gram of Gold To Lift <br />
-                The Worth of a Nation
-              </Typography>
-            </Box>
-
             <Stack
-              direction={"column"}
-              sx={{
-                flex: !isMobile ? "0 0 50%" : 1,
-                maxWidth: !isMobile ? "50%" : "100%",
-              }}
+              direction={isMobile ? "column" : "row"}
+              spacing={2}
+              alignItems={"center"}
             >
-              <Box sx={{ flex: 1 }}>
-                <Typography variant="body1">
-                  Olympic Gold Quest (OGQ) is a program of the Foundation for
-                  Promotion of Sports and Games, a Not for Profit (Section 8)
-                  Company founded by sporting legends Geet Sethi and Prakash
-                  Padukone. The mission of OGQ is to support Indian athletes in
-                  winning Olympic Gold medals. In the last three Olympic Games,
-                  9 out of the 14 individual-sport medal winners for India were
-                  supported by OGQ
+              <Box
+                sx={{
+                  flex: !isMobile ? "1 1 50%" : "1 1 100%",
+                  maxWidth: !isMobile ? "50%" : "100%",
+                  width: !isMobile ? "auto" : "100%",
+                }}
+              >
+                <Typography variant="h6">OLYMPIC GOLD QUEST (OGQ)</Typography>
+                <Typography variant="h4" className="underlineAfter">
+                  IT Takes Just 6 gram of Gold To Lift <br />
+                  The Worth of a Nation
                 </Typography>
-                {
+              </Box>
+
+              <Stack
+                direction={"column"}
+                sx={{
+                  flex: !isMobile ? "0 0 50%" : 1,
+                  maxWidth: !isMobile ? "50%" : "100%",
+                }}
+              >
+                <Box sx={{ flex: 1 }}>
+                  <Typography variant="body1">
+                    Olympic Gold Quest (OGQ) is a program of the Foundation for
+                    Promotion of Sports and Games, a Not for Profit (Section 8)
+                    Company founded by sporting legends Geet Sethi and Prakash
+                    Padukone. The mission of OGQ is to support Indian athletes
+                    in winning Olympic Gold medals. In the last three Olympic
+                    Games, 9 out of the 14 individual-sport medal winners for
+                    India were supported by OGQ
+                  </Typography>
+                  {/* {
                   <Box
                     dangerouslySetInnerHTML={{ __html: sportEvent?.content }}
                   ></Box>
-                }
-              </Box>
+                } */}
+                </Box>
+              </Stack>
             </Stack>
-          </Stack>
 
-          <Box>
-            <Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
-              {!isEventGoingOn() ? <>COUNTDOWN TO</> : <>CLOSING OUT</>}{" "}
-              {isMobile && <br />}
-              <strong className="highlight">
-                {sportEvent?.text.toUpperCase()}
-              </strong>
-            </Typography>
-            <CountDown
-              isEventGoingOn={isEventGoingOn()}
-              eventDateTime={new Date(isEventGoingOn() ? sportEvent?.end_date : sportEvent?.start_date)}
-              sx={{
-                flexDirection: "row",
-                maxWidth: isMobile ? "90%" : "100%",
-                gap: isMobile ? theme.spacing(5) : theme.spacing(2),
-                flexWrap: isMobile ? "wrap" : "no-wrap",
-              }}
-            />
+            <Box>
+              <Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
+                {!isEventGoingOn() ? <>COUNTDOWN TO</> : <>CLOSING CEREMONY</>}{" "}
+                {isMobile && <br />}
+                <strong className="highlight">
+                  {sportEvent?.text.toUpperCase()}
+                </strong>
+              </Typography>
+              <CountDown
+                isEventGoingOn={isEventGoingOn()}
+                eventDateTime={
+                  new Date(
+                    isEventGoingOn()
+                      ? sportEvent?.end_date
+                      : sportEvent?.start_date
+                  )
+                }
+                sx={{
+                  flexDirection: "row",
+                  maxWidth: isMobile ? "90%" : "100%",
+                  gap: isMobile ? theme.spacing(5) : theme.spacing(2),
+                  flexWrap: isMobile ? "wrap" : "no-wrap",
+                }}
+              />
+            </Box>
           </Box>
-        </Box>
+        )}
       </Container>
       <Stack direction={isMobile ? "column" : "row"}>
         <Box
@@ -147,7 +156,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? '14vw 10vw' : theme.spacing(8, 4),
+                p: isMobile ? "14vw 10vw" : theme.spacing(8, 4),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.common.white}`,
                 position: "absolute",
@@ -354,7 +363,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? '20vw 12vw' : theme.spacing(3, 6),
+                p: isMobile ? "20vw 12vw" : theme.spacing(3, 6),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.primary.main}`,
                 position: "absolute",
@@ -376,6 +385,19 @@ export default function Home() {
           </Box>
         </Box>
       </Stack>
+      <Container>
+        {!announcementsLoading && (
+          <Box sx={{ padding: theme.spacing(6, 0, 12) }}>
+            <Typography variant="h6">
+              Stay Updated with the Latest Udates
+            </Typography>
+            <Typography variant="h3" mb={3} className="underlineAfter">
+              Announcements{" "}
+            </Typography>
+            <Announcement announcements={announcements} />
+          </Box>
+        )}
+      </Container>
 
       <Box
         sx={{
@@ -433,27 +455,32 @@ export default function Home() {
         </Stack>
       </Box>
       <Container>
-        <Stack
-          data-aos="fade-up"
-          data-aos-delay={200}
-          direction={!isMobile ? "row" : "column"}
-          paddingTop={10}
-          spacing={2}
-          justifyContent={"space-between"}
-        >
-          <GeneralCard
-            title="OGQ IMPACT"
-            text="Learn how we power more talents to their road to success"
-          />
-          <GeneralCard
-            title="HISTORY"
-            text="OGQ has supported the training of more than 300 athletes since its inception"
-          />
-          <GeneralCard
-            title="TEAM OGQ"
-            text="Meet our group of hard-working & humble problem solvers"
-          />
-        </Stack>
+        <Box sx={{ paddingTop: 7 }}>
+          <Typography variant="h3" className="underlineAfter" mb={3}>
+            Discover Our Journey
+          </Typography>
+          <Stack
+            data-aos="fade-up"
+            data-aos-delay={200}
+            direction={!isMobile ? "row" : "column"}
+            gap={2}
+            pb={2}
+            justifyContent={"space-between"}
+          >
+            <GeneralCard
+              title="OGQ IMPACT"
+              text="Learn how we power more talents to their road to success"
+            />
+            <GeneralCard
+              title="HISTORY"
+              text="OGQ has supported the training of more than 300 athletes since its inception"
+            />
+            <GeneralCard
+              title="TEAM OGQ"
+              text="Meet our group of hard-working & humble problem solvers"
+            />
+          </Stack>
+        </Box>
       </Container>
     </>
   );

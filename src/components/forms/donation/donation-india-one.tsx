@@ -20,6 +20,7 @@ import {
 import { useState } from "react";
 import * as Yup from "yup";
 import CommonButton from "@/components/button/common/common-button";
+import Razor from "@/components/razor";
 
 const DonationIndiaOne = () => {
 	const [value, setValue] = useState(0);
@@ -162,9 +163,10 @@ const DonationIndiaOne = () => {
 										aria-labelledby="demo-radio-buttons-group-label"
 										defaultValue="female"
 										name="donation"
-										sx={{ flexDirection: "row" }}
+										sx={{ flexDirection: "row", alignItems: 'center' }}
 									>
 										<FormControlLabel
+											sx={{ p: 0 }}
 											value="female"
 											control={<Radio />}
 											label="Female"
@@ -196,9 +198,10 @@ const DonationIndiaOne = () => {
 								</FormControl>
 
 								<Box sx={{ width: "100%", textAlign: "center" }}>
-									<CommonButton type="submit">
+									{/* <CommonButton type="submit">
 										Donate Now
-									</CommonButton>
+									</CommonButton> */}
+									<Razor />
 								</Box>
 							</Stack>
 

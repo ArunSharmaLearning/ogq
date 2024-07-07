@@ -5,8 +5,6 @@ import {
 	Dialog,
 	DialogActions,
 	DialogContent,
-	DialogContentText,
-	DialogTitle,
 	IconButton,
 	Stack,
 	Typography,
@@ -15,9 +13,9 @@ import {
 import { useState } from "react";
 import { OverlayBox } from "./description.style";
 import Image from "next/image";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Iconify from "@/components/iconify";
 import { API_URL } from "@/constants/api";
+import { Link } from "@/components/footer/footer.style";
 
 const DescriptionCard = ({ team }: { team: any }) => {
 	const [open, setOpen] = useState(false);
@@ -78,14 +76,24 @@ const DescriptionCard = ({ team }: { team: any }) => {
 				<DialogContent sx={{
 
 				}}>
-					<Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+					<Stack direction={{ xs: 'column', sm: 'row' }} gap={2}>
 
-						<Box sx={{ flex: 1, margin: 'auto', height: 'fit-content', position: { sm: 'sticky', xs: 'relative' }, top: 0 }}>
+						<Box sx={{ flex: 1, margin: 'auto', height: 'fit-content', position: { sm: 'sticky', xs: 'relative' }, top: 0, marginTop: 0 }}>
 							<Box sx={{ height: '20rem', position: 'relative', borderRadius: '1rem', overflow: 'hidden', mb: 1 }}>
 								<Image src={`${API_URL}${team.image}`} layout="fill"
 									objectFit="cover" alt='personality' />
 							</Box>
-							<Typography variant="h5" className="underlineAfter" mb={0.5}>{team.name}</Typography>
+							<Stack direction="row" justifyContent={'space-between'}>
+								<Typography variant="h5" className="underlineAfter" mb={0.5}>{team.name}</Typography>
+								{team.linkedin && <Link
+									sx={{ color: theme.palette.secondary.main }}
+									target="_blank"
+									href={team.linkedin}
+								>
+									<Iconify icon={"bi:linkedin"} ml={0} />
+								</Link>
+								}
+							</Stack>
 							<Typography variant="h6">{team.designation}</Typography>
 
 							<Typography variant="h6">

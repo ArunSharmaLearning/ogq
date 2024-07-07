@@ -135,6 +135,9 @@ export function overrides(theme) {
         gutterBottom: {
           marginBottom: theme.spacing(1),
         },
+        root: {
+          padding: 0,
+        },
       },
     },
     MuiMenuItem: {

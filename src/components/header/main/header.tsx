@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 
-import { NAV, HEADER } from "@/layouts/dashboard/config-layout";
+import { HEADER } from "@/layouts/dashboard/config-layout";
 
 import {
   Accordion,
@@ -11,14 +11,11 @@ import {
   AccordionSummary,
   AppBar,
   Box,
-  Button,
   Container,
   Drawer,
   List,
   Toolbar,
-  Typography,
   alpha,
-  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -28,14 +25,16 @@ import Logo from "@/components/loader/logo/index.js";
 import { bgBlur } from "@/theme/css";
 import { useResponsive } from "@/hooks/use-responsive";
 import { usePathname } from "next/navigation";
-import { CommonButton } from "@/components/button";
+import { useAPI } from "@/hooks/use-swr";
+import { API_URL } from "@/constants/api";
 
 type AccordionState = {
   [key: string]: boolean;
 };
 
 const Header = () => {
-  const [states, setStates] = useState([
+  const { data } = useAPI('csr')
+  const states = [
     {
       title: "OGQ",
       href: "/",
@@ -64,11 +63,11 @@ const Header = () => {
         },
         {
           title: "Team OGQ",
-          href: "/team/india",
+          href: "/team/india/all",
         },
         {
           title: "Team OGQ, USA",
-          href: "/team/usa",
+          href: "/team/usa/all",
         },
         {
           title: "OGQ in Media",
@@ -98,7 +97,7 @@ const Header = () => {
         },
         {
           title: "CSR Policy",
-          href: "csr-policy"
+          href: `${API_URL}/${data?.file}`
         }
       ],
     },
@@ -136,7 +135,7 @@ const Header = () => {
       }
       ]
     }
-  ]);
+  ];
   const pathname = usePathname();
   const theme = useTheme();
   const isActive = (paths: string[]): boolean => {
@@ -148,8 +147,6 @@ const Header = () => {
   }
 
   const lgUp = useResponsive("up", "md");
-
-  const [searched, setSearched] = useState();
   const isMobile = !lgUp;
 
   const [sideNav, setSideNav] = React.useState(false);
@@ -313,7 +310,7 @@ const Header = () => {
                     Home <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
-                    <Styles.Link href="/about-us">OGQ Usa</Styles.Link>
+                    <Styles.Link href="{{}}">OGQ Usa</Styles.Link>
                     <Styles.Link href="/programs/coaches">
                       Coaches Program
                     </Styles.Link>
@@ -341,8 +338,8 @@ const Header = () => {
                       Vision and Mission
                     </Styles.Link>
                     <Styles.Link href="/history">History</Styles.Link>
-                    <Styles.Link href="/team/india">Team OGQ</Styles.Link>
-                    <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
+                    <Styles.Link href="/team/india/all">Team OGQ</Styles.Link>
+                    <Styles.Link href="/team/usa/all">Team OGQ USA</Styles.Link>
                     {/* <Styles.Link href="/media">OGQ in Media</Styles.Link>
                     <Styles.Link href="/careers">Careers</Styles.Link> */}
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>
@@ -367,7 +364,7 @@ const Header = () => {
                     <Styles.Link href="/report/investor-return">
                       Investors/Annual Return
                     </Styles.Link>
-                    <Styles.Link href="/csr-policy">CSR Policy</Styles.Link>
+                    <Styles.Link target="_blank" href={`${API_URL}/${data?.file}`}>CSR Policy</Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
 
@@ -395,14 +392,9 @@ const Header = () => {
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/olympic-result/rio%202016">
+                  <Styles.Link className="parent-link" href="/olympic-result/Rio%202016">
                     Olympic Results
-                    {/* <Iconify icon={"gridicons:dropdown"} /> */}
                   </Styles.Link>
-                  {/* <Styles.DropdownContent>
-                    <Styles.Link href="/about-us">Rio 2016</Styles.Link>
-                    <Styles.Link href="/executives">London 2012</Styles.Link>
-                  </Styles.DropdownContent> */}
                 </Styles.ListItem>
 
                 <Styles.ListItem>
@@ -442,7 +434,7 @@ const Header = () => {
             </IconButton>
           </Toolbar>
         </Container>
-      </AppBar>
+      </AppBar >
       <Box component="nav">
         <Drawer
           anchor="right"
