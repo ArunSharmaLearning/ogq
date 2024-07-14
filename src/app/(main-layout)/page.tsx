@@ -1,5 +1,11 @@
 "use client";
+import Announcement from "@/components/announcement";
+import CommonButton from "@/components/button/common/common-button";
+import GeneralCard from "@/components/cards/general/general-card";
 import { Carousel } from "@/components/carousel";
+import CountDown from "@/components/count-down";
+import { useResponsive } from "@/hooks/use-responsive";
+import { useAPI } from "@/hooks/use-swr";
 import {
   Box,
   Container,
@@ -8,16 +14,11 @@ import {
   alpha,
   useTheme,
 } from "@mui/material";
-import CountDown from "@/components/count-down";
-import GeneralCard from "@/components/cards/general/general-card";
-import CountUp from "react-countup";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import { useEffect } from "react";
-import CommonButton from "@/components/button/common/common-button";
-import { useResponsive } from "@/hooks/use-responsive";
-import { useAPI } from "@/hooks/use-swr";
-import Announcement from "@/components/announcement";
+import CountUp from "react-countup";
+
+import "aos/dist/aos.css";
 
 export default function Home() {
   const theme = useTheme();
@@ -33,6 +34,16 @@ export default function Home() {
     useAPI("medal_stats");
   const { data: announcements, isLoading: announcementsLoading } =
     useAPI("announcement");
+
+  const maxAthleteStatLength = athleteStats?.total_athletes?.length || 2;
+  const maxMedalStatLength = Math.max(
+    medalStats?.olympics,
+    medalStats?.world_championships,
+    medalStats?.asian_games,
+    medalStats?.commonwealth_games,
+    medalStats?.paralympics,
+    medalStats?.junior_world_championships
+  )?.toString()?.length || 3;
 
   useEffect(() => {
     AOS.init({ once: true, duration: 800 });
@@ -68,9 +79,9 @@ export default function Home() {
                   width: !isMobile ? "auto" : "100%",
                 }}
               >
-                <Typography variant="h6">OLYMPIC GOLD QUEST (OGQ)</Typography>
+                <Typography variant="h6">Elevate National Pride</Typography>
                 <Typography variant="h4" className="underlineAfter">
-                  IT Takes Just 6 gram of Gold To Lift <br />
+                  It Takes Just 6 gram of Gold To Lift <br />
                   The Worth of a Nation
                 </Typography>
               </Box>
@@ -84,26 +95,15 @@ export default function Home() {
               >
                 <Box sx={{ flex: 1 }}>
                   <Typography variant="body1">
-                    Olympic Gold Quest (OGQ) is a program of the Foundation for
-                    Promotion of Sports and Games, a Not for Profit (Section 8)
-                    Company founded by sporting legends Geet Sethi and Prakash
-                    Padukone. The mission of OGQ is to support Indian athletes
-                    in winning Olympic Gold medals. In the last three Olympic
-                    Games, 9 out of the 14 individual-sport medal winners for
-                    India were supported by OGQ
+                    {sportEvent.extra_info}
                   </Typography>
-                  {/* {
-                  <Box
-                    dangerouslySetInnerHTML={{ __html: sportEvent?.content }}
-                  ></Box>
-                } */}
                 </Box>
               </Stack>
             </Stack>
 
             <Box>
               <Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
-                {!isEventGoingOn() ? <>COUNTDOWN TO</> : <>CLOSING CEREMONY</>}{" "}
+                {!isEventGoingOn() ? <>COUNTDOWN TO</> : <>CLOSING CEREMONY</>}
                 {isMobile && <br />}
                 <strong className="highlight">
                   {sportEvent?.text.toUpperCase()}
@@ -192,84 +192,112 @@ export default function Home() {
           </Typography>
           <Box data-aos="fade-up">
             <Typography variant="h4">
-              Olympics
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.olympics}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Olympics
             </Typography>
             <Typography variant="h4">
-              World Championships
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.world_championships}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              World Championships
             </Typography>
 
             <Typography variant="h4">
-              Asian Games
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.asian_games}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Asian Games
             </Typography>
             <Typography variant="h4">
-              Commonwealth Games
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.commonwealth_games}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Commonwealth Games
             </Typography>
 
             <Typography variant="h4">
-              Youth Olympics
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.youth_olympics}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Youth Olympics
             </Typography>
             <Typography variant="h4">
-              Junior World C&apos;ships
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.junior_world_championships}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Junior World C&apos;ships
             </Typography>
 
             <Typography variant="h4">
-              Paralympics
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxMedalStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={medalStats?.paralympics}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Paralympics
             </Typography>
           </Box>
         </Box>
@@ -286,52 +314,68 @@ export default function Home() {
         >
           <Typography variant="h6">Supported by OGQ</Typography>
           <Typography variant="h3" className="underlineAfter">
-            Athletes So Far{" "}
+            Athletes So Far
           </Typography>
           <Box data-aos="fade-up">
             <Typography variant="h4">
-              Total Athletes
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxAthleteStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={athleteStats?.total_athletes}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Total Athletes
             </Typography>
             <Typography variant="h4">
-              Senior Athletes
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxAthleteStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={athleteStats?.senior_athletes}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Senior Athletes
             </Typography>
             <Typography variant="h4">
-              Junior Athletes
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxAthleteStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={athleteStats?.junior_athletes}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Junior Athletes
             </Typography>
             <Typography variant="h4">
-              Para Athletes
               <CountUp
-                style={{ color: theme.palette.primary.main }}
+                style={{
+                  color: theme.palette.primary.main,
+                  width: theme.spacing(maxAthleteStatLength + 4),
+                  display: "inline-block",
+                }}
                 enableScrollSpy
                 scrollSpyOnce
                 end={athleteStats?.para_athletes}
                 duration={2}
                 formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
               />
+              Para Athletes
             </Typography>
           </Box>
         </Box>
@@ -392,7 +436,7 @@ export default function Home() {
               Stay Updated with the Latest Udates
             </Typography>
             <Typography variant="h3" mb={3} className="underlineAfter">
-              Announcements{" "}
+              Announcements
             </Typography>
             <Announcement announcements={announcements} />
           </Box>
@@ -435,7 +479,7 @@ export default function Home() {
             className="underlineAfter"
             color={theme.palette.common.white}
           >
-            Join Our Cause{" "}
+            Join Our Cause
           </Typography>
           <Typography
             variant="h5"
@@ -449,8 +493,8 @@ export default function Home() {
             Your Support will help us
           </Typography>
           <Stack direction={"row"} spacing={1} flexWrap={"nowrap"} py={2}>
-            <CommonButton>Know More</CommonButton>
-            <CommonButton>Donate Now</CommonButton>
+            <CommonButton link="vision-and-mission">Know More</CommonButton>
+            <CommonButton link="donate-now">Donate Now</CommonButton>
           </Stack>
         </Stack>
       </Box>

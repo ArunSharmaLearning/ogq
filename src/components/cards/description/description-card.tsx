@@ -40,22 +40,26 @@ const DescriptionCard = ({ team }: { team: any }) => {
 					}} width={34} icon="gg:add" />
 				</span>
 			</OverlayBox>
-
-			<Typography
-				sx={{
-					textAlign: "center",
-					backgroundColor: theme.palette.common.white,
-					boxShadow: "0 0 15px 0 rgba(0, 0, 0, 0.1)",
-					padding: "1rem",
-					transform: "translateY(-50%)",
-					width: "85%",
-					margin: "auto",
-				}}
-				variant="h5"
-			>
-				{team.name}
-			</Typography>
-
+			<Stack direction={'column'} sx={{
+				textAlign: 'center',
+				backgroundColor: '#fff',
+				boxShadow: '0 0 2rem 0 rgba(0, 0, 0, 0.1)',
+				padding: '0.8rem 0.5rem',
+				transform: 'translateY(-50%)',
+				width: '85%',
+				margin: 'auto'
+			}}>
+				<Typography
+					sx={{
+						fontSize: {
+							xs: '1.1rem',    // default for extra-small screens
+							sm: '1.3rem',  // small screens and up
+						},
+					}}
+					variant="h5"
+				>{team.name}</Typography>
+				<Typography variant="h5" sx={(theme) => ({ color: theme.palette.primary.main })}>{team.designation}</Typography>
+			</Stack>
 			<Dialog
 				sx={{
 					"& .MuiDialog-paper": {
@@ -95,6 +99,7 @@ const DescriptionCard = ({ team }: { team: any }) => {
 								}
 							</Stack>
 							<Typography variant="h6">{team.designation}</Typography>
+							<Typography variant="h6">{team.qualification}</Typography>
 
 							<Typography variant="h6">
 								{team.sporting_achivements}
@@ -107,13 +112,7 @@ const DescriptionCard = ({ team }: { team: any }) => {
 							</Typography>
 						</Box>
 
-
-
 					</Stack>
-					{/* <DialogContentText id="alert-dialog-description">
-						Let Google help apps determine location. This means sending anonymous
-						location data to Google, even when no apps are running.
-					</DialogContentText> */}
 				</DialogContent>
 			</Dialog>
 

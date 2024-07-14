@@ -2,7 +2,7 @@
 import { useRouter } from "@/hooks/use-router"
 import { Button } from "@mui/material"
 
-const CommonButton = ({ link, children, sx, type, onClick }: { link?: string, children: any, sx?: object, type?: "submit", onClick?: any }) => {
+const CommonButton = ({ link, disabled, children, sx, type, onClick }: { link?: string, disabled?: boolean, children: any, sx?: object, type?: "submit", onClick?: any }) => {
 
 	const router = useRouter()
 	const isExternalLink = /^https?:\/\//.test(link);
@@ -24,7 +24,7 @@ const CommonButton = ({ link, children, sx, type, onClick }: { link?: string, ch
 	};
 
 	return (
-		<Button type={type} variant="outlined" onClick={handleClick} sx={(theme) => ({
+		<Button disabled={disabled} type={type} variant="outlined" onClick={handleClick} sx={(theme) => ({
 			marginY: 1,
 			...sx,
 			background: theme.palette.primary.main,
@@ -34,8 +34,9 @@ const CommonButton = ({ link, children, sx, type, onClick }: { link?: string, ch
 				color: theme.palette.primary.main,
 				backdropFilter: 'blur(4px)'
 			},
-
-
+			'&.Mui-disabled': {
+				background: 'none'
+			}
 		})}>
 			{children}
 		</Button >

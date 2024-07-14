@@ -19,7 +19,6 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import * as Yup from "yup";
-import CommonButton from "@/components/button/common/common-button";
 import Razor from "@/components/razor";
 
 const DonationIndiaOne = () => {
@@ -27,11 +26,6 @@ const DonationIndiaOne = () => {
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
-	};
-
-	const handleSubmit = (values: any) => {
-		//TODO
-
 	};
 
 	const a11yProps = (index: number) => {
@@ -90,10 +84,9 @@ const DonationIndiaOne = () => {
 						amount: Yup.string().optional(),
 					})}
 					onSubmit={async (values) => {
-						handleSubmit(values);
 					}}
 				>
-					{({ errors, touched, handleBlur, handleChange, values }) => (
+					{({ errors, touched, handleBlur, handleChange, values, isValid, dirty }) => (
 						<Form>
 							<Stack direction={"column"} spacing={1}>
 								<TextField
@@ -167,14 +160,24 @@ const DonationIndiaOne = () => {
 									>
 										<FormControlLabel
 											sx={{ p: 0 }}
-											value="female"
+											value="50000"
 											control={<Radio />}
-											label="Female"
+											label="50,000"
 										/>
 										<FormControlLabel
-											value="male"
+											value="100000"
 											control={<Radio />}
-											label="Male"
+											label="100,000"
+										/>
+										<FormControlLabel
+											value="200000"
+											control={<Radio />}
+											label="200,000"
+										/>
+										<FormControlLabel
+											value="500000"
+											control={<Radio />}
+											label="500,000"
 										/>
 										<FormControlLabel
 											value="other"
@@ -198,23 +201,10 @@ const DonationIndiaOne = () => {
 								</FormControl>
 
 								<Box sx={{ width: "100%", textAlign: "center" }}>
-									{/* <CommonButton type="submit">
-										Donate Now
-									</CommonButton> */}
-									<Razor />
+									<Razor disabled={!isValid || !dirty} details={values} />
 								</Box>
 							</Stack>
 
-							{Object.keys(errors).length > 0 && (
-								<ul>
-									{/* Map through the keys and display corresponding error messages */}
-									{Object.entries(errors).map(([key, message]) => (
-										<li key={key}>
-											<strong>{key}:</strong> {message}
-										</li>
-									))}
-								</ul>
-							)}
 						</Form>
 					)}
 				</Formik>

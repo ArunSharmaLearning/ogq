@@ -12,8 +12,8 @@ import {
 	Stack,
 	Typography,
 } from "@mui/material";
-// import { useRouter } from "next/router";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 
 export default function TeamLayout({
 	children,
@@ -24,6 +24,7 @@ export default function TeamLayout({
 
 	const [state, setState] = useState({ team: router.pathname().split('/').filter(Boolean).pop()?.replace(/%20|-|_/g, ' ') || '' });
 	const nation = router.pathname().split("/")[2];
+
 	let bannerText = "Team OGQ";
 	if (nation == "india") {
 		bannerText = "Team OGQ, INDIA";
@@ -40,6 +41,10 @@ export default function TeamLayout({
 		);
 	};
 
+	useEffect(() => {
+		setState({ team: router.pathname().split('/').filter(Boolean).pop()?.replace(/%20|-|_/g, ' ') || 'board%20of%20directors' })
+	}, [router.pathname()])
+
 	return (
 		<>
 			<Banner
@@ -47,8 +52,10 @@ export default function TeamLayout({
 				text={bannerText.toUpperCase().replace(/%20|-|_/g, " ")}
 			/>
 			<Container>
-				<Typography variant="h6">Meet Our Team</Typography>
-				<Stack direction="row" alignItems={"center"} gap={3} mb={3}>
+
+				{nation == 'usa' && <Typography className="underlineAfter" variant="h4" mb={3}>Meet Our Team</Typography>}
+				{nation == 'india' && <Typography variant="h6">Meet Our Team</Typography>}
+				{nation == 'india' && <Stack direction="row" alignItems={"center"} gap={3} mb={3}>
 					<Typography variant="h4" className="underlineAfter" mt={0} mb={2}>
 						Choose Team
 					</Typography>
@@ -61,7 +68,7 @@ export default function TeamLayout({
 						}}
 					>
 						<Select
-							sx={{ height: "100%", textAlign: "left", p: 0  , mt:'-1rem'}}
+							sx={{ height: "100%", textAlign: "left", p: 0, mt: '-1rem' }}
 							value={state.team}
 							className="input-label-select"
 							onChange={handleChange}
@@ -87,7 +94,7 @@ export default function TeamLayout({
 							)}
 						</Select>
 					</FormControl>
-				</Stack>
+				</Stack>}
 				{children}
 			</Container>
 		</>

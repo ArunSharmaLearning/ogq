@@ -33,21 +33,11 @@ type AccordionState = {
 };
 
 const Header = () => {
-  const { data } = useAPI('csr')
+  const { data } = useAPI("csr");
   const states = [
     {
       title: "OGQ",
       href: "/",
-      childrens: [
-        {
-          title: "OGQ Usa",
-          href: "/ogq-usa",
-        },
-        {
-          title: "Coaches Program",
-          href: "/programs/coaches",
-        },
-      ],
     },
     {
       title: "About OGQ",
@@ -63,15 +53,19 @@ const Header = () => {
         },
         {
           title: "Team OGQ",
-          href: "/team/india/Board of Directors",
+          href: "/team/india/board%20of%20directors",
         },
         {
           title: "Team OGQ, USA",
-          href: "/team/usa/Board of Directors",
+          href: "/team/usa",
         },
         {
-          title: "OGQ in Media",
-          href: "/media",
+          title: "Coaches Program",
+          href: "/programs/coaches",
+        },
+        {
+          title: "Contact Us",
+          href: "/contact-us",
         },
       ],
     },
@@ -97,54 +91,60 @@ const Header = () => {
         },
         {
           title: "CSR Policy",
-          href: `${API_URL}/${data?.file}`
-        }
+          href: `${API_URL}/${data?.file}`,
+        },
       ],
     },
     {
-      title: 'Olympics',
-      href: '/olympics/archery',
-      childrens: [{
-        title: 'Junior Scholorship Athletes',
-        href: '/junior/archery',
-
-      }]
+      title: "Olympics",
+      href: "/olympics/archery",
+      childrens: [
+        {
+          title: "Junior Scholorship Athletes",
+          href: "/junior/archery",
+        },
+      ],
     },
     {
-      title: 'Paralympics',
-      href: '/paralympics/archery',
+      title: "Paralympics",
+      href: "/paralympics/archery",
     },
     {
-      title: 'Olympic Results',
-      href: '/olympic-result/Rio%202016',
+      title: "Olympic Results",
+      href: "/olympic-result/rio%202016",
     },
     {
-      title: 'Donate Now',
-      href: '{}',
-      childrens: [{
-        title: 'Contribute',
-        href: '/donate-now',
-      },
-      // {
-      //   title: 'CSR for Corporate',
-      //   href: '/corporate'
-      // },
-      {
-        title: "Testimonials",
-        href: '/testimonials'
-      }
-      ]
-    }
+      title: "Donate Now",
+      href: "{}",
+      childrens: [
+        {
+          title: "Contribute",
+          href: "/donate-now",
+        },
+        // {
+        //   title: 'CSR for Corporate',
+        //   href: '/corporate'
+        // },
+        {
+          title: "Testimonials",
+          href: "/testimonials",
+        },
+      ],
+    },
   ];
   const pathname = usePathname();
   const theme = useTheme();
   const isActive = (paths: string[]): boolean => {
-    return paths.some((origPath) => pathname === "/" + origPath);
-  }
+    return paths.some((origPath) =>
+      (origPath == "" || origPath == "/")
+        ? pathname == "/"
+        : new RegExp(`/${origPath}`).test(pathname)
+    );
+  };
 
   const isParentActive = (path: string): boolean => {
-    return path === pathname.split('/')[1];
-  }
+    return path === pathname.split("/")[1];
+  };
 
   const lgUp = useResponsive("up", "md");
   const isMobile = !lgUp;
@@ -161,7 +161,7 @@ const Header = () => {
   };
 
   const handleAccordian = (key: string) => {
-    setAccordianExpand({ [key]: accordianExpand[key] })
+    setAccordianExpand({ [key]: accordianExpand[key] });
     setAccordianExpand((prev) => ({
       ...prev,
       [key]: prev[key] ? !prev[key] : true,
@@ -205,10 +205,12 @@ const Header = () => {
                     aria-disabled
                     href={{}}
                     onClick={() => handleAccordian(state.title)}
-                    className={`parent-link ${isActive(
-                      [...state.childrens.map((child) => child.href.substring(1)),
-                      state.href.substring(1)]
-                    ) && "active"
+                    className={`parent-link ${isActive([
+                      ...state.childrens.map((child) =>
+                        child.href.substring(1)
+                      ),
+                      state.href.substring(1),
+                    ]) && "active"
                       }`}
                   >
                     {state.title} <Iconify icon={"gridicons:dropdown"} />
@@ -216,7 +218,7 @@ const Header = () => {
                 </AccordionSummary>
                 <AccordionDetails sx={{ paddingY: 0.5, paddingX: 1 }}>
                   <Box>
-                    {state.href != "{}" &&
+                    {state.href != "{}" && (
                       <Styles.Link
                         key={0}
                         href={state.href}
@@ -225,7 +227,7 @@ const Header = () => {
                       >
                         {state.title} Home
                       </Styles.Link>
-                    }
+                    )}
 
                     {state.childrens.map((children, index) => (
                       <Styles.Link
@@ -239,20 +241,19 @@ const Header = () => {
                     ))}
                   </Box>
                 </AccordionDetails>
-              </Accordion>) :
-              (
-                <Styles.Link onClick={handleDrawerToggle} className={`parent-link ${isActive(
-                  [state.href.substring(1)]
-                ) && "active"
+              </Accordion>
+            ) : (
+              <Styles.Link
+                onClick={handleDrawerToggle}
+                className={`parent-link ${isActive([state.href.substring(1)]) && "active"
                   }`}
-                  href={state.href}>
-                  {state.title}
-                </Styles.Link>
-              )}
-          </Styles.ListItem>))}
-
-
-
+                href={state.href}
+              >
+                {state.title}
+              </Styles.Link>
+            )}
+          </Styles.ListItem>
+        ))}
       </List>
     </Toolbar>
   );
@@ -305,29 +306,23 @@ const Header = () => {
                 <Styles.ListItem>
                   <Styles.Link
                     href="/"
-                    className={`parent-link ${isActive([""]) && "active"}`}
+                    className={`parent-link ${isActive(['']) && "active"}`}
                   >
-                    Home <Iconify icon={"gridicons:dropdown"} />
+                    Home
                   </Styles.Link>
-                  <Styles.DropdownContent>
-                    <Styles.Link href="{{}}">OGQ Usa</Styles.Link>
-                    <Styles.Link href="/programs/coaches">
-                      Coaches Program
-                    </Styles.Link>
-                  </Styles.DropdownContent>
+                  <Styles.DropdownContent></Styles.DropdownContent>
                 </Styles.ListItem>
 
                 <Styles.ListItem>
                   <Styles.Link
                     href={{}}
                     className={`parent-link ${isActive([
-                      "about-us",
                       "history",
-                      "team",
-                      "media",
-                      "careers",
+                      "team/india/*",
+                      "team/usa/*",
                       "contact-us",
                       "vision-and-mission",
+                      "programs/coaches",
                     ]) && "active"
                       }`}
                   >
@@ -338,16 +333,29 @@ const Header = () => {
                       Vision and Mission
                     </Styles.Link>
                     <Styles.Link href="/history">History</Styles.Link>
-                    <Styles.Link href="/team/india/Board of Directors">Team OGQ</Styles.Link>
-                    <Styles.Link href="/team/usa/Board of Directors">Team OGQ USA</Styles.Link>
-                    {/* <Styles.Link href="/media">OGQ in Media</Styles.Link>
-                    <Styles.Link href="/careers">Careers</Styles.Link> */}
+                    <Styles.Link href="/team/india/board of directors">
+                      Team OGQ
+                    </Styles.Link>
+                    <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
+                    <Styles.Link href="/programs/coaches">
+                      Coaches Program
+                    </Styles.Link>
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href={{}}>
+                  <Styles.Link
+                    className={`parent-link ${isActive([
+                      "areas-of-support",
+                      "ogq-impact",
+                      "selection-process",
+                      "report/performance",
+                      "report/investor-return",
+                    ]) && "active"
+                      }`}
+                    href={{}}
+                  >
                     What We Do <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
@@ -364,12 +372,21 @@ const Header = () => {
                     <Styles.Link href="/report/investor-return">
                       Investors/Annual Return
                     </Styles.Link>
-                    <Styles.Link target="_blank" href={`${API_URL}/${data?.file}`}>CSR Policy</Styles.Link>
+                    <Styles.Link
+                      target="_blank"
+                      href={`${API_URL}/${data?.file}`}
+                    >
+                      CSR Policy
+                    </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className={`parent-link ${isParentActive('olympics') || isParentActive('junior') && 'active'}`} href={{}}>
+                  <Styles.Link
+                    className={`parent-link ${isActive(["olympics/*", "junior/*"]) && "active"
+                      }`}
+                    href={{}}
+                  >
                     Olympics <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
@@ -384,7 +401,8 @@ const Header = () => {
 
                 <Styles.ListItem>
                   <Styles.Link
-                    className={`parent-link  ${isParentActive('paralympics') && 'active'}`}
+                    className={`parent-link  ${isActive(["paralympics/*"]) && "active"
+                      }`}
                     href="/paralympics/archery"
                   >
                     Paralympics
@@ -392,13 +410,21 @@ const Header = () => {
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/olympic-result/Rio%202016">
+                  <Styles.Link
+                    className={`parent-link ${isActive(["olympic-result/*"]) && "active"
+                      }`}
+                    href="/olympic-result/rio%202016"
+                  >
                     Olympic Results
                   </Styles.Link>
                 </Styles.ListItem>
 
                 <Styles.ListItem>
-                  <Styles.Link className="parent-link" href="/donate-now">
+                  <Styles.Link
+                    className={`parent-link ${isActive(["donate-now", "testimonials"]) && "active"
+                      }`}
+                    href="/donate-now"
+                  >
                     Donate Now <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
@@ -434,7 +460,7 @@ const Header = () => {
             </IconButton>
           </Toolbar>
         </Container>
-      </AppBar >
+      </AppBar>
       <Box component="nav">
         <Drawer
           anchor="right"

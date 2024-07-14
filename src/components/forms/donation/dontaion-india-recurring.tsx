@@ -1,29 +1,18 @@
 "use client";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import Image from "next/image";
 import {
 	Box,
-	Button,
-	Container,
 	FormControl,
-	FormControlLabel,
-	FormLabel,
 	InputLabel,
-	List,
-	ListItem,
 	MenuItem,
 	Paper,
-	Radio,
-	RadioGroup,
 	Select,
 	Stack,
-	Tab,
-	Tabs,
 	TextField,
 	Typography,
-	duration,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import CommonButton from "@/components/button/common/common-button";
 
@@ -35,20 +24,51 @@ const DonationIndiaRecurring = () => {
 	};
 
 	const handleSubmit = (values: any) => {
-
+		new (window as any).Email.send({
+			Host: 'smtp.gmail.com',
+			Username: 'ogqbanking@gmail.com',
+			To: 'ogqbanking@gmail.com', // Replace with recipient email
+			From: values.email, // Replace with your email
+			Subject: "Donation Details",
+			Body: `
+    Name: ${values.name}<br>
+    Email: ${values.email}<br>
+    Mobile Number: ${values.mobile}<br>
+    Address: ${values.address}<br>
+    PAN: ${values.pan}<br>
+    Donation: ${values.donation}<br>
+    Amount: ${values.amount}
+    `,
+		})
+			.then((message) => alert(message))
+			.catch((error) => console.error("Failed to send email:", error));
 	};
 
-	const a11yProps = (index: number) => {
-		return {
-			id: `simple-tab-${index}`,
-			"aria-controls": `simple-tabpanel-${index}`,
+
+	useEffect(() => {
+		// Create script element
+		const script = document.createElement("script");
+		script.src = "https://smtpjs.com/v3/smtp.js";
+		script.async = true;
+
+		// Append the script to the body
+		document.body.appendChild(script);
+
+		// Cleanup function to remove the script when the component unmounts
+		return () => {
+			document.body.removeChild(script);
 		};
-	};
+	}, []);
 
 	return (
 		<Paper
 			elevation={1}
-			sx={{ p: 1, position: "relative", flex: 1, maxWidth: { xs: "100%", sm: "50%" } }}
+			sx={{
+				p: 1,
+				position: "relative",
+				flex: 1,
+				maxWidth: { xs: "100%", sm: "50%" },
+			}}
 		>
 			<Stack
 				position={"absolute"}
@@ -89,9 +109,17 @@ const DonationIndiaRecurring = () => {
 						handleSubmit(values);
 					}}
 				>
-					{({ errors, touched, handleBlur, handleChange, values }) => (
+					{({
+						errors,
+						touched,
+						handleBlur,
+						handleChange,
+						values,
+						isValid,
+						dirty,
+					}) => (
 						<Form>
-							<Stack direction={"column"} spacing={1} width={'100%'}>
+							<Stack direction={"column"} spacing={1} width={"100%"}>
 								<TextField
 									label="Name"
 									name="name"
@@ -154,6 +182,7 @@ const DonationIndiaRecurring = () => {
 										id="demo-simple-select"
 										value={values.duration}
 										label="Age"
+										name="duration"
 										onChange={handleChange}
 									>
 										<MenuItem value={"monthly"}>Monthly</MenuItem>
@@ -163,7 +192,7 @@ const DonationIndiaRecurring = () => {
 
 								<TextField
 									label="Number of Months/Quarters"
-									name="Number of Months/Quarters"
+									name="durationMonths"
 									variant="standard"
 									value={values.durationMonths}
 									error={
@@ -176,7 +205,7 @@ const DonationIndiaRecurring = () => {
 
 								<TextField
 									label="Recurring Donation Amount"
-									name="Recurring Donation Amount"
+									name="amount"
 									variant="standard"
 									value={values.amount}
 									error={touched.amount && Boolean(errors.amount)}
@@ -184,39 +213,27 @@ const DonationIndiaRecurring = () => {
 									onBlur={handleBlur}
 									onChange={handleChange}
 								/>
-								<Box sx={{ width: '100%', textAlign: 'center' }}>
-									<CommonButton type="submit">
+								<Box sx={{ width: "100%", textAlign: "center" }}>
+									<CommonButton disabled={!isValid || !dirty} type="submit">
 										Donate Now
 									</CommonButton>
 								</Box>
-
-
 							</Stack>
 							<Stack spacing={1} mt={3.2}>
 								<Typography sx={{ textAlign: "center" }} variant="h6">
-									For any further queries or support after payment, please
-									write to us on accounts@ogq.org
+									For any further queries or support after payment, please write
+									to us on accounts@ogq.org
 								</Typography>
-
 
 								<Typography className="underlineAfter" my={1}>
 									50% Tax exemption under section 80G (Income Tax Act)
 								</Typography>
 								<Typography className="underlineAfter">
-									Tax Exemption is not useful for foreign nationals as it
-									may not be valid in their country.
+									Tax Exemption is not useful for foreign nationals as it may
+									not be valid in their country.
 								</Typography>
 							</Stack>
-							{Object.keys(errors).length > 0 && (
-								<ul>
-									{/* Map through the keys and display corresponding error messages */}
-									{Object.entries(errors).map(([key, message]) => (
-										<li key={key}>
-											<strong>{key}:</strong> {message}
-										</li>
-									))}
-								</ul>
-							)}
+							
 						</Form>
 					)}
 				</Formik>

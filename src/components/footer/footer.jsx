@@ -21,7 +21,7 @@ const Footer = () => {
 				})}
 			>
 				<Container>
-					<Stack direction={{ sm: "column", md: "row" }} gap={3}>
+					<Stack direction={{ sm: "column", md: "row" }} gap={{ xs: 3, md: 5 }}>
 						<Stack flex={1} data-aos="fade-up">
 							<Box>
 								<Typography
@@ -61,6 +61,45 @@ const Footer = () => {
 										<Link href="/legal">Legal</Link>
 									</ListItem>
 								</List>
+							</Box>
+						</Stack>
+
+
+
+						<Stack flex={1} data-aos="fade-up" data-aos-delay={300}>
+							<Box>
+								<Typography
+									className="underlineAfter"
+									sx={{ mb: 1.2 }}
+									color={"white"}
+								>
+									Quick Links
+								</Typography>
+
+								<List sx={{ p: 0 }}>
+									<ListItem>
+										<Link href="/ogq-impact">Our Impact</Link>
+									</ListItem>
+									<ListItem>
+										<Link href="/vision-and-mission">
+											Vision and Mission
+										</Link>
+									</ListItem>
+									<ListItem>
+										<Link href="/areas-of-support">Area of Support</Link>
+									</ListItem>
+									<ListItem>
+										<Link href="/olympics/archery">Olympics</Link>
+									</ListItem>
+									<ListItem>
+										<Link href="/paralympics/archery">Paralympics</Link>
+									</ListItem>
+									<ListItem>
+										<Link href="/junior/archery">Junior Scholorship</Link>
+									</ListItem>
+
+								</List>
+
 							</Box>
 						</Stack>
 
@@ -106,64 +145,21 @@ const Footer = () => {
 								</List>
 							</Box>
 						</Stack>
-
-						<Stack flex={1} data-aos="fade-up" data-aos-delay={300}>
-							<Box>
-								<Typography
-									className="underlineAfter"
-									sx={{ mb: 1.2 }}
-									color={"white"}
-								>
-									Newsletter
-								</Typography>
-								<Typography sx={{ mb: 1 }} color={"white"}>
-									Subscribe to get monthly Updates. We promise not to spam you
-								</Typography>
-
-								<TextField
-									placeholder="Email"
-									sx={(theme) => ({
-										"& .MuiOutlinedInput-root": {
-											color: theme.palette.common.white,
-											paddingBottom: 0,
-											"& fieldset": {
-												borderColor: theme.palette.common.white,
-											},
-											"&:hover": {
-												"& fieldset": {
-													borderColor: theme.palette.primary.main,
-												},
-											},
-										},
-									})}
-									InputProps={{
-										endAdornment: (
-											<InputAdornment
-												position="start"
-												sx={{ cursor: "pointer" }}
-											>
-												<Iconify color={"white"} icon="fluent:send-24-filled" />
-											</InputAdornment>
-										),
-									}}
-								/>
-							</Box>
-						</Stack>
 					</Stack>
 				</Container>
 			</Box>
-			<Box backgroundColor="white">
+			<Box backgroundColor="#22262a">
 				<Container>
 					<Stack
 						justifyContent={{ sm: "space-evenly", xs: 'space-between' }}
 						alignItems={"center"}
 						direction="row"
 					>
-						<Typography variant="body2">All Rights Reserved</Typography>
-						<Typography variant="body2">
+						<Typography variant="body2" color={'white'}>All Rights Reserved</Typography>
+						<Typography variant="body2" color={'white'}>
 							Copyright 2020 © Olympic Gold Quest
 						</Typography>
-						<Typography variant="body2">
+						<Typography variant="body2" color={'white'}>
 							OGQ&apos;s In-House Maintenance
 						</Typography>
 					</Stack>

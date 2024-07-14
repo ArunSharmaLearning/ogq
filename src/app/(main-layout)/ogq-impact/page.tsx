@@ -6,7 +6,7 @@ import { Container, Stack, Typography } from "@mui/material"
 
 const OGQImpact = async () => {
 
-	const profiles = await callApi('/ogq_impact');
+	const profiles = await callApi('ogq_impact');
 
 	return (
 		<>

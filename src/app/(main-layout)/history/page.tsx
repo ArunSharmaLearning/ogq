@@ -6,14 +6,12 @@ import { Box, Container, Typography } from "@mui/material";
 
 const History = async () => {
 
-	const { error, content } = await callApi('/history');
+	const { error, content } = await callApi('history');
 
 	return (
 		<Box>
 			<Banner image="test.jpg" text="History" />
-
 			<Container>
-
 				{!error && <Box dangerouslySetInnerHTML={{ __html: content }}
 				></Box>}
 			</Container>

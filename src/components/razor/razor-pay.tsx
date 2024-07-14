@@ -8,7 +8,7 @@ import { RAZOR_PAY_KEY } from '@/constants/api';
 // Make sure to include Razorpay script in your index.html or dynamically load it
 // <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-const RazorpayPayment = () => {
+const RazorpayPayment = ({ details, disabled }: { details: any, disabled: boolean }) => {
 	const theme = useTheme()
 
 	useEffect(() => {
@@ -30,20 +30,21 @@ const RazorpayPayment = () => {
 	const handlePayment = () => {
 		const options = {
 			"key": RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
-			"amount": 5000 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+			"amount": parseInt(details.donation == "other" ? details.amount : details.donation) * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
 			"currency": "INR",
-			"name": "Acme Corp", //your business name
-			"description": "Test Transaction",
+			"name": "OGQ", //your business name
 			"image": '/ogq-logo.svg',
 			// "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
 			// "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
 			"prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-				"name": "Gaurav Kumar", //your customer's name
-				"email": "gaurav.kumar@example.com",
-				"contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+				"name": details.name, //your customer's name
+				"email": details.email,
+				"contact": details.mobile, //Provide the customer's phone number for better conversion rates 
+				"pan": details.pan,
+				"address": details.address
 			},
 			"notes": {
-				"address": "Razorpay Corporate Office"
+				"address": "FPSG, 401, 5th floor, Anand Building, Ambedkar road, Bandra West, Mumbai - 400050"
 			},
 			"theme": {
 				"color": '#3333cc'
@@ -65,7 +66,7 @@ const RazorpayPayment = () => {
 	};
 
 	return (
-		<CommonButton type="submit" onClick={handlePayment}>
+		<CommonButton disabled={disabled} type="submit" onClick={handlePayment}>
 			Donate Now
 		</CommonButton>
 	);
