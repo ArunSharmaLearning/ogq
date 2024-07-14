@@ -3,14 +3,14 @@ import CommonButton from "@/components/button/common/common-button";
 import { Box, Stack, Typography } from "@mui/material";
 import { OverlayBox } from "../description/description.style";
 
-const GeneralCard = ({ text, title }: { text: string, title: string }) => {
+const GeneralCard = ({ text, title, link }: { text: string, title: string, link: string }) => {
 
 	return (
 		<Box sx={{ flex: 1, maxWidth: { sm: "32.2%", xs: '100%' }, minWidth: '20rem' }}>
 			<OverlayBox backgroundImage="test.jpg" sx={{ height: '16rem' }} className="overlay-animation">
 				<Stack direction={'column'} justifyContent={'center'} alignItems={'center'} textAlign={'center'} className="overlay-text">
 					<Typography variant="body1"> {text}</Typography>
-					<CommonButton link='/vision-and-mission'> Know More </CommonButton>
+					<CommonButton link={link}> Know More </CommonButton>
 				</Stack>
 			</OverlayBox>
 

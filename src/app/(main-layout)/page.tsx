@@ -514,14 +514,17 @@ export default function Home() {
             <GeneralCard
               title="OGQ IMPACT"
               text="Learn how we power more talents to their road to success"
+              link="ogq-impact"
             />
             <GeneralCard
               title="HISTORY"
               text="OGQ has supported the training of more than 300 athletes since its inception"
+              link="/history"
             />
             <GeneralCard
               title="TEAM OGQ"
               text="Meet our group of hard-working & humble problem solvers"
+              link="/team/india/board%20of%20directors"
             />
           </Stack>
         </Box>

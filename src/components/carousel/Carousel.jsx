@@ -13,7 +13,7 @@ import "./Carousel.scss";
 const ControlledCarousel = ({ data }) => {
 
   return (
-    <Carousel className="mainPage_carousel" interval={4000} pause={false} indicators={false}>
+    <Carousel className="mainPage_carousel" interval={5000} pause={false} indicators={false}>
       {data && data.map((item) => (
         <Carousel.Item key={item.id}>
           <img
@@ -33,7 +33,7 @@ const ControlledCarousel = ({ data }) => {
               <Stack direction={"row"} className="">
                 {/* <StyledButtonLink href={"/dnew"}>{"Know More"}</StyledButtonLink> */}
 
-                <StyledButtonLink href={"/dnew"}>{"Donate Now"}</StyledButtonLink>
+                <StyledButtonLink href={"/donate-now"}>{"Donate Now"}</StyledButtonLink>
               </Stack>
             </div>
           </Carousel.Caption>
