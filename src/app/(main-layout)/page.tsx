@@ -103,7 +103,7 @@ export default function Home() {
 
             <Box>
               <Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
-                {!isEventGoingOn() ? <>COUNTDOWN TO</> : <>CLOSING CEREMONY</>}
+                {!isEventGoingOn() ? <>COUNTDOWN TO </> : <>CLOSING CEREMONY</>}
                 {isMobile && <br />}
                 <strong className="highlight">
                   {sportEvent?.text.toUpperCase()}

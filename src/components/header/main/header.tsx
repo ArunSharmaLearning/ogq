@@ -61,7 +61,7 @@ const Header = () => {
         },
         {
           title: "Coaches Program",
-          href: "/programs/coaches",
+          href: "https://ogq.org/cep/",
         },
         {
           title: "Contact Us",
@@ -337,7 +337,7 @@ const Header = () => {
                       Team OGQ
                     </Styles.Link>
                     <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
-                    <Styles.Link href="/programs/coaches">
+                    <Styles.Link href="https://ogq.org/cep/">
                       Coaches Program
                     </Styles.Link>
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>
