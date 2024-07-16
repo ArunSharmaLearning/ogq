@@ -4,17 +4,14 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
 const SelectionProcess = async () => {
-
-	const selection = await callApi('selection');
+	const selection = await callApi("selection");
 
 	return (
 		<Box>
 			<Banner image="test.jpg" text="Selection process" />
 
 			<Container>
-
 				<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
-
 			</Container>
 
 			<Box
@@ -37,6 +34,7 @@ const SelectionProcess = async () => {
 				<Stack direction="row" spacing={3} mb={5}>
 					<Box
 						sx={{
+							flex: 1,
 							p: 4,
 							borderRadius: 1,
 							pt: 8,
@@ -83,6 +81,7 @@ const SelectionProcess = async () => {
 
 					<Box
 						sx={{
+							flex: 1,
 							p: 4,
 							pt: 8,
 							borderRadius: 1,
@@ -110,20 +109,21 @@ const SelectionProcess = async () => {
 							/>
 						</Box>
 						<Typography variant="body1">
-							Whether the athlete has displayed the capability to break into the
-							top X in the world and whether he/she is a genuine medal contender
-							at the current moment.
-							<br />
-							This is basically done by looking at historical performances in
-							international competitions which have a similar level of
-							competition as the Olympics.
-							<br />
-							The second part is tricky as it is not easy to establish whether a
-							competition is close to Olympics in competition or performance
-							standards. One needs to look at the competition through the years
-							and either compare the winning scores/standards against Olympics
-							or determine how many top athletes participate in that
-							competition.
+							It is not enough for an athlete to have the capability of beating
+							the world&apos;s best; he/she must do that again and again and show
+							consistency in performance.<br /> In the absence of this parameter, we
+							would be unable to determine if it was a one-time wonder or
+							potential talent. We can rate the athlete on this parameter by
+							measuring variability across his/her performances in the recent
+							past (measured through variance or standard deviations in case
+							“scores” of some kind are available – such as in athletics,
+							shooting etc.). <br />There are often two components of variability in
+							any performance: Extrinsic and Intrinsic. Extrinsic variability
+							refers to the change that comes because of a change in the
+							environment and hence, cannot be attributed to the athlete.
+							Intrinsic variability is the change in an athlete&apos;s performance
+							attributable to him/her and hence, the measure of his/her
+							consistency.
 						</Typography>
 					</Box>
 				</Stack>
@@ -142,7 +142,7 @@ const SelectionProcess = async () => {
 					then the decision can be taken to support an athlete.
 				</Typography>
 			</Container>
-		</Box>
+		</Box >
 	);
 };
 
