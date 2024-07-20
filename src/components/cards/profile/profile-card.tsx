@@ -13,12 +13,14 @@ const ProfileCard = ({ name, title, image }: { name: string, title: string, imag
 
 			<Stack direction={'column'} sx={{
 				textAlign: 'center',
-				backgroundColor: '#fff',
+				backgroundColor: '#F9FAFB',
 				boxShadow: '0 0 2rem 0 rgba(0, 0, 0, 0.1)',
 				padding: '0.8rem 0.5rem',
 				transform: 'translateY(-50%)',
 				width: '85%',
-				margin: 'auto'
+				margin: 'auto',
+				py: 0.8
+
 			}}>
 				<Typography
 					sx={{

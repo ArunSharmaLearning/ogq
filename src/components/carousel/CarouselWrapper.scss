@@ -1,7 +1,11 @@
 .carouselwrapper_container {
-  max-width: 92%;
+  max-width: 90%;
   margin: auto;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 }
 
 .slide_image {
@@ -30,25 +34,13 @@
     color: var(--color);
   }
   .slick-prev {
-    left: -2.4rem;
+    left: -4rem;
+  }
+  .slick-next {
+    right: -4rem;
   }
 
   @media (max-width: 600px) {
-    & .slick-prev {
-      top: 110%;
-      left: 50%;
-      transform: translate(-150%, -50%);
-    }
-    & .slick-next {
-      top: 110%;
-      left: 50%;
-      transform: translate(50%, -50%);
-    }
-  }
-}
-
-.announcement_container {
-  .slick-slider {
     & .slick-prev {
       top: 110%;
       left: 50%;

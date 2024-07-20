@@ -31,7 +31,7 @@ const DescriptionCard = ({ team }: { team: any }) => {
 	return (
 		<Box sx={{ flex: 1, maxWidth: { sm: "32.2%", xs: '100%' }, minWidth: '20rem' }}>
 
-			<OverlayBox backgroundImage={`${API_URL}/${team.image}`} className="overlay-animation">
+			<OverlayBox cursor="pointer" backgroundImage={`${API_URL}/${team.image}`} className="overlay-animation">
 				<span className="overlay-text" onClick={() => handleClickOpen()}>
 					<Iconify sx={{
 						'&:hover': {
@@ -42,12 +42,13 @@ const DescriptionCard = ({ team }: { team: any }) => {
 			</OverlayBox>
 			<Stack direction={'column'} sx={{
 				textAlign: 'center',
-				backgroundColor: '#fff',
+				backgroundColor: '#F9FAFB',
 				boxShadow: '0 0 2rem 0 rgba(0, 0, 0, 0.1)',
 				padding: '0.8rem 0.5rem',
 				transform: 'translateY(-50%)',
 				width: '85%',
-				margin: 'auto'
+				margin: 'auto',
+				py: 0.8
 			}}>
 				<Typography
 					sx={{

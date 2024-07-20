@@ -1,0 +1,17 @@
+.count-down-slider_container {
+	.slick-slider {
+		@media (max-width: 600px) {
+			margin-bottom: 3rem;
+		}
+		& .slick-prev {
+			top: 113%;
+			left: 50%;
+			transform: translate(-150%, -50%);
+		}
+		& .slick-next {
+			top: 113%;
+			left: 50%;
+			transform: translate(50%, -50%);
+		}
+	}
+}

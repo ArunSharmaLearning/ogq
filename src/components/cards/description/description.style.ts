@@ -6,11 +6,12 @@ import { transform } from "next/dist/build/swc";
 
 interface OverlayBoxProps extends BoxProps {
   backgroundImage: string;
+  cursor?: string;
 }
 
 export const OverlayBox = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "backgroundImage",
-})<OverlayBoxProps>(({ theme, backgroundImage }) => ({
+  shouldForwardProp: (prop) => prop !== "backgroundImage" && prop !== "cursor",
+})<OverlayBoxProps>(({ theme, backgroundImage, cursor = "default" }) => ({
   position: "relative",
   backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
@@ -23,7 +24,7 @@ export const OverlayBox = styled(Box, {
   justifyContent: "center",
   color: "white",
   overflow: "hidden",
-  cursor: "pointer",
+  cursor: cursor,
 
   "& .overlay-text": {
     position: "absolute",

@@ -64,6 +64,10 @@ const Header = () => {
           href: "https://ogq.org/cep/",
         },
         {
+          title: "Careers",
+          href: "/careers",
+        },
+        {
           title: "Contact Us",
           href: "/contact-us",
         },
@@ -339,6 +343,9 @@ const Header = () => {
                     <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
                     <Styles.Link href="https://ogq.org/cep/">
                       Coaches Program
+                    </Styles.Link>
+                    <Styles.Link href="/careers">
+                      Careers
                     </Styles.Link>
                     <Styles.Link href="/contact-us">Contact Us</Styles.Link>
                   </Styles.DropdownContent>
