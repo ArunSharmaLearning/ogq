@@ -26,7 +26,7 @@ export default function Home() {
 
   const { data: carouselData, isLoading: carouselLoading } =
     useAPI("home_carousel");
-  const { data: sportEvent, isLoading: sportEventLoading } =
+  const { data: sportEvents, isLoading: sportEventsLoading } =
     useAPI("countdown");
   const { data: athleteStats, isLoading: athleteStatsLoading } =
     useAPI("athlete_stats");
@@ -48,12 +48,11 @@ export default function Home() {
     AOS.init({ once: true, duration: 800 });
   }, []);
 
-
   return (
     <>
       <Carousel data={carouselData} />
       <Container>
-        {!sportEventLoading && (
+        {!sportEventsLoading && (
           <Box
             sx={{ paddingY: isMobile ? 5 : 10 }}
             data-aos={!isMobile && "fade-up"}
@@ -87,7 +86,6 @@ export default function Home() {
               >
                 <Box sx={{ flex: 1 }}>
                   <Typography variant="body1">
-                    {/* {sportEvent?.extra_info} */}
                     OGQ is a program of the Foundation for Promotion of Sports
                     and Games, a Not for Profit (Section 8) Company founded by
                     sporting legends Geet Sethi and Prakash Padukone. The
@@ -100,33 +98,7 @@ export default function Home() {
               </Stack>
             </Stack>
 
-            {/* <Box>
-              <Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
-                {!isEventGoingOn() ? <>COUNTDOWN TO </> : <>CLOSING CEREMONY</>}
-                {isMobile && <br />}
-                <strong className="highlight">
-                  {sportEvent?.text.toUpperCase()}
-                </strong>
-              </Typography>
-              <CountDown
-                isEventGoingOn={isEventGoingOn()}
-                eventDateTime={
-                  new Date(
-                    isEventGoingOn()
-                      ? sportEvent?.end_date
-                      : sportEvent?.start_date
-                  )
-                }
-                sx={{
-                  flexDirection: "row",
-                  maxWidth: isMobile ? "90%" : "100%",
-                  gap: isMobile ? theme.spacing(5) : theme.spacing(2),
-                  flexWrap: isMobile ? "wrap" : "no-wrap",
-                }}
-              />
-            </Box> */}
-
-            <CountDownSlider />
+            <CountDownSlider sportEvents={sportEvents} />
           </Box>
         )}
       </Container>
@@ -454,7 +426,6 @@ export default function Home() {
           </Box>
         </Box>
       </Stack>
-
 
       <Box
         sx={{

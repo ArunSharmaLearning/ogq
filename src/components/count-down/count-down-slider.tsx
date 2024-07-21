@@ -12,30 +12,27 @@ import { useAPI } from "@/hooks/use-swr";
 import { useResponsive } from "@/hooks/use-responsive";
 import "./count-down-slider.scss";
 
-const CountDownSlider = ({ }) => {
+const CountDownSlider = ({ sportEvents }) => {
 	const theme = useTheme();
-	const { data: sportEvent, isLoading: sportEventLoading } =
-		useAPI("countdown");
 
 	const isMobile = useResponsive("down", "md");
 
-	const isEventGoingOn = () => {
+	const isEventGoingOn = (sportEvent) => {
 		const today = new Date();
 		const eventStartDate = new Date(sportEvent?.start_date);
 
 		if (today < eventStartDate) return false; // Event will start after sometime
 		return true; // Event going on
 	};
-	sportEvent.length = 2;
 	const setting = {
-		infinite: sportEvent?.length > 1,
-		slidesToShow: sportEvent?.length > 1 ? 1 : 0,
+		infinite: sportEvents?.length > 1,
+		slidesToShow: sportEvents?.length > 1 ? 1 : 0,
 		speed: 1000,
 		autoplaySpeed: 4000,
-		autoplay: sportEvent?.length > 1,
+		autoplay: sportEvents?.length > 1,
 		dots: false,
 		pauseOnHover: false,
-		arrows: sportEvent?.length > 1,
+		arrows: sportEvents?.length > 1,
 	};
 
 	return (
@@ -49,58 +46,33 @@ const CountDownSlider = ({ }) => {
 			})}
 		>
 			<Slider {...setting}>
-				{/* // announcements?.map((announcement) =>
-					// <AnnouncementCard key={announcement.id} image={announcement.image} link={announcement.url} />
-
-					// ) */}
-
-				<Box>
-					<Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
-						{!isEventGoingOn() ? <>COUNTDOWN TO </> : <>CLOSING CEREMONY</>}
-						{isMobile && <br />}
-						<strong className="highlight">
-							{sportEvent?.text.toUpperCase()}
-						</strong>
-					</Typography>
-					<CountDown
-						isEventGoingOn={isEventGoingOn()}
-						eventDateTime={
-							new Date(
-								isEventGoingOn() ? sportEvent?.end_date : sportEvent?.start_date
-							)
-						}
-						sx={{
-							flexDirection: "row",
-							maxWidth: isMobile ? "90%" : "100%",
-							gap: isMobile ? theme.spacing(5) : theme.spacing(2),
-							flexWrap: isMobile ? "wrap" : "no-wrap",
-						}}
-					/>
-				</Box>
-
-				<Box>
-					<Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
-						{!isEventGoingOn() ? <>COUNTDOWN TO </> : <>CLOSING CEREMONY</>}
-						{isMobile && <br />}
-						<strong className="highlight">
-							{sportEvent?.text.toUpperCase()}
-						</strong>
-					</Typography>
-					<CountDown
-						isEventGoingOn={isEventGoingOn()}
-						eventDateTime={
-							new Date(
-								isEventGoingOn() ? sportEvent?.end_date : sportEvent?.start_date
-							)
-						}
-						sx={{
-							flexDirection: "row",
-							maxWidth: isMobile ? "90%" : "100%",
-							gap: isMobile ? theme.spacing(5) : theme.spacing(2),
-							flexWrap: isMobile ? "wrap" : "no-wrap",
-						}}
-					/>
-				</Box>
+				{
+					sportEvents?.map((sportEvent) => (
+						<Box key={sportEvent.id}>
+							<Typography sx={{ textAlign: "center", marginY: 4 }} variant="h3">
+								{!isEventGoingOn(sportEvent) ? <>COUNTDOWN TO </> : <>CLOSING CEREMONY </>}
+								{isMobile && <br />}
+								<strong className="highlight">
+									{sportEvent?.text.toUpperCase()}
+								</strong>
+							</Typography>
+							<CountDown
+								isEventGoingOn={isEventGoingOn(sportEvent)}
+								eventDateTime={
+									new Date(
+										isEventGoingOn(sportEvent) ? sportEvent?.end_date : sportEvent?.start_date
+									)
+								}
+								sx={{
+									flexDirection: "row",
+									maxWidth: isMobile ? "90%" : "100%",
+									gap: isMobile ? theme.spacing(5) : theme.spacing(2),
+									flexWrap: isMobile ? "wrap" : "no-wrap",
+								}}
+							/>
+						</Box>
+					))
+				}
 			</Slider>
 		</Box>
 	);
