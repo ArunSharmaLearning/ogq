@@ -25,10 +25,9 @@ const DonationIndiaRecurring = () => {
 
 	const handleSubmit = (values: any) => {
 		new (window as any).Email.send({
-			Host: 'smtp.gmail.com',
-			Username: 'ogqbanking@gmail.com',
-			To: 'ogqbanking@gmail.com', // Replace with recipient email
-			From: values.email, // Replace with your email
+			SecureToken: "b4a5f00a-3664-4230-8408-d42b5b03f4db",
+			To: 'ogqbanking@gmail.com',
+			From: values.email,
 			Subject: "Donation Details",
 			Body: `
     Name: ${values.name}<br>
@@ -36,7 +35,8 @@ const DonationIndiaRecurring = () => {
     Mobile Number: ${values.mobile}<br>
     Address: ${values.address}<br>
     PAN: ${values.pan}<br>
-    Donation: ${values.donation}<br>
+	Duration Type: ${values.durationType}<br>
+    Duration: ${values.duration}<br>
     Amount: ${values.amount}
     `,
 		})
@@ -91,8 +91,8 @@ const DonationIndiaRecurring = () => {
 						mobile: "",
 						address: "",
 						pan: "",
+						durationType: "",
 						duration: "",
-						durationMonths: "",
 						amount: "",
 					}}
 					validationSchema={Yup.object().shape({
@@ -101,8 +101,8 @@ const DonationIndiaRecurring = () => {
 						mobile: Yup.number().required("Required"),
 						address: Yup.string().required("Address is Required!"),
 						pan: Yup.string().required("Required"),
-						duration: Yup.string().required("Required"),
-						durationMonths: Yup.number().required("Required"),
+						durationType: Yup.string().required("Required"),
+						duration: Yup.number().required("Required"),
 						amount: Yup.string().required(),
 					})}
 					onSubmit={async (values) => {
@@ -175,14 +175,14 @@ const DonationIndiaRecurring = () => {
 
 								<FormControl fullWidth variant="standard">
 									<InputLabel id="demo-simple-select-label">
-										Duration
+										Duration Type
 									</InputLabel>
 									<Select
 										labelId="demo-simple-select-label"
 										id="demo-simple-select"
-										value={values.duration}
+										value={values.durationType}
 										label="Age"
-										name="duration"
+										name="durationType"
 										onChange={handleChange}
 									>
 										<MenuItem value={"monthly"}>Monthly</MenuItem>
@@ -192,13 +192,13 @@ const DonationIndiaRecurring = () => {
 
 								<TextField
 									label="Number of Months/Quarters"
-									name="durationMonths"
+									name="duration"
 									variant="standard"
-									value={values.durationMonths}
+									value={values.duration}
 									error={
-										touched.durationMonths && Boolean(errors.durationMonths)
+										touched.duration && Boolean(errors.duration)
 									}
-									helperText={touched.durationMonths && errors.durationMonths}
+									helperText={touched.duration && errors.duration}
 									onBlur={handleBlur}
 									onChange={handleChange}
 								/>
@@ -233,7 +233,7 @@ const DonationIndiaRecurring = () => {
 									not be valid in their country.
 								</Typography>
 							</Stack>
-							
+
 						</Form>
 					)}
 				</Formik>
