@@ -130,7 +130,7 @@ const Footer = () => {
 										</Link>
 									</ListItem>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link target="_blank" href="https://x.com/#!/OGQ_India">
+										<Link target="_blank" href="https://x.com/OGQ_India">
 											<Iconify icon={"pajamas:twitter"} ml={0} />
 										</Link>
 									</ListItem>
