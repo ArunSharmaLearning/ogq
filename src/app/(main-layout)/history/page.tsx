@@ -10,7 +10,7 @@ const History = async () => {
 
 	return (
 		<Box>
-			<Banner image="test.jpg" text="History" />
+			<Banner image="editable/history.jpg" text="History" />
 			<Container>
 				{!error && <Box dangerouslySetInnerHTML={{ __html: content }}
 				></Box>}

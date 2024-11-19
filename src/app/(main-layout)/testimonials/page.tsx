@@ -8,7 +8,7 @@ import Image from "next/image";
 const Testimonial = () => {
 	return (
 		<Box mb={4}>
-			<Banner image="test.jpg" text="TESTIMONIAL" />
+			<Banner image="editable/testimonials.jpg" text="TESTIMONIAL" />
 
 			<Container>
 				<Typography

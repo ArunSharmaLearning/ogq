@@ -465,7 +465,7 @@ export default function Home() {
           >
             Join Our Cause
           </Typography>
-          <Typography variant="h3" color={theme.palette.common.white} mt={1}>
+          <Typography variant="h3" color={theme.palette.common.white} mt={1} textAlign={'center'}>
             Join us in our journey with your support
           </Typography>
           <Stack direction={"row"} spacing={1} flexWrap={"nowrap"} py={2}>

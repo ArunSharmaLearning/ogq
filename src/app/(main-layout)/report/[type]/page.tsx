@@ -18,7 +18,7 @@ const AnnualReport = async ({ params }: { params: { type: string } }) => {
 
 	return (
 		<Box>
-			<Banner image="test.jpg" text={bannerText} />
+			<Banner image="editable/annual_report.jpg" text={bannerText} />
 
 			<Container>
 				<Typography sx={{ mb: 2 }} variant="body1">

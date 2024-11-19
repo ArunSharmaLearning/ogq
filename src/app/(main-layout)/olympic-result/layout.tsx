@@ -42,7 +42,7 @@ export default function OlympicResultLayout({
 	return (
 		<>
 			<Banner
-				image="/test.jpg"
+				image="editable/olympics_result.jpg"
 				text={state.sport.toUpperCase().replace(/%20|-|_/g, " ")}
 			/>
 			<Container>

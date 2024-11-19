@@ -15,7 +15,8 @@ export const StyledButtonLink = styled(Link)(({ theme }) => ({
 	padding: "1rem 3rem",
 	marginRight: "1rem",
 	maxHeight: "3.1rem",
-	fontSize: "1rem",
+	fontSize: "1.3rem",
+	fontWeight: '500',
 	borderRadius: "8px",
 	"&:hover": {
 		background: 'none',

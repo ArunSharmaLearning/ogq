@@ -15,7 +15,7 @@ const Career = async () => {
 
 	return (
 		<Box>
-			<Banner image="test.jpg" text="CAREERS" />
+			<Banner image="editable/career.jpg" text="CAREERS" />
 			<Container>
 				<Box sx={{ mb: 5 }}>
 					<Typography variant="h6">

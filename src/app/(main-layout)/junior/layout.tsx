@@ -26,7 +26,7 @@ export default function JuniorLayout({
 
 	return (
 		<>
-			<Banner image="/test.jpg" text={state.sport.toLocaleUpperCase()} />
+			<Banner image="editable/junior_olympic.jpg" text={state.sport.toLocaleUpperCase()} />
 			<Container>
 				<Stack direction='row' alignItems={'center'} spacing={3} mb={3}>
 					<Typography variant='h4' className="underlineAfter">Choose Sport</Typography>
@@ -39,7 +39,7 @@ export default function JuniorLayout({
 						}}
 					>
 						<Select
-							sx={{ height: "100%", textAlign: "left" , p:0 }}
+							sx={{ height: "100%", textAlign: "left", p: 0 }}
 							value={state.sport}
 							className="input-label-select"
 							onChange={handleChange}

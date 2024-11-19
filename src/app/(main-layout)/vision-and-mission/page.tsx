@@ -10,7 +10,7 @@ const VisionAndMission = () => {
 
 	return (
 		<Box component={"main"}>
-			<Banner image="test.jpg" text="Vision and Mission" />
+			<Banner image="editable/vision.jpg" text="Vision and Mission" />
 			<Container>
 				<Stack direction={{ sm: "row" }} my={2}>
 					<Box

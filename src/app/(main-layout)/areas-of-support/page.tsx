@@ -31,7 +31,7 @@ const AreaOfSupport = () => {
 
 	return (
 		<Box>
-			<Banner image="test.jpg" text="Areas Of Support" />
+			<Banner image="editable/area_of_support.jpg" text="Areas Of Support" />
 
 			<Box>
 				<Container sx={{ position: "relative" }}>

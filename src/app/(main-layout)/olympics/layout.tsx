@@ -25,7 +25,7 @@ export default function OlympicLayout({
 
 	return (
 		<>
-			<Banner image="/test.jpg" text={state.sport.toUpperCase().replace(/%20|-|_/g, ' ')} />
+			<Banner image="editable/olympics.jpg" text={state.sport.toUpperCase().replace(/%20|-|_/g, ' ')} />
 			<Container>
 				<Stack direction='row' alignItems={'center'} gap={3} mb={3}>
 					<Typography variant='h4' className="underlineAfter">Choose Sport</Typography>

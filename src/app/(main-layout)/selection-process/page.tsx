@@ -8,7 +8,7 @@ const SelectionProcess = async () => {
 
 	return (
 		<Box>
-			<Banner image="test.jpg" text="Selection process" />
+			<Banner image="editable/selection.jpg" text="Selection process" />
 
 			<Container>
 				<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>

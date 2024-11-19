@@ -9,7 +9,7 @@ const DontateNow = () => {
 
 	return (
 		<>
-			<Banner image="india-flag.jpg" text="DONATE NOW" />
+			<Banner image="editable/contribute.jpg" text="DONATE NOW" />
 
 			<Container>
 				<Typography variant="h4" sx={{ textAlign: 'center', mb: 7 }}>
