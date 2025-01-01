@@ -9,10 +9,10 @@ const DontateNow = () => {
 
 	return (
 		<>
-			<Banner image="editable/contribute.jpg" text="DONATE NOW" />
+			<Banner image="editable/contribute.jpg" text="Donate Now" />
 
 			<Container>
-				<Typography variant="h4" sx={{ textAlign: 'center', mb: 7 }}>
+				<Typography variant="h4" sx={{ textAlign: 'center', mb: 8 }}>
 					With your support, we can help more of India&apos;s best athletes
 					achieve their <br /> dreams of winning an Olympic Gold medal.
 				</Typography>

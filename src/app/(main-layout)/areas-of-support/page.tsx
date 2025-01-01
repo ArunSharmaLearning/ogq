@@ -31,10 +31,10 @@ const AreaOfSupport = () => {
 
 	return (
 		<Box>
-			<Banner image="editable/area_of_support.jpg" text="AREAS OF SUPPORT" />
+			<Banner image="editable/area_of_support.jpg" text="Areas of Support" />
 
 			<Container sx={{ position: "relative" }}>
-				<Typography variant="h4" className="underlineAfter"> OGQ: Excellence in Athlete Development</Typography>
+				<Typography variant="h4" className="underlineAfter"> Excellence in Athlete Development</Typography>
 
 				{!isLoading ? (
 					<Box dangerouslySetInnerHTML={{ __html: data.content }}></Box>

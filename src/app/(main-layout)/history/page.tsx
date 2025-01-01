@@ -9,7 +9,7 @@ const History = async () => {
 	const { error, data } = await callApi('history');
 	return (
 		<Box>
-			<Banner image="editable/history.jpg" text="History" />
+			<Banner image="editable/history.jpg" text="HISTORY" />
 			<Container>
 				<Typography variant="h4" className="underlineAfter">
 					Transforming Indian Athlete Support</Typography>

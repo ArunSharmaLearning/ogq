@@ -7,7 +7,7 @@ const AnnualReport = async ({ params }: { params: { type: string } }) => {
 
 	let bannerText, reportText, endpoint;
 	if (params.type == 'investor-return') {
-		bannerText = "Invetor Return"
+		bannerText = "Investor Return"
 		endpoint = "annual_return"
 		reportText = "return"
 	}
@@ -20,7 +20,7 @@ const AnnualReport = async ({ params }: { params: { type: string } }) => {
 
 	return (
 		<Box>
-			<Banner image="editable/annual_report.jpg" text={bannerText.toUpperCase()} />
+			<Banner image="editable/annual_report.jpg" text={bannerText} />
 
 			<Container>
 				<Typography variant="h4" className="underlineAfter"> OGQ: Excellence in Athlete Development</Typography>

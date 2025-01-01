@@ -12,7 +12,7 @@ const Testimonial = () => {
 
 			<Container>
 				<Typography
-					variant="h2"
+					variant="h3"
 					className="underlineAfter"
 					sx={{ mx: "auto", width: "fit-content" }}
 					mb={4}
