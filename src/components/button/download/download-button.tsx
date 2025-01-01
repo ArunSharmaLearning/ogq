@@ -1,4 +1,5 @@
 import Iconify from "@/components/iconify";
+import { API_URL } from "@/constants/api";
 import { Button, Tooltip } from "@mui/material"
 
 
@@ -26,7 +27,7 @@ const DownloadButton = ({ text, file }: { text: string, file: string }) => {
 				}
 			}} variant="contained"
 				target="_blank"
-				href={'https://ogqbackend.pythonanywhere.com' + file}
+				href={`${API_URL}${file}`}
 				endIcon={< Iconify width={22} icon={'line-md:download-loop'} ml={1} />}
 			>
 				{truncatedText}

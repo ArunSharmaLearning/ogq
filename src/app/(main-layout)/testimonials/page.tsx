@@ -2,10 +2,15 @@
 import Banner from "@/components/banner/banner";
 import { CarouselWrapper } from "@/components/carousel";
 import Iconify from "@/components/iconify";
+import Loading from "@/components/loader";
+import { API_URL } from "@/constants/api";
+import { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 
 const Testimonial = () => {
+
+	const { data: testimonials, isLoading } = useAPI("testimonial");
 	return (
 		<Box mb={4}>
 			<Banner image="editable/testimonials.jpg" text="TESTIMONIAL" />
@@ -20,120 +25,59 @@ const Testimonial = () => {
 					What People Are Saying
 				</Typography>
 				<CarouselWrapper>
-					<Box
-						className="slide_image"
-						sx={{
-							display: "flex",
-							flexDirection: "column",
-							justifyContent: "center",
-						}}
-						key={1}
-					>
+					{!isLoading ? testimonials.map((testimonial) =>
 						<Box
+							className="slide_image"
 							sx={{
-								position: "relative",
-								width: 160, // Set the width of the Box
-								height: 160, // Set the height of the Box
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center",
 							}}
+							key={testimonial.id}
 						>
-							<Image
-								layout="fill"
-								src={`/carousel.jpg`}
-								objectFit="cover"
-								alt="sponsor"
-							/>
-
 							<Box
-								component="span"
-								sx={(theme) => ({
-									position: "absolute",
-									bottom: "0",
-									backgroundColor: theme.palette.primary.main,
-									borderRadius: "50%",
-									right: "8px",
-									color: theme.palette.common.white,
-									zIndex: 2,
-									padding: "2px 4px",
-								})}
+								sx={{
+									position: "relative",
+									width: 160, // Set the width of the Box
+									height: 160, // Set the height of the Box
+								}}
 							>
-								<Iconify icon="fa6-solid:quote-right" ml={0} />
+								<Image
+									layout="fill"
+									src={`${API_URL}/${testimonial.image}`}
+									objectFit="cover"
+									alt="sponsor"
+								/>
+
+								<Box
+									component="span"
+									sx={(theme) => ({
+										position: "absolute",
+										bottom: "0",
+										backgroundColor: theme.palette.primary.main,
+										borderRadius: "50%",
+										right: "8px",
+										color: theme.palette.common.white,
+										zIndex: 2,
+										padding: "2px 4px",
+									})}
+								>
+									<Iconify icon="fa6-solid:quote-right" ml={0} />
+								</Box>
 							</Box>
-						</Box>
 
-						<Typography variant="h4" mb={0}>
-							Sharda Ugra
-						</Typography>
-						<Typography variant="h5" className="underlineAfter" mb={1}>
-							Manager
-						</Typography>
-						<Typography variant="body1">
-							The best thing about OGQ is that this organization consists of
-							India’s top sports icons like Geet Sethi and Prakash Padukone. And
-							now you have Viren Rasquinha as the CEO who himself has played
-							hockey at the Athens Olympics and is a former captain. They all
-							know what it takes to play sports at the highest level and what
-							struggles an athlete has to undergo. This makes OGQ different from
-							other organizations and this is the primary reason why I decided
-							to join them
-						</Typography>
-					</Box>
-					<Box
-						className="slide_image"
-						sx={{
-							display: "flex",
-							flexDirection: "column",
-							justifyContent: "center",
-						}}
-						key={2}
-					>
-						<Box
-							sx={{
-								position: "relative",
-								width: 160, // Set the width of the Box
-								height: 160, // Set the height of the Box
-							}}
-						>
-							<Image
-								layout="fill"
-								src={`/carousel.jpg`}
-								objectFit="cover"
-								alt="sponsor"
-							/>
-
-							<Box
-								component="span"
-								sx={(theme) => ({
-									position: "absolute",
-									bottom: "0",
-									backgroundColor: theme.palette.primary.main,
-									borderRadius: "50%",
-									right: "8px",
-									color: theme.palette.common.white,
-									zIndex: 2,
-									padding: "2px 4px",
-								})}
-							>
-								<Iconify icon="fa6-solid:quote-right" ml={0} />
-							</Box>
-						</Box>
-
-						<Typography variant="h4" mb={0}>
-							Sharda Ugra
-						</Typography>
-						<Typography variant="h5" className="underlineAfter" mb={1}>
-							Manager
-						</Typography>
-						<Typography variant="body1">
-							The best thing about OGQ is that this organization consists of
-							India’s top sports icons like Geet Sethi and Prakash Padukone. And
-							now you have Viren Rasquinha as the CEO who himself has played
-							hockey at the Athens Olympics and is a former captain. They all
-							know what it takes to play sports at the highest level and what
-							struggles an athlete has to undergo. This makes OGQ different from
-							other organizations and this is the primary reason why I decided
-							to join them
-						</Typography>
-					</Box>
+							<Typography variant="h4" mb={0}>
+								{testimonial.name}
+							</Typography>
+							<Typography variant="h5" className="underlineAfter" mb={1}>
+								{testimonial.caption}
+							</Typography>
+							<Typography variant="body1">
+								{testimonial.extra_info}
+							</Typography>
+						</Box>) :
+						<Loading />
+					}
 				</CarouselWrapper>
 			</Container>
 		</Box>

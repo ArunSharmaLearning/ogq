@@ -15,17 +15,12 @@ import {
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import CommonButton from "@/components/button/common/common-button";
+import { OGQ_BANKING_EMAIL_TOKEN } from "@/constants/api";
 
 const DonationIndiaRecurring = () => {
-	const [value, setValue] = useState(0);
-
-	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue);
-	};
-
 	const handleSubmit = (values: any) => {
 		new (window as any).Email.send({
-			SecureToken: "b4a5f00a-3664-4230-8408-d42b5b03f4db",
+			SecureToken: OGQ_BANKING_EMAIL_TOKEN,
 			To: 'ogqbanking@gmail.com',
 			From: values.email,
 			Subject: "Donation Details",

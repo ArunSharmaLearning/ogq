@@ -1,10 +1,8 @@
 "use client";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import Image from "next/image";
 import {
 	Box,
-	Button,
-	Container,
 	FormControl,
 	FormControlLabel,
 	FormLabel,
@@ -24,7 +22,7 @@ import Razor from "@/components/razor";
 const DonationIndiaOne = () => {
 	const [value, setValue] = useState(0);
 
-	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+	const handleChange = (_: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
 	};
 

@@ -1,25 +1,16 @@
 "use client";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import Image from "next/image";
 import {
 	Box,
-	Button,
-	Container,
-	FormControl,
-	FormControlLabel,
-	FormLabel,
 	Paper,
-	Radio,
-	RadioGroup,
 	Stack,
 	Tab,
 	Tabs,
-	TextField,
 	Typography,
 } from "@mui/material";
 import { useState } from "react";
-import * as Yup from "yup";
 import CommonButton from "@/components/button/common/common-button";
+import { DONATE_NOW } from "@/constants/api";
 
 const DonationUsa = () => {
 	const [value, setValue] = useState(0);
@@ -83,7 +74,7 @@ const DonationUsa = () => {
 				/>
 
 				<Box sx={{ width: '100%', textAlign: 'center' }}>
-					<CommonButton link="https://www.paypal.com/donate?token=SvaBIup-tfEPlRXs6IgxWfA3surhaZiC92TDjX7ylJD-cI2xWKMZR_Wzjch64MBC_J0gpWGwuBp5CCQx" type="submit">
+					<CommonButton link={DONATE_NOW} type="submit">
 						Donate Now
 					</CommonButton>
 				</Box>

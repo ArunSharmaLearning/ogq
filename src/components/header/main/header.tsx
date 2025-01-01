@@ -104,7 +104,7 @@ const Header = () => {
       href: "/olympics/archery",
       childrens: [
         {
-          title: "Junior Scholorship Athletes",
+          title: "Junior Athletes",
           href: "/junior/archery",
         },
       ],
@@ -115,7 +115,17 @@ const Header = () => {
     },
     {
       title: "Results",
-      href: "/olympic-result/rio%202016",
+      href: "{}",
+      childrens: [
+        {
+          title: "Olympics Result",
+          href: "/results/olympic-result/rio%202016",
+        },
+        {
+          title: "Paralympics Result",
+          href: "/results/paralympic-result/rio%202016",
+        },
+      ]
     },
     {
       title: "Donate Now",
@@ -229,7 +239,7 @@ const Header = () => {
                         sx={{ p: theme.spacing(0.5, 1) }}
                         onClick={handleDrawerToggle}
                       >
-                        {state.title} Home
+                        {state.title}
                       </Styles.Link>
                     )}
 

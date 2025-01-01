@@ -7,8 +7,6 @@ import {
 	AccordionSummary,
 	Box,
 	Container,
-	List,
-	ListItem,
 	Stack,
 	Tooltip,
 	Typography,
@@ -18,9 +16,10 @@ import { useEffect } from "react";
 import { useAPI } from "@/hooks/use-swr";
 import Loading from "@/components/loader/section-loading";
 import Iconify from "@/components/iconify";
+import Image from "next/image";
+
 import "./page.scss";
 import "aos/dist/aos.css";
-import Image from "next/image";
 
 const AreaOfSupport = () => {
 	const { data, isLoading } = useAPI("areas_of_support");

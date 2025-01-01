@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { API_URL } from "@/constants/api";
 import useSWR from "swr";
 
 const defaultFetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -10,7 +11,7 @@ export default async function callApi(endpoint: string): {
 } {
   try {
     const res = await fetch(
-      `https://ogqbackend.pythonanywhere.com/api/${endpoint}`
+      `${API_URL}/api/${endpoint}`
     );
     if (res.ok) return { error: false, data: await res.json() };
     else return { error: true, message: res.statusText };
@@ -22,7 +23,7 @@ export default async function callApi(endpoint: string): {
 
 export const useAPI = (endpoint, fetcher = defaultFetcher) => {
   const { data, error, isLoading, isValidating } = useSWR(
-    `https://ogqbackend.pythonanywhere.com/api/${endpoint}`,
+    `${API_URL}/api/${endpoint}`,
     fetcher,
     {
       revalidateIfStale: true,
