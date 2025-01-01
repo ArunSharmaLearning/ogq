@@ -10,15 +10,17 @@ import {
 } from "@mui/material";
 import { Link, ListItem } from "./footer.style";
 import Iconify from "../iconify";
+import { useTheme } from "@mui/material";
 
 const Footer = () => {
+	const theme = useTheme()
 	return (
 		<Box component="footer">
 			<Box
-				sx={(theme) => ({
-					backgroundColor: "#22262a",
+				sx={{
+					backgroundColor: theme.palette.grey[700],
 					py: { md: "5rem", xs: "2rem" },
-				})}
+				}}
 			>
 				<Container>
 					<Stack direction={{ sm: "column", md: "row" }} gap={{ xs: 3, md: 5 }}>
@@ -114,7 +116,7 @@ const Footer = () => {
 								</Typography>
 								<List sx={{ p: 0, display: "flex", gap: { xs: 1, sm: 3 } }}>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link
+										<Link aria-label="facebook"
 											target="_blank"
 											href="https://www.facebook.com/olympicgoldquest"
 										>
@@ -122,7 +124,7 @@ const Footer = () => {
 										</Link>
 									</ListItem>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link
+										<Link aria-label="youtube"
 											target="_blank"
 											href="https://www.youtube.com/user/olympicgoldquest"
 										>
@@ -130,16 +132,19 @@ const Footer = () => {
 										</Link>
 									</ListItem>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link target="_blank" href="https://x.com/OGQ_India">
+										<Link aria-label="X"
+											target="_blank" href="https://x.com/OGQ_India">
 											<Iconify icon={"pajamas:twitter"} ml={0} />
 										</Link>
 									</ListItem>
 									<ListItem sx={{ width: "fit-content" }}>
 										<Link
+											aria-label="Instagram"
 											target="_blank"
 											href="https://www.instagram.com/olympicgoldquest/"
 										>
-											<Iconify icon="mdi:instagram" ml={0} />
+											<Iconify
+												icon="mdi:instagram" ml={0} />
 										</Link>
 									</ListItem>
 								</List>
@@ -148,7 +153,7 @@ const Footer = () => {
 					</Stack>
 				</Container>
 			</Box>
-			<Box backgroundColor="#22262a">
+			<Box backgroundColor={theme.palette.grey[700]}>
 				<Container>
 					<Stack
 						justifyContent={{ sm: "space-evenly", xs: 'space-between' }}

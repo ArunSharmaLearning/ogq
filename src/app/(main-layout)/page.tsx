@@ -72,8 +72,8 @@ export default function Home() {
               >
                 <Typography variant="h6">Elevate National Pride</Typography>
                 <Typography variant="h4" className="underlineAfter">
-                  It Takes Just 6 gram of Gold To Lift <br />
-                  The Worth of a Nation
+                  It takes just 6 grams of Gold to lift <br />
+                  the worth of a Nation
                 </Typography>
               </Box>
 
@@ -88,11 +88,13 @@ export default function Home() {
                   <Typography variant="body1">
                     OGQ is a program of the Foundation for Promotion of Sports
                     and Games, a Not for Profit (Section 8) Company founded by
-                    sporting legends Geet Sethi and Prakash Padukone. The
+                    Indian sports legends Geet Sethi and Prakash Padukone. The
                     mission of OGQ is to support Indian athletes in winning
-                    Olympic Gold medals. In the last three Olympic Games, 9 out
-                    of the 14 individual-sport medal winners for India were
-                    supported by OGQ.
+                    Olympic and Paralympic Gold medals. In the last four
+                    Olympics, 13 out of the 21 medal winners for India were
+                    supported by OGQ and 35 out of the 48 medals for India at
+                    the Tokyo 2020 & Paris 2024 Paralympics were supported by
+                    OGQ
                   </Typography>
                 </Box>
               </Stack>
@@ -107,6 +109,7 @@ export default function Home() {
         <Box
           sx={{
             height: isMobile ? "90vh" : "auto",
+            minHeight: '90vh',
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",
@@ -130,7 +133,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? "14vw 10vw" : theme.spacing(8, 4),
+                p: isMobile ? "18vw 10vw" : theme.spacing(13, 4),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.common.white}`,
                 position: "absolute",
@@ -145,8 +148,7 @@ export default function Home() {
                 variant="h2"
                 sx={{ color: theme.palette.common.white }}
               >
-                Our champions have made their mark, earning medals in elite
-                competitions worldwide
+                OGQ supported Athletes and Para Athletes Over The Years
               </Typography>
             </Box>
           </Box>
@@ -182,6 +184,26 @@ export default function Home() {
                 Olympics
               </Typography>
             )}
+
+
+            {medalStats?.paralympics > 0 && (
+              <Typography variant="h4">
+                <CountUp
+                  style={{
+                    color: theme.palette.primary.main,
+                    width: theme.spacing(maxMedalStatLength + 4),
+                    display: "inline-block",
+                  }}
+                  enableScrollSpy
+                  scrollSpyOnce
+                  end={medalStats.paralympics}
+                  duration={2}
+                  formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
+                />
+                Paralympics
+              </Typography>
+            )}
+
             {medalStats?.world_championships > 0 && (
               <Typography variant="h4">
                 <CountUp
@@ -270,23 +292,6 @@ export default function Home() {
               </Typography>
             )}
 
-            {medalStats?.paralympics > 0 && (
-              <Typography variant="h4">
-                <CountUp
-                  style={{
-                    color: theme.palette.primary.main,
-                    width: theme.spacing(maxMedalStatLength + 4),
-                    display: "inline-block",
-                  }}
-                  enableScrollSpy
-                  scrollSpyOnce
-                  end={medalStats.paralympics}
-                  duration={2}
-                  formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
-                />
-                Paralympics
-              </Typography>
-            )}
           </Box>
         </Box>
       </Stack>
@@ -381,6 +386,7 @@ export default function Home() {
           order={isMobile && 0}
           sx={{
             height: isMobile ? "90vh" : "auto",
+            minHeight: '90vh',
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",
@@ -404,7 +410,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? "20vw 12vw" : theme.spacing(3, 6),
+                p: isMobile ? "12vw 8vw" : theme.spacing(2, 3),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.primary.main}`,
                 position: "absolute",
@@ -419,8 +425,7 @@ export default function Home() {
                 variant="h2"
                 sx={{ color: theme.palette.primary.main }}
               >
-                OGQ supports a diverse group of senior, junior, and para
-                athletes
+                OGQ supports athletes and para athletes across 10 Olympic Sports and 8 Paralympic Sports
               </Typography>
             </Box>
           </Box>
@@ -465,8 +470,13 @@ export default function Home() {
           >
             Join Our Cause
           </Typography>
-          <Typography variant="h3" color={theme.palette.common.white} mt={1} textAlign={'center'}>
-            Join us in our journey with your support
+          <Typography
+            variant="h3"
+            color={theme.palette.common.white}
+            mt={1}
+            textAlign={"center"}
+          >
+            Support and join the OGQ movement
           </Typography>
           <Stack direction={"row"} spacing={1} flexWrap={"nowrap"} py={2}>
             <CommonButton link="vision-and-mission">Know More</CommonButton>

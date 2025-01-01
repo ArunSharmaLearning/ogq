@@ -4,7 +4,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
 const SelectionProcess = async () => {
-	const selection = await callApi("selection");
+	const { data: selection } = await callApi("selection");
 
 	return (
 		<Box>

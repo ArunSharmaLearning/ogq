@@ -12,7 +12,7 @@ export const grey = {
   400: '#C4CDD5',
   500: '#919EAB',
   600: '#637381',
-  700: '#454F5B',
+  700: '#22262a',
   800: '#212B36',
   900: '#161C24',
 };
@@ -27,7 +27,7 @@ export const primary = {
 };
 
 export const secondary = {
-  light: '#cfcfcf40',
+  light: '#dddddd40',
   main: '#444',
   dark: '#333',
   darker: '#424242',

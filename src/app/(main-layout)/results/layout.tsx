@@ -36,7 +36,7 @@ export default function OlympicResultLayout({
 		const value = event.target.value;
 
 		setState((prev) => ({ ...prev, [name]: value }));
-		router.push(`/olympic-result/${value}`);
+		router.push(`/results/olympic-result/${value}`);
 	};
 
 	return (

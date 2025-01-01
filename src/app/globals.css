@@ -183,6 +183,13 @@
 	--bs-form-invalid-border-color: #ea868f;
 }
 
+@font-face {
+	font-family: 'LeagueSpartan';
+	src: url('../../public/fonts/LeagueSpartan-Medium.woff') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 *,
 *::before,
 *::after {

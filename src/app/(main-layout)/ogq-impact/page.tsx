@@ -6,10 +6,9 @@ import { Container, Stack, Typography } from "@mui/material"
 
 const OGQImpact = async () => {
 
-	const profiles = await callApi('ogq_impact');
-
+	const { data, error } = await callApi('ogq_impact');
 	return (
-	<>
+		<>
 			<Banner image="editable/impact.jpg" text="OGQ IMPACT" />
 
 			<Container>
@@ -17,7 +16,7 @@ const OGQImpact = async () => {
 					How OGQ made a difference
 				</Typography>
 				<Stack direction={'row'} flexWrap={'wrap'} columnGap={3} rowGap={1}>
-					{profiles.map((profile: any) =>
+					{!error && data.map((profile: any) =>
 						<>
 							<DescriptionCard key={profile.id} team={profile} />
 						</>

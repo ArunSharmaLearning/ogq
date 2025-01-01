@@ -5,9 +5,14 @@ import { useAPI } from "@/hooks/use-swr";
 import { Stack, Typography } from "@mui/material";
 import Loading from "@/components/loader";
 
-const OlympicResult = ({ params }: { params: { sports: string } }) => {
+const SportResult = ({ params }: { params: { sport: string, year: string } }) => {
+	let resultApi = "olympics_result";
+
+	if (params.sport == "paralympic-result")
+		resultApi = "paralympics_result";
+
 	const { data: profiles, isLoading } = useAPI(
-		`olympics_result?year=${params.sports}`
+		`${resultApi}?year=${params.year}`
 	);
 
 	return (
@@ -32,4 +37,4 @@ const OlympicResult = ({ params }: { params: { sports: string } }) => {
 	);
 };
 
-export default OlympicResult;
+export default SportResult;

@@ -2,7 +2,7 @@
 
 import Banner from "@/components/banner/banner";
 import { useRouter } from "@/hooks/use-router";
-import callApi, { useAPI } from "@/hooks/use-swr";
+import { useAPI } from "@/hooks/use-swr";
 import { Container, FormControl, Menu, MenuItem, Select, SelectChangeEvent, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 

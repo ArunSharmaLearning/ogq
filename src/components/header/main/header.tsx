@@ -114,7 +114,7 @@ const Header = () => {
       href: "/paralympics/archery",
     },
     {
-      title: "Olympic Results",
+      title: "Results",
       href: "/olympic-result/rio%202016",
     },
     {
@@ -398,10 +398,10 @@ const Header = () => {
                   </Styles.Link>
                   <Styles.DropdownContent>
                     <Styles.Link href="/olympics/archery">
-                      The Olympics
+                      Olympics
                     </Styles.Link>
                     <Styles.Link href="/junior/archery">
-                      Junior Scholorship Athletes
+                      Junior Athletes
                     </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
@@ -420,10 +420,18 @@ const Header = () => {
                   <Styles.Link
                     className={`parent-link ${isActive(["olympic-result/*"]) && "active"
                       }`}
-                    href="/olympic-result/rio%202016"
+                    href={{}}
                   >
-                    Olympic Results
+                    Results <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
+                  <Styles.DropdownContent>
+                    <Styles.Link href="/results/olympic-result/rio%202016">
+                      Olympics Result
+                    </Styles.Link>
+                    <Styles.Link href="/results/paralympic-result/rio%202016">
+                      Paralympics Result
+                    </Styles.Link>
+                  </Styles.DropdownContent>
                 </Styles.ListItem>
 
                 <Styles.ListItem>
@@ -444,17 +452,6 @@ const Header = () => {
                 </Styles.ListItem>
               </List>
             </Box>
-
-            {/* <Box
-              sx={{
-                display: "flex",
-                gap: "5px",
-                flexWrap: "wrap",
-                m: "10px 0",
-              }}
-            >
-              <CommonButton>Login</CommonButton>
-            </Box> */}
 
             <IconButton
               color="inherit"

@@ -11,7 +11,7 @@ import {
 
 const Career = async () => {
 	<Banner image="test.jpg" text="CSR for Corporate" />
-	const careers = await callApi("announcement");
+	const { data: careers } = await callApi("announcement");
 
 	return (
 		<Box>

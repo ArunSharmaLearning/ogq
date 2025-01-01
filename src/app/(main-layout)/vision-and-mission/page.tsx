@@ -49,7 +49,7 @@ const VisionAndMission = () => {
 					>
 						<Typography variant="h4">Mission</Typography>
 						<Typography variant="body1">
-							To support Indian athletes in winning Olympic gold medals
+							To support Indian athletes win Olympic and Paralympic gold medals
 						</Typography>
 					</Box>
 				</Stack>
