@@ -9,7 +9,7 @@ const OGQImpact = async () => {
 	const { data, error } = await callApi('ogq_impact');
 	return (
 		<>
-			<Banner image="editable/impact.jpg" text="OGQ IMPACT" />
+			<Banner image="editable/impact.jpg" text="OGQ Impact" />
 
 			<Container>
 				<Typography variant="h4" mb={4} className="underlineAfter">

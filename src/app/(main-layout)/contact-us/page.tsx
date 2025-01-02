@@ -9,7 +9,7 @@ const ContactUs = async () => {
 
 	return (
 		<Box>
-			<Banner image="editable/contact.jpg" text="CONTACT US" />
+			<Banner image="editable/contact.jpg" text="Contact Us" />
 
 			<Container>
 				<Typography variant="h3" sx={{ mx: 'auto', width: 'fit-content', mb: 4 }} className="underlineAfter">

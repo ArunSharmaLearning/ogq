@@ -8,12 +8,11 @@ const SelectionProcess = async () => {
 
 	return (
 		<Box>
-			<Banner image="editable/selection.jpg" text="Selection process" />
+			<Banner image="editable/selection.jpg" text="Selection Process" />
 
 			<Container>
-
-				<Typography variant="h4" className="underlineAfter">Analyzing Potential, Adapting Methods
-				</Typography>
+				<Typography variant="h6">Analyzing Potential,</Typography>
+				<Typography variant="h4" mt={0} className="underlineAfter">Adapting Methods</Typography>
 				<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
 			</Container>
 

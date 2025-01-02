@@ -23,7 +23,8 @@ const AnnualReport = async ({ params }: { params: { type: string } }) => {
 			<Banner image="editable/annual_report.jpg" text={bannerText} />
 
 			<Container>
-				<Typography variant="h4" className="underlineAfter"> OGQ: Excellence in Athlete Development</Typography>
+				<Typography variant="h6">Excellence in</Typography>
+				<Typography variant="h4" mt={0} className="underlineAfter"> Athlete Development</Typography>
 
 				<Typography sx={{ mb: 2 }} variant="body1">
 					Please click on the link to download the annual {reportText} report.

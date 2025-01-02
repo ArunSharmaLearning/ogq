@@ -29,15 +29,6 @@ export default function OlympicResultLayout({
 				.pop()
 				?.replace(/%20|-/g, " ") || "",
 	});
-	const { data: sportCategory, isLoading } = useAPI("dropdown");
-
-	const handleChange = (event: SelectChangeEvent<string>) => {
-		const name = event.target.name;
-		const value = event.target.value;
-
-		setState((prev) => ({ ...prev, [name]: value }));
-		router.push(`/results/olympic-result/${value}`);
-	};
 
 	return (
 		<>
@@ -46,46 +37,7 @@ export default function OlympicResultLayout({
 				text={state.sport.toUpperCase().replace(/%20|-|_/g, " ")}
 			/>
 			<Container>
-				<Stack direction="row" alignItems={"center"} spacing={3} mb={3}>
-					<Typography variant="h4" className="underlineAfter">
-						Choose Olympic Event
-					</Typography>
-					<FormControl
-						variant="outlined"
-						sx={{
-							minWidth: 130,
-							m: "0rem 1rem",
-							height: "2.7rem",
-						}}
-					>
-						<Select
-							sx={{ height: "100%", textAlign: "left", p: 0 }}
-							value={state.sport}
-							className="input-label-select"
-							onChange={handleChange}
-							displayEmpty
-							name="sport"
-						>
-							{!isLoading ? (
-								sportCategory.olympic_result.map((category) => (
-									<MenuItem key={category} value={category}>
-										<Typography variant="h6">
-											{category.charAt(0).toUpperCase()}
-											{category.slice(1).replace(/%20|-|_/g, " ")}
-										</Typography>
-									</MenuItem>
-								))
-							) : (
-								<MenuItem value={state.sport}>
-									<Typography variant="h6">
-										{state.sport.charAt(0).toUpperCase()}
-										{state.sport.slice(1).replace(/%20|-|_/g, " ")}
-									</Typography>
-								</MenuItem>
-							)}
-						</Select>
-					</FormControl>
-				</Stack>
+				
 				{children}
 			</Container>
 		</>

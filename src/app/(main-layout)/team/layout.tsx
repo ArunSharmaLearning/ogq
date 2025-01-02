@@ -49,7 +49,7 @@ export default function TeamLayout({
 		<>
 			<Banner
 				image="editable/team_ogq.jpg"
-				text={bannerText.toUpperCase().replace(/%20|-|_/g, " ")}
+				text={bannerText.replace(/%20|-|_/g, " ")}
 			/>
 			<Container>
 
