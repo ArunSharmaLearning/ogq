@@ -42,7 +42,7 @@ const Testimonial = () => {
 									height: 160, // Set the height of the Box
 								}}
 							>
-								<Image
+								<Image priority
 									layout="fill"
 									src={`${API_URL}/${testimonial.image}`}
 									objectFit="cover"

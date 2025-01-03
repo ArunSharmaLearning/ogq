@@ -85,7 +85,7 @@ const DescriptionCard = ({ team }: { team: any }) => {
 
 						<Box sx={{ flex: 1, margin: 'auto', height: 'fit-content', position: { sm: 'sticky', xs: 'relative' }, top: 0, marginTop: 0 }}>
 							<Box sx={{ height: '20rem', minWidth: { xs: '16rem', sm: '18rem' }, position: 'relative', borderRadius: '1rem', overflow: 'hidden', mb: 1 }}>
-								<Image src={`${API_URL}${team.image}`} layout="fill"
+								<Image priority src={`${API_URL}${team.image}`} layout="fill"
 									objectFit="cover" alt='personality' />
 							</Box>
 							<Stack direction="row" justifyContent={'space-between'}>

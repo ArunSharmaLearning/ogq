@@ -22,11 +22,10 @@ const SportResult = ({ params }: { params: { sport: string, year: string } }) =>
 
 	const { data: sportCategory, isLoading: isLoadingSportCat } = useAPI("dropdown");
 
-	let resultApi = "olympics_result", event = "Olympic";
+	let resultApi = "olympics_result";
 
 	if (params.sport == "paralympic-result") {
 		resultApi = "paralympics_result";
-		event = "Paralympic"
 	}
 
 	const handleChange = (event: SelectChangeEvent<string>) => {
@@ -37,7 +36,7 @@ const SportResult = ({ params }: { params: { sport: string, year: string } }) =>
 		router.push(`/results/${params.sport}/${value}`);
 	};
 
-	
+
 
 
 	const { data: profiles, isLoading } = useAPI(
@@ -48,7 +47,7 @@ const SportResult = ({ params }: { params: { sport: string, year: string } }) =>
 		<>
 			<Stack direction="row" alignItems={"center"} spacing={3} mb={3}>
 				<Typography variant="h4" className="underlineAfter">
-					Choose {event} Event
+					Choose Event
 				</Typography>
 				<FormControl
 					variant="outlined"

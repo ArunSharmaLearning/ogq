@@ -12,7 +12,7 @@ const History = () => {
 				<Stack direction='column' spacing={2}>
 					<Stack direction={'row'} spacing={2}>
 						<Box>
-							<Image src={'/test.jpg'} width={194} height={100} alt='news' />
+							<Image priority src={'/test.jpg'} width={194} height={100} alt='news' />
 						</Box>
 						<Stack justifyContent={'start'}>
 							<Box>
@@ -27,7 +27,7 @@ const History = () => {
 					<Divider />
 					<Stack direction={'row'} spacing={2}>
 						<Box>
-							<Image src={'/test.jpg'} width={194} height={100} alt='news' />
+							<Image priority src={'/test.jpg'} width={194} height={100} alt='news' />
 						</Box>
 						<Stack justifyContent={'start'} >
 							<Box>

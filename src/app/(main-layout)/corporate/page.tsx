@@ -52,7 +52,7 @@ const Corporate = () => {
 					</Typography>
 					<Stack direction={"column"} spacing={2}>
 						<Stack direction={"row"} spacing={1} alignItems={"center"}>
-							<Image
+							<Image priority
 								height={40}
 								width={40}
 								alt="benefit"
@@ -65,7 +65,7 @@ const Corporate = () => {
 						</Stack>
 
 						<Stack direction={"row"} spacing={1} alignItems={"center"}>
-							<Image
+							<Image priority
 								height={40}
 								width={40}
 								alt="benefit"
@@ -78,7 +78,7 @@ const Corporate = () => {
 						</Stack>
 
 						<Stack direction={"row"} spacing={1} alignItems={"center"}>
-							<Image
+							<Image priority
 								height={40}
 								width={40}
 								alt="benefit"
@@ -156,7 +156,7 @@ const Corporate = () => {
 							style={{ width: "100%" }}
 						/>
 						{/* <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-							<Image src={'/ogq-report-final-2.jpg'} alt="sfl" objectFit='contain'
+							<Image priority src={'/ogq-report-final-2.jpg'} alt="sfl" objectFit='contain'
 								fill sizes="100%"  />
 						</Box> */}
 					</Box>

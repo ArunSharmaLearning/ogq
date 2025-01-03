@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import "./globals.css";
 import ThemeProvider from "@/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "OGQ",
   description:
-    "OGQ supports Indian athletes striving for Olympic Gold medals, backing 9 of India's 14 individual-sport medal winners in recent Olympic Games.",
+    "OGQ is a program of the Foundation for Promotion of Sports and Games, a Not for Profit (Section 8) Company founded by Indian sports legends Geet Sethi and Prakash Padukone. The mission of OGQ is to support Indian athletes in winning Olympic and Paralympic Gold medals",
 };
 
 export default function RootLayout({

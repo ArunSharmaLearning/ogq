@@ -14,7 +14,7 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
   const width = theme.breakpoints.down("sm") ? 30 : 40;
 
   const logo = (
-    <Image src="/ogq-logo.svg" alt="ogq" width={width} height={height} />
+    <Image priority src="/ogq-logo.svg" alt="ogq" width={width} height={height} />
   );
 
   if (disabledLink) {

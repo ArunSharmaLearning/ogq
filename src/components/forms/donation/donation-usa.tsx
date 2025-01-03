@@ -49,7 +49,7 @@ const DonationUsa = () => {
 					top: 15,
 				}}
 			>
-				<Image src="/usa_only.png" width={142} height={84} alt="india" />
+				<Image priority src="/usa_only.png" width={142} height={84} alt="india" />
 			</Stack>
 			<Tabs sx={{ mt: 5 }} value={value} onChange={handleChange}>
 				<Tab label="Credit / Debit / paypal" {...a11yProps(0)} />
@@ -66,7 +66,7 @@ const DonationUsa = () => {
 				<Typography>
 					In case you want to make an online payment, please click here:
 				</Typography>
-				<Image
+				<Image priority
 					src="/donate-paypal.png"
 					width={200}
 					height={60}

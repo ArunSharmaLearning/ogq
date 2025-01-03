@@ -44,7 +44,7 @@ const AreaOfSupport = () => {
 					<Box data-aos="fade-up" className="container">
 						<Box className="col-md-12 main-support-tab">
 							<center>
-								<Image
+								<Image priority
 									src="/areas-support-main.png"
 									className="img-responsive main-area-support-img"
 									data-aos="fade-zoom-in"
@@ -99,7 +99,7 @@ const AreaOfSupport = () => {
 										data-parent="#demo"
 									>
 										<center>
-											<Image
+											<Image priority
 												src="/areas-support-tab1.png"
 												alt="Description of the image"
 												layout="intrinsic"
@@ -161,13 +161,13 @@ const AreaOfSupport = () => {
 										data-parent="#demo"
 									>
 										<center>
-											<Image
+											<Image priority
 												layout="intrinsic"
 												width={150}
 												height={150}
 												src="/areas-support-tab2.png"
 												className="img-responsive"
-												alt="sldk"
+												alt="tab2"
 											/>
 										</center>
 									</a>
@@ -216,7 +216,7 @@ const AreaOfSupport = () => {
 								<Box className="support-tab support-tab-3">
 									<a data-toggle="collapse" data-target="#demo3">
 										<center>
-											<Image
+											<Image priority
 												src="/areas-support-tab3.png"
 												className="img-responsive"
 												alt="tab3"
@@ -275,7 +275,7 @@ const AreaOfSupport = () => {
 								<Box className="support-tab support-tab-4">
 									<a data-toggle="collapse" data-target="#demo4">
 										<center>
-											<Image
+											<Image priority
 												src="/areas-support-tab4.png"
 												layout="intrinsic"
 												width={150}
@@ -334,7 +334,7 @@ const AreaOfSupport = () => {
 								<Box className="support-tab support-tab-5">
 									<a data-toggle="collapse" data-target="#demo5">
 										<center>
-											<Image
+											<Image priority
 												src="/areas-support-tab5.png"
 												className="img-responsive"
 												layout="intrinsic"
@@ -368,7 +368,7 @@ const AreaOfSupport = () => {
 								expandIcon={<Iconify icon="ep:arrow-down" />}
 								aria-controls="panel2-content"
 							>
-								<Image
+								<Image priority
 									src="/areas-support-tab1.png"
 									className="img-responsive"
 									layout="intrinsic"
@@ -405,7 +405,7 @@ const AreaOfSupport = () => {
 								expandIcon={<Iconify icon="ep:arrow-down" />}
 								aria-controls="panel2-content"
 							>
-								<Image
+								<Image priority
 									src="/areas-support-tab2.png"
 									className="img-responsive"
 									layout="intrinsic"
