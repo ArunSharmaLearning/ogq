@@ -118,11 +118,11 @@ const Header = () => {
       href: "{}",
       childrens: [
         {
-          title: "Olympics Result",
+          title: "Olympics",
           href: "/results/olympic-result/rio%202016",
         },
         {
-          title: "Paralympics Result",
+          title: "Paralympics",
           href: "/results/paralympic-result/rio%202016",
         },
       ]
@@ -436,10 +436,10 @@ const Header = () => {
                   </Styles.Link>
                   <Styles.DropdownContent>
                     <Styles.Link href="/results/olympic-result/rio%202016">
-                      Olympics Result
+                      Olympics
                     </Styles.Link>
                     <Styles.Link href="/results/paralympic-result/rio%202016">
-                      Paralympics Result
+                      Paralympics
                     </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>

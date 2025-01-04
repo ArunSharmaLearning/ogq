@@ -5,7 +5,7 @@ import { Box, Container, Typography } from "@mui/material";
 const PreventionHarassment = async () => {
 	return (
 		<Box>
-			<Banner image="test.jpg" text="Prevention of Sexual Harassment" />
+			<Banner image="no-to-bully.jpg" text="Prevention of Sexual Harassment" />
 
 			<Container>
 				<Typography variant="h4" className="underlineAfter">

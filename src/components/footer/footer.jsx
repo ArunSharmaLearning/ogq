@@ -4,16 +4,13 @@ import {
 	Stack,
 	Container,
 	List,
-	TextField,
-	InputAdornment,
-	alpha,
 } from "@mui/material";
 import { Link, ListItem } from "./footer.style";
 import Iconify from "../iconify";
 import { useTheme } from "@mui/material";
 
 const Footer = () => {
-	const theme = useTheme()
+	const theme = useTheme();
 	return (
 		<Box component="footer">
 			<Box
@@ -34,9 +31,16 @@ const Footer = () => {
 									About us
 								</Typography>
 								<Typography color={"white"}>
-									OGQ supports Indian athletes striving for Olympic Gold medals,
-									backing 9 of India&apos;s 14 individual-sport medal winners in
-									recent Olympic Games.
+									OGQ is a program of the Foundation for Promotion of Sports and
+									Games, a Not for Profit (Section 8) Company founded by Indian
+									sports legends Geet Sethi and Prakash Padukone.
+									<br />
+									The mission of OGQ is to support Indian athletes in winning Olympic and
+									Paralympic Gold medals.
+									{/* In the last four Olympics, 13 out of
+									the 21 medal winners for India were supported by OGQ and 35
+									out of the 48 medals for India at the Tokyo 2020 & Paris 2024
+									Paralympics were supported by OGQ */}
 								</Typography>
 							</Box>
 						</Stack>
@@ -53,7 +57,7 @@ const Footer = () => {
 								<List sx={{ p: 0 }}>
 									<ListItem>
 										<Link href="/prevention-harassment">
-											Preveniton of Harrassemnt
+											Prevention of Harrassemnt
 										</Link>
 									</ListItem>
 									<ListItem>
@@ -65,8 +69,6 @@ const Footer = () => {
 								</List>
 							</Box>
 						</Stack>
-
-
 
 						<Stack flex={1} data-aos="fade-up" data-aos-delay={300}>
 							<Box>
@@ -83,9 +85,7 @@ const Footer = () => {
 										<Link href="/ogq-impact">Our Impact</Link>
 									</ListItem>
 									<ListItem>
-										<Link href="/vision-and-mission">
-											Vision and Mission
-										</Link>
+										<Link href="/vision-and-mission">Vision and Mission</Link>
 									</ListItem>
 									<ListItem>
 										<Link href="/areas-of-support">Area of Support</Link>
@@ -97,11 +97,9 @@ const Footer = () => {
 										<Link href="/paralympics/archery">Paralympics</Link>
 									</ListItem>
 									<ListItem>
-										<Link href="/junior/archery">Junior Scholorship</Link>
+										<Link href="/junior/archery">Junior Program</Link>
 									</ListItem>
-
 								</List>
-
 							</Box>
 						</Stack>
 
@@ -116,7 +114,8 @@ const Footer = () => {
 								</Typography>
 								<List sx={{ p: 0, display: "flex", gap: { xs: 1, sm: 3 } }}>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link aria-label="facebook"
+										<Link
+											aria-label="facebook"
 											target="_blank"
 											href="https://www.facebook.com/olympicgoldquest"
 										>
@@ -124,7 +123,8 @@ const Footer = () => {
 										</Link>
 									</ListItem>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link aria-label="youtube"
+										<Link
+											aria-label="youtube"
 											target="_blank"
 											href="https://www.youtube.com/user/olympicgoldquest"
 										>
@@ -132,8 +132,11 @@ const Footer = () => {
 										</Link>
 									</ListItem>
 									<ListItem sx={{ width: "fit-content" }}>
-										<Link aria-label="X"
-											target="_blank" href="https://x.com/OGQ_India">
+										<Link
+											aria-label="X"
+											target="_blank"
+											href="https://x.com/OGQ_India"
+										>
 											<Iconify icon={"pajamas:twitter"} ml={0} />
 										</Link>
 									</ListItem>
@@ -143,8 +146,7 @@ const Footer = () => {
 											target="_blank"
 											href="https://www.instagram.com/olympicgoldquest/"
 										>
-											<Iconify
-												icon="mdi:instagram" ml={0} />
+											<Iconify icon="mdi:instagram" ml={0} />
 										</Link>
 									</ListItem>
 								</List>
@@ -156,21 +158,23 @@ const Footer = () => {
 			<Box backgroundColor={theme.palette.grey[700]}>
 				<Container>
 					<Stack
-						justifyContent={{ sm: "space-evenly", xs: 'space-between' }}
+						justifyContent={{ sm: "space-evenly", xs: "space-between" }}
 						alignItems={"center"}
 						direction="row"
 					>
-						<Typography variant="body2" color={'white'}>All Rights Reserved</Typography>
-						<Typography variant="body2" color={'white'}>
+						<Typography variant="body2" color={"white"}>
+							All Rights Reserved
+						</Typography>
+						<Typography variant="body2" color={"white"}>
 							Copyright 2020 © Olympic Gold Quest
 						</Typography>
-						<Typography variant="body2" color={'white'}>
+						<Typography variant="body2" color={"white"}>
 							OGQ&apos;s In-House Maintenance
 						</Typography>
 					</Stack>
-				</Container >
-			</Box >
-		</Box >
+				</Container>
+			</Box>
+		</Box>
 	);
 };
 

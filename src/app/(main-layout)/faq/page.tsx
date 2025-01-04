@@ -14,7 +14,7 @@ import {
 const FAQ = async () => {
 	return (
 		<Box>
-			<Banner image="test.jpg" text="FAQ" />
+			<Banner image="faq.jpg" text="FAQ" />
 
 			<Container>
 				<Typography mb={3} variant="h4" className="underlineAfter">

@@ -49,13 +49,13 @@ export default function OlympicLayout({
 							{!isLoading ? sportCategory.olympics.map((category) => (
 								<MenuItem key={category} value={category}>
 									<Typography variant="h6">
-										{category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
+										Para {category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}
 									</Typography>
 								</MenuItem>))
 								:
 								<MenuItem value={state.sport}>
 									<Typography variant="h6">
-										{state.sport.charAt(0).toUpperCase()}{state.sport.slice(1).replace(/%20|-|_/g, ' ')}
+										Para {state.sport.charAt(0).toUpperCase()}{state.sport.slice(1).replace(/%20|-|_/g, ' ')}
 									</Typography>
 								</MenuItem>
 							}

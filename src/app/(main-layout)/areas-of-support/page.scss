@@ -20,6 +20,13 @@
 	}
 }
 
+.support-tab-content {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	gap: 0.5rem;
+}
+
 .main-support-tab {
 	position: relative;
 	& .img-responsive.main-area-support-img {
@@ -47,15 +54,15 @@
 
 .support-tab-1 {
 	top: 20%;
-	left: 14.5%;
+	left: 16%;
 	transform: translate(-50%, -50%);
 
 	@media screen and (max-width: "1000px") {
-		left: 8%;
-		top: 22%;
+		left: 9.6%;
+		top: 24%;
 	}
 	@media screen and (max-width: "767px") {
-		left: -7%;
+		left: -4%;
 		top: 24%;
 	}
 }

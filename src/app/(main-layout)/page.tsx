@@ -19,6 +19,7 @@ import CountUp from "react-countup";
 
 import "aos/dist/aos.css";
 import CountDownSlider from "@/components/count-down/count-down-slider";
+import Iconify from "@/components/iconify";
 
 export default function Home() {
   const theme = useTheme();
@@ -70,8 +71,10 @@ export default function Home() {
                   width: !isMobile ? "auto" : "100%",
                 }}
               >
-                <Typography variant="h6">Elevate National Pride</Typography>
-                <Typography variant="h4" className="underlineAfter">
+                <Typography variant="h6">
+                  <Iconify icon={"charm:quote"} width={14} ml={-2} />
+                </Typography>
+                <Typography variant="h4" className="underlineAfter" mt={-1.1}>
                   It takes just 6 grams of Gold to lift <br />
                   the worth of a Nation
                 </Typography>

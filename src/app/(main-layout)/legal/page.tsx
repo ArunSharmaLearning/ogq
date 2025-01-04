@@ -5,7 +5,7 @@ import { Box, Container, Typography } from "@mui/material";
 const PreventionHarassment = async () => {
 	return (
 		<Box>
-			<Banner image="test.jpg" text="LEGAL" />
+			<Banner image="legal.jpg" text="LEGAL" />
 
 			<Container>
 				<Box data-aos="fade-up">
