@@ -18,7 +18,7 @@ const ControlledCarousel = ({ data }) => {
       (
         <Carousel.Item key={item.id} >
           <img
-            loading="lazy"
+            loading="eager"
             className="d-block w-100"
             src={`${API_URL}${item.image}`}
             style={{ height: "100%", filter: "brightness(75%)" }}

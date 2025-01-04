@@ -6,7 +6,7 @@ import { OverlayBox } from "../description/description.style";
 const GeneralCard = ({ text, title, link, image }: { text: string, title: string, link: string, image: string }) => {
 
 	return (
-		<Box sx={{ flex: 1, maxWidth: { sm: "32.2%", xs: '100%' }, minWidth: '20rem' }}>
+		<Box sx={{ flex: 1, maxWidth: { sm: "32.2%", xs: '100%' }, minWidth: '17rem' }}>
 			<OverlayBox backgroundImage={image} sx={{ height: '16rem' }} className="overlay-animation">
 				<Stack direction={'column'} justifyContent={'center'} alignItems={'center'} textAlign={'center'} className="overlay-text">
 					<Typography variant="body1"> {text}</Typography>

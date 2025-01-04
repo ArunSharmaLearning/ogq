@@ -2,7 +2,6 @@
 import CommonButton from "@/components/button/common/common-button";
 import GeneralCard from "@/components/cards/general/general-card";
 import { Carousel } from "@/components/carousel";
-import CountDown from "@/components/count-down";
 import { useResponsive } from "@/hooks/use-responsive";
 import { useAPI } from "@/hooks/use-swr";
 import {
@@ -17,9 +16,9 @@ import AOS from "aos";
 import { useEffect } from "react";
 import CountUp from "react-countup";
 
-import "aos/dist/aos.css";
 import CountDownSlider from "@/components/count-down/count-down-slider";
 import Iconify from "@/components/iconify";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const theme = useTheme();
@@ -55,7 +54,7 @@ export default function Home() {
       <Container>
         {!sportEventsLoading && (
           <Box
-            sx={{ paddingY: isMobile ? 5 : 10 }}
+            sx={{ paddingY: isMobile ? 2 : 10 }}
             data-aos={!isMobile && "fade-up"}
             data-aos-delay={!isMobile && 200}
           >
@@ -71,10 +70,10 @@ export default function Home() {
                   width: !isMobile ? "auto" : "100%",
                 }}
               >
-                <Typography variant="h6">
-                  <Iconify icon={"charm:quote"} width={14} ml={-2} />
+                <Typography variant="h6" ml={{ lg: -2, xs: 0 }}>
+                  <Iconify icon={"charm:quote"} width={14} ml={0} />
                 </Typography>
-                <Typography variant="h4" className="underlineAfter" mt={-1.1}>
+                <Typography variant="h4" className="underlineAfter" mt={{ md: -1.1, xs: 0 }}>
                   It takes just 6 grams of Gold to lift <br />
                   the worth of a Nation
                 </Typography>
@@ -171,12 +170,13 @@ export default function Home() {
           </Typography>
           <Box data-aos="fade-up">
             {medalStats?.olympics > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -190,12 +190,13 @@ export default function Home() {
 
 
             {medalStats?.paralympics > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -208,12 +209,13 @@ export default function Home() {
             )}
 
             {medalStats?.world_championships > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -226,12 +228,13 @@ export default function Home() {
             )}
 
             {medalStats?.asian_games > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -243,12 +246,13 @@ export default function Home() {
               </Typography>
             )}
             {medalStats?.commonwealth_games > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -261,12 +265,13 @@ export default function Home() {
             )}
 
             {medalStats?.youth_olympics > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -278,12 +283,13 @@ export default function Home() {
               </Typography>
             )}
             {medalStats?.junior_world_championships > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -314,12 +320,13 @@ export default function Home() {
           </Typography>
           <Box data-aos="fade-up">
             {athleteStats?.total_athletes > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -332,12 +339,13 @@ export default function Home() {
             )}
 
             {athleteStats?.senior_athletes > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -349,12 +357,13 @@ export default function Home() {
               </Typography>
             )}
             {athleteStats?.junior_athletes > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -366,12 +375,13 @@ export default function Home() {
               </Typography>
             )}
             {athleteStats?.para_athletes > 0 && (
-              <Typography variant="h4">
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
                   }}
                   enableScrollSpy
                   scrollSpyOnce
