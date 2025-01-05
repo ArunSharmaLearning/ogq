@@ -33,7 +33,7 @@ const SelectionProcess = async () => {
 					and Consistency.
 				</Typography>
 
-				<Stack direction="row" spacing={3} mb={5}>
+				<Stack direction={{ sm: 'row', xs: "column" }} gap={{ xs: 12, sm: 3 }} mb={4}>
 					<Box
 						sx={{
 							flex: 1,
