@@ -6,11 +6,8 @@ import Slider from "react-slick";
 import { Box, Typography } from "@mui/material";
 
 import "./CarouselWrapper.scss";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
-import Iconify from "../iconify/iconify";
 
 const CarouselWrapper = ({ children, slides = 1 }) => {
   const setting = {
@@ -35,7 +32,7 @@ const CarouselWrapper = ({ children, slides = 1 }) => {
   };
 
   return (
-    <Box className="carouselwrapper_container" sx={(theme) => ({ '--color': theme.palette.primary.main })}>
+    <Box className="carouselwrapper_container" sx={(theme) => ({ '--color': theme.palette.primary.main, mb: { xs: 4, sm: 0 } })}>
       <Slider {...setting}
       >
         {React.Children.map(children, (child) => (

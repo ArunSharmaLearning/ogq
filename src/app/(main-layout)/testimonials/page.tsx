@@ -20,7 +20,7 @@ const Testimonial = () => {
 					variant="h3"
 					className="underlineAfter"
 					sx={{ mx: "auto", width: "fit-content" }}
-					mb={6}
+					mb={4}
 				>
 					What People Are Saying
 				</Typography>
