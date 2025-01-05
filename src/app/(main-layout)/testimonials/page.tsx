@@ -46,7 +46,7 @@ const Testimonial = () => {
 									layout="fill"
 									src={`${API_URL}/${testimonial.image}`}
 									objectFit="cover"
-									alt="sponsor"
+									alt={testimonial.name}
 								/>
 
 								<Box
