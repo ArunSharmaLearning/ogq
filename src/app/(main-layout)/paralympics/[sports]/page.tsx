@@ -1,38 +1,21 @@
-'use client'
-import ProfileCard from "@/components/cards/profile/profile-card";
-import Loading from "@/components/loader";
-import NoResults from "@/components/loader/no-results";
-import { useAPI } from "@/hooks/use-swr";
-import { Stack } from "@mui/material"
+import { SportComponent } from "@/components/sports";
+import callApi from "@/hooks/use-swr";
 
-const OlympicSport = ({ params }: { params: { sports: string } }) => {
 
-	const { data: profiles, isLoading } = useAPI(
-		`paralympics?sport=${params.sports}`
-	);
 
-	return (
-		<>
-			{isLoading ? (
-				<Loading />
-			) : profiles && profiles.length > 0 ? (
-				<Stack direction={"row"} flexWrap={"wrap"} gap={2}>
-					{profiles.map((profile) => (
-						<ProfileCard
-							key={profile.id}
-							image={profile.image}
-							name={profile.name}
-							title={profile.event}
-						/>
-					))}
-				</Stack>
-			) : (
-				<NoResults />
-			)}
-		</>
-	);
-
+export async function generateStaticParams() {
+	const sports = await callApi('sports_in_navbar');
+	return sports.data.paralympics.map((sport) => ({
+		sports: sport,
+	}));
 }
 
+const OlympicSport = ({ params }: { params: { sports: string } }) => {
+	return (
+		<>
+			<SportComponent params={params} category="paralympics" />
+		</>
+	);
+}
 
 export default OlympicSport

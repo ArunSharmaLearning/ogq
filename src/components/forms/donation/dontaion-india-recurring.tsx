@@ -73,7 +73,7 @@ const DonationIndiaRecurring = () => {
 					top: 15,
 				}}
 			>
-				<Image priority src="/india_only.png" width={142} height={84} alt="india" />
+				<Image unoptimized={true} priority src="/india_only.png" width={142} height={84} alt="india" />
 			</Stack>
 
 			<Stack p={2.5} mt={5}>

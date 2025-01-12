@@ -56,7 +56,7 @@ const SelectionProcess = async () => {
 						}}
 					>
 						<Box sx={{ position: "absolute", top: "-3.8rem", left: "5rem" }}>
-							<Image priority
+							<Image unoptimized={true} priority
 								src={"/selection-one.png"}
 								height={80}
 								width={32}
@@ -103,7 +103,7 @@ const SelectionProcess = async () => {
 						}}
 					>
 						<Box sx={{ position: "absolute", top: "-4rem", left: "5rem" }}>
-							<Image priority
+							<Image unoptimized={true} priority
 								src={"/selection-two.png"}
 								height={80}
 								width={54}

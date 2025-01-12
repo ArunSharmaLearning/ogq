@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "clean": "rimraf .next",
+    "clean": "rimraf .next && rimraf dist",
     "build": "yarn clean && next build",
+    "generate": "yarn clean && next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },

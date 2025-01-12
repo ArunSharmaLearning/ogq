@@ -8,7 +8,7 @@ const ProfileCard = ({ name, title, image }: { name: string, title: string, imag
 
 	return (
 		<Box sx={{ flex: 1, maxWidth: { sm: "30%", xs: '100%' }, minWidth: '20rem' }}>
-			<OverlayBox backgroundImage={`${API_URL}/${image}`}>
+			<OverlayBox backgroundImage={`${API_URL}${image}`}>
 			</OverlayBox>
 
 			<Stack direction={'column'} sx={{

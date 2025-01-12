@@ -3,8 +3,15 @@ import DownloadButton from "@/components/button/download/download-button";
 import callApi from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 
-const AnnualReport = async ({ params }: { params: { type: string } }) => {
 
+export async function generateStaticParams() {
+	return [
+		{ type: 'performance' },
+		{ type: 'investor-return' },
+	];
+}
+
+const AnnualReport = async ({ params }: { params: { type: string } }) => {
 	let bannerText, reportText, endpoint;
 	if (params.type == 'investor-return') {
 		bannerText = "Investor Return"

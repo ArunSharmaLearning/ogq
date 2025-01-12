@@ -34,7 +34,6 @@ const AreaOfSupport = () => {
 
 			<Container sx={{ position: "relative" }}>
 				<Typography variant="h4" className="underlineAfter">
-					{" "}
 					Excellence in Athlete Development
 				</Typography>
 
@@ -47,7 +46,7 @@ const AreaOfSupport = () => {
 					<Box data-aos="fade-up" className="container">
 						<Box className="col-md-12 main-support-tab">
 							<center>
-								<Image
+								<Image unoptimized={true}
 									priority
 									src="/areas-support-main.png"
 									className="img-responsive main-area-support-img"
@@ -98,10 +97,10 @@ const AreaOfSupport = () => {
 										data-parent="#demo"
 									>
 										<center>
-											<Image
+											<Image unoptimized={true}
 												priority
 												src="/areas-support-tab1.png"
-												alt="Description of the image"
+												alt="Description of the image unoptimized={true}"
 												layout="intrinsic"
 												width={150}
 												height={150}
@@ -155,7 +154,7 @@ const AreaOfSupport = () => {
 										data-parent="#demo"
 									>
 										<center>
-											<Image
+											<Image unoptimized={true}
 												priority
 												layout="intrinsic"
 												width={150}
@@ -204,7 +203,7 @@ const AreaOfSupport = () => {
 								<Box className="support-tab support-tab-4">
 									<a data-toggle="collapse" data-target="#demo3">
 										<center>
-											<Image
+											<Image unoptimized={true}
 												priority
 												src="/areas-support-tab3.png"
 												className="img-responsive"
@@ -262,7 +261,7 @@ const AreaOfSupport = () => {
 								<Box className="support-tab support-tab-5">
 									<a data-toggle="collapse" data-target="#demo4">
 										<center>
-											<Image
+											<Image unoptimized={true}
 												priority
 												src="/areas-support-tab4.png"
 												layout="intrinsic"
@@ -297,7 +296,7 @@ const AreaOfSupport = () => {
 								expandIcon={<Iconify icon="ep:arrow-down" />}
 								aria-controls="panel2-content"
 							>
-								<Image
+								<Image unoptimized={true}
 									priority
 									src="/areas-support-tab1.png"
 									className="img-responsive"
@@ -343,7 +342,7 @@ const AreaOfSupport = () => {
 								expandIcon={<Iconify icon="ep:arrow-down" />}
 								aria-controls="panel2-content"
 							>
-								<Image
+								<Image unoptimized={true}
 									priority
 									src="/areas-support-tab2.png"
 									className="img-responsive"
@@ -387,7 +386,7 @@ const AreaOfSupport = () => {
 								expandIcon={<Iconify icon="ep:arrow-down" />}
 								aria-controls="panel2-content"
 							>
-								<Image
+								<Image unoptimized={true}
 									priority
 									src="/areas-support-tab2.png"
 									className="img-responsive"
@@ -426,7 +425,7 @@ const AreaOfSupport = () => {
 								expandIcon={<Iconify icon="ep:arrow-down" />}
 								aria-controls="panel2-content"
 							>
-								<Image
+								<Image unoptimized={true}
 									priority
 									src="/areas-support-tab2.png"
 									className="img-responsive"
