@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "clean": "rmdir /s /q .next",
+    "clean": "if exist .next rmdir /s /q .next",
     "build": "yarn clean && next build",
     "start": "next start",
     "lint": "next lint"
