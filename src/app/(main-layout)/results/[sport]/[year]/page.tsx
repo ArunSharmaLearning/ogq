@@ -6,7 +6,9 @@ export async function generateStaticParams() {
 	const sports = await callApi('dropdown');
 	return sports?.data?.olympic_result.flatMap((year: string) => [
 		{ sport: 'olympic-result', year: year.replaceAll(' ', '%20') },
-		{ sport: 'paralympic-result', year: year.replaceAll(' ', '%20') }
+		{ sport: 'olympic-result', year: year },
+		{ sport: 'paralympic-result', year: year.replaceAll(' ', '%20') },
+		{ sport: 'paralympic-result', year: year }
 	]);
 }
 

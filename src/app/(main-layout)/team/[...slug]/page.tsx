@@ -15,6 +15,7 @@ export async function generateStaticParams() {
 
 	sports.data.team_ogq_india_groups.map((team: string) => {
 		params.push({ slug: ['india', team.replaceAll(' ', '%20')] })
+		params.push({ slug: ['india', team] })
 	})
 
 	return params;

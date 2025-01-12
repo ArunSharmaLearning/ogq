@@ -4,9 +4,11 @@ import { SportComponent } from "@/components/sports";
 export async function generateStaticParams() {
 	const sports = await callApi('sports_in_navbar');
 
-	return sports.data.junior.map((sport) => ({
-		sports: sport.replaceAll(' ', '%20'), // Adjust based on your API response
-	}));
+	return sports.data.junior.flatMap((sport) => ([{
+		sports: sport.replaceAll(' ', '%20')
+	},
+	{ sports: sport, }
+	]));
 
 }
 
