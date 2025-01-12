@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Fjunior\u002F[sports]","\u002Folympics\u002F[sports]","\u002Fparalympics\u002F[sports]","\u002Freport\u002F[type]","\u002Fresults\u002F[sport]\u002F[year]","\u002Fteam\u002F[...slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
