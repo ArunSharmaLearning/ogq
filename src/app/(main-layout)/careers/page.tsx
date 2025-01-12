@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 
 const Career = async () => {
-	<Banner image="test.jpg" text="CSR for Corporate" />
 	const { data: careers } = await callApi("announcement");
 
 	return (
