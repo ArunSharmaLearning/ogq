@@ -6,9 +6,7 @@ import Slider from "react-slick";
 import { Box, Typography, useTheme } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AnnouncementCard from "../cards/announcement";
 import CountDown from "./count-down";
-import { useAPI } from "@/hooks/use-swr";
 import { useResponsive } from "@/hooks/use-responsive";
 import "./count-down-slider.scss";
 
