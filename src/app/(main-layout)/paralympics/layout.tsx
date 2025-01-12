@@ -46,7 +46,7 @@ export default function OlympicLayout({
 							displayEmpty
 							name="sport"
 						>
-							{!isLoading ? sportCategory.olympics.map((category) => (
+							{!isLoading ? sportCategory.paralympics.map((category) => (
 								<MenuItem key={category} value={category}>
 									<Typography variant="h6">
 										Para {category.charAt(0).toUpperCase()}{category.slice(1).replace(/%20|-|_/g, ' ')}

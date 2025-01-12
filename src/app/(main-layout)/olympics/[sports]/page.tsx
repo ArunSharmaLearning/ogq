@@ -6,7 +6,7 @@ export async function generateStaticParams() {
 	const sports = await callApi('sports_in_navbar');
 
 	return sports.data.olympics.map((sport) => ({
-		sports: sport,
+		sports: sport.replaceAll(' ', '%20'),
 	}));
 
 }
