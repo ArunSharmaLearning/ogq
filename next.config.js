@@ -2,8 +2,8 @@ const path = require('path')
 
 module.exports = {
 	reactStrictMode: true,
-	// output: 'export',
-	// distDir: 'dist',
+	output: 'export',
+	distDir: 'dist',
 	assetPrefix: '',
 
 	sassOptions: {
