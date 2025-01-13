@@ -78,20 +78,27 @@ export default function TeamLayout({
 							{isLoading ? (
 								<MenuItem value={state.team}>
 									<Typography variant="h6">
-										{state.team.charAt(0).toUpperCase()}
-										{state.team.slice(1).replace(/%20|-|_/g, " ")}
+										{state.team
+											.replace(/%20|-|_/g, " ")
+											.split(" ")
+											.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+											.join(" ")}
 									</Typography>
 								</MenuItem>
 							) : (
 								teamCategory.team_ogq_india_groups.map((category) => (
 									<MenuItem key={category} value={category}>
 										<Typography variant="h6">
-											{category.charAt(0).toUpperCase()}
-											{category.slice(1).replace(/%20|-|_/g, " ")}
+											{category
+												.replace(/%20|-|_/g, " ")
+												.split(" ")
+												.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+												.join(" ")}
 										</Typography>
 									</MenuItem>
 								))
 							)}
+
 						</Select>
 					</FormControl>
 				</Stack>}
