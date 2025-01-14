@@ -41,7 +41,10 @@ export default function Home() {
       medalStats?.asian_games,
       medalStats?.commonwealth_games,
       medalStats?.paralympics,
-      medalStats?.junior_world_championships
+      medalStats?.junior_world_championships,
+      medalStats?.para_world_championships,
+      medalStats?.asian_para_games,
+
     )?.toString()?.length || 3;
 
   useEffect(() => {
@@ -208,6 +211,25 @@ export default function Home() {
               </Typography>
             )}
 
+            {medalStats?.para_world_championships > 0 && (
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+                <CountUp
+                  style={{
+                    color: theme.palette.primary.main,
+                    width: theme.spacing(maxMedalStatLength + 4),
+                    display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
+                  }}
+                  enableScrollSpy
+                  scrollSpyOnce
+                  end={medalStats.para_world_championships}
+                  duration={2}
+                  formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
+                />
+                World Para Championships
+              </Typography>
+            )}
+
             {medalStats?.world_championships > 0 && (
               <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
@@ -245,6 +267,26 @@ export default function Home() {
                 Asian Games
               </Typography>
             )}
+
+            {medalStats?.asian_para_games > 0 && (
+              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+                <CountUp
+                  style={{
+                    color: theme.palette.primary.main,
+                    width: theme.spacing(maxMedalStatLength + 4),
+                    display: "inline-block",
+                    fontSize: isMobile && '1.45rem'
+                  }}
+                  enableScrollSpy
+                  scrollSpyOnce
+                  end={medalStats.asian_para_games}
+                  duration={2}
+                  formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
+                />
+                Asian Para Games
+              </Typography>
+            )}
+
             {medalStats?.commonwealth_games > 0 && (
               <Typography variant="h4" display={'flex'} alignItems={'center'}>
                 <CountUp
@@ -297,7 +339,7 @@ export default function Home() {
                   duration={2}
                   formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
                 />
-                Junior World C&apos;ships
+                Junior World Championships
               </Typography>
             )}
 

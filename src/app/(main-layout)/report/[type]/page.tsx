@@ -42,7 +42,7 @@ const AnnualReport = async ({ params }: { params: { type: string } }) => {
 
 				<Stack direction={'row'} spacing={0} flexWrap={'wrap'}>
 					{reports.map((report: any) => (
-						<DownloadButton key={report.id} text={report.name} file={report.file} />
+						<DownloadButton key={report.name + report.id} text={report.name} file={report.file} />
 					))}
 
 				</Stack>

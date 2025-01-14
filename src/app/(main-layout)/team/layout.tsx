@@ -81,7 +81,12 @@ export default function TeamLayout({
 										{state.team
 											.replace(/%20|-|_/g, " ")
 											.split(" ")
-											.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+											.map((word: string) => {
+												const specialWords = ["ogq", "ind", "sng", "sgp"];
+												return specialWords.includes(word.toLowerCase())
+													? word.toUpperCase()
+													: word.charAt(0).toUpperCase() + word.slice(1);
+											})
 											.join(" ")}
 									</Typography>
 								</MenuItem>
@@ -92,7 +97,12 @@ export default function TeamLayout({
 											{category
 												.replace(/%20|-|_/g, " ")
 												.split(" ")
-												.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+												.map((word: string) => {
+													const specialWords = ["ogq", "ind", "sng", "sgp"];
+													return specialWords.includes(word.toLowerCase())
+														? word.toUpperCase()
+														: word.charAt(0).toUpperCase() + word.slice(1);
+												})
 												.join(" ")}
 										</Typography>
 									</MenuItem>

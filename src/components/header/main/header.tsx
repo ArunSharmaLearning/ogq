@@ -34,6 +34,7 @@ type AccordionState = {
 
 const Header = () => {
   const { data } = useAPI("csr");
+  const { posh } = useAPI("posh");
   const states = [
     {
       title: "OGQ",
@@ -96,6 +97,10 @@ const Header = () => {
         {
           title: "CSR Policy",
           href: `${API_URL}/${data?.file}`,
+        },
+        {
+          title: "Posh Policy",
+          href: `${API_URL}/${posh?.file}`,
         },
       ],
     },
@@ -394,6 +399,12 @@ const Header = () => {
                       href={`${API_URL}/${data?.file}`}
                     >
                       CSR Policy
+                    </Styles.Link>
+                    <Styles.Link
+                      target="_blank"
+                      href={`${API_URL}/${posh?.file}`}
+                    >
+                      Posh Policy
                     </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>

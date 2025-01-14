@@ -55,11 +55,11 @@ const Footer = () => {
 									Links
 								</Typography>
 								<List sx={{ p: 0 }}>
-									<ListItem>
+									{/* <ListItem>
 										<Link href="/prevention-harassment">
 											Prevention of Harrassemnt
 										</Link>
-									</ListItem>
+									</ListItem> */}
 									<ListItem>
 										<Link href="/faq">FAQ</Link>
 									</ListItem>
