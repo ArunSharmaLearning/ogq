@@ -34,7 +34,8 @@ type AccordionState = {
 
 const Header = () => {
   const { data } = useAPI("csr");
-  const { posh } = useAPI("posh");
+  const { data: posh } = useAPI("posh");
+
   const states = [
     {
       title: "OGQ",
@@ -404,7 +405,7 @@ const Header = () => {
                       target="_blank"
                       href={`${API_URL}/${posh?.file}`}
                     >
-                      Posh Policy
+                      Posh Policy kj
                     </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>

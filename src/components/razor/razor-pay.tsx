@@ -22,6 +22,8 @@ const RazorpayPayment = ({ details, disabled }: { details: any, disabled: boolea
 
 	const demoSuccessHandler = (transaction) => {
 		// handle successful payment
+		// const paymentId = transaction.razorpay_payment_id;
+		// alert("TRANA")
 	}
 
 	const handlePayment = () => {

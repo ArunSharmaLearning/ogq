@@ -60,7 +60,7 @@ const DonationIndiaOne = () => {
 				id={`simple-tabpanel-${0}`}
 				aria-labelledby={`simple-tab-${0}`}
 			>
-				<Typography variant="h5">Dontaion Details</Typography>
+				<Typography variant="h5">Donation Details</Typography>
 				<Typography variant="h6">(One Time)</Typography>
 				<Formik
 					initialValues={{

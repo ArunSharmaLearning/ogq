@@ -77,7 +77,7 @@ const DonationIndiaRecurring = () => {
 			</Stack>
 
 			<Stack p={2.5} mt={5}>
-				<Typography variant="h5">Dontaion Details</Typography>
+				<Typography variant="h5">Donation Details</Typography>
 				<Typography variant="h6">(Recurring)</Typography>
 				<Formik
 					initialValues={{
