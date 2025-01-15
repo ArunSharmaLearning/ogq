@@ -113,8 +113,8 @@ export default function Home() {
       <Stack direction={isMobile ? "column" : "row"}>
         <Box
           sx={{
-            height: isMobile ? "90vh" : "auto",
-            minHeight: '90vh',
+            height: isMobile ? "80vh" : "auto",
+            minHeight: '80vh',
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",
@@ -138,7 +138,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                p: isMobile ? "18vw 10vw" : theme.spacing(13, 4),
+                p: isMobile ? "40vw 10vw" : theme.spacing(13, 4),
                 width: isMobile ? "85%" : "auto",
                 border: `2px solid ${theme.palette.common.white}`,
                 position: "absolute",
@@ -440,8 +440,8 @@ export default function Home() {
         <Box
           order={isMobile && 0}
           sx={{
-            height: isMobile ? "90vh" : "auto",
-            minHeight: '90vh',
+            height: isMobile ? "80vh" : "100vh",
+            minHeight: '80vh',
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",

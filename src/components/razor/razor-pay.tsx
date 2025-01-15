@@ -20,13 +20,18 @@ const RazorpayPayment = ({ details, disabled }: { details: any, disabled: boolea
 		};
 	}, []);
 
-	const demoSuccessHandler = (transaction) => {
-		// handle successful payment
-		// const paymentId = transaction.razorpay_payment_id;
-		// alert("TRANA")
+	const demoSuccessHandler = async (transaction: any) => {
+		try {
+			const amount = parseInt(details.donation == "other" ? details.amount : details.donation) * 100;
+			await fetch(`https://administration.ogq.org/api/razorpay_auto?amount=${amount}&payment_id=${transaction.razorpay_payment_id}`)
+		}
+		catch (e) {
+			console.log(e)
+		}
 	}
 
 	const handlePayment = () => {
+
 		const options = {
 			"key": RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
 			"amount": parseInt(details.donation == "other" ? details.amount : details.donation) * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
