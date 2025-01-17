@@ -39,6 +39,13 @@ const RazorpayPayment = ({ details, disabled }: { details: any, disabled: boolea
 			"name": "OGQ", //your business name
 			"handler": demoSuccessHandler,
 			"image": '/ogq-logo.svg',
+			"notes": {
+				"name": details.name,
+				"email": details.email,
+				"contact": details.mobile,
+				"pan": details.pan,
+				"address": details.address
+			},
 			"prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
 				"name": details.name, //your customer's name
 				"email": details.email,
