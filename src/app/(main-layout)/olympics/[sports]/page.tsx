@@ -14,8 +14,6 @@ export async function generateStaticParams() {
 }
 
 const OlympicSport = ({ params }: { params: { sports: string } }) => {
-
-
 	return (
 		<>
 			<SportComponent category="olympics" params={params} />

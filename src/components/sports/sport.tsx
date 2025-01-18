@@ -9,7 +9,7 @@ import Loading from "@/components/loader";
 
 export const SportComponent = ({ params, category }: { params: { sports: string }, category: string }) => {
 	const { data: profiles, isLoading } = useAPI(
-		`junior?sport=${params.sports}`
+		`${category}?sport=${params.sports}`
 	);
 	return (
 		<>

@@ -405,7 +405,7 @@ const Header = () => {
                       target="_blank"
                       href={`${API_URL}/${posh?.file}`}
                     >
-                      Posh Policy kj
+                      Posh Policy
                     </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
@@ -466,9 +466,6 @@ const Header = () => {
                   </Styles.Link>
                   <Styles.DropdownContent>
                     <Styles.Link href="/donate-now">Contribute Now</Styles.Link>
-                    {/* <Styles.Link href="/corporate">
-                      CSR for Corporate
-                    </Styles.Link> */}
                     <Styles.Link href="/testimonials">Testimonials</Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>

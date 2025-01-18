@@ -8,8 +8,11 @@ import {
 import { Link, ListItem } from "./footer.style";
 import Iconify from "../iconify";
 import { useTheme } from "@mui/material";
+import { useAPI } from "@/hooks/use-swr";
+import { API_URL } from "@/constants/api";
 
 const Footer = () => {
+	const { data: posh } = useAPI("posh");
 	const theme = useTheme();
 	return (
 		<Box component="footer">
@@ -60,11 +63,15 @@ const Footer = () => {
 											Prevention of Harrassemnt
 										</Link>
 									</ListItem> */}
+
 									<ListItem>
 										<Link href="/faq">FAQ</Link>
 									</ListItem>
 									<ListItem>
 										<Link href="/legal">Legal</Link>
+									</ListItem>
+									<ListItem>
+										<Link target="_blank" href={`${API_URL}/${posh?.file}`}>Posh Policy</Link>
 									</ListItem>
 								</List>
 							</Box>
