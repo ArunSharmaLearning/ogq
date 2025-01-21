@@ -12,7 +12,7 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as Yup from "yup";
 import CommonButton from "@/components/button/common/common-button";
 import { OGQ_BANKING_EMAIL_TOKEN } from "@/constants/api";
@@ -95,7 +95,8 @@ const DonationIndiaRecurring = () => {
 						email: Yup.string().email("Enter email").required("Required"),
 						mobile: Yup.number().required("Required"),
 						address: Yup.string().required("Address is Required!"),
-						pan: Yup.string().required("Required"),
+						pan: Yup.string().required("Required")
+							.matches(/^[A-Z]{5}[0-9]{4}[A-Z]$/, "Invalid PAN format"),
 						durationType: Yup.string().required("Required"),
 						duration: Yup.number().required("Required"),
 						amount: Yup.string().required(),

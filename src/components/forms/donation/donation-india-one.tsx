@@ -77,7 +77,8 @@ const DonationIndiaOne = () => {
 						email: Yup.string().email("Enter email").required("Required"),
 						mobile: Yup.number().required("Required"),
 						address: Yup.string().required("Address is Required!"),
-						pan: Yup.string().required("Required"),
+						pan: Yup.string().required("Required")
+							.matches(/^[A-Z]{5}[0-9]{4}[A-Z]$/, "Invalid PAN format"),
 						donation: Yup.string().required("Required"),
 						amount: Yup.string().optional(),
 					})}

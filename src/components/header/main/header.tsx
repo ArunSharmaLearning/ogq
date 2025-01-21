@@ -96,6 +96,10 @@ const Header = () => {
           href: "/report/performance",
         },
         {
+          title: 'Investors/Annual Return',
+          href: "/report/investor-return"
+        },
+        {
           title: "CSR Policy",
           href: `${API_URL}/${data?.file}`,
         },
@@ -141,10 +145,6 @@ const Header = () => {
           title: "Contribute",
           href: "/donate-now",
         },
-        // {
-        //   title: 'CSR for Corporate',
-        //   href: '/corporate'
-        // },
         {
           title: "Testimonials",
           href: "/testimonials",
