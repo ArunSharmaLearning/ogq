@@ -1,5 +1,4 @@
 import Banner from "@/components/banner/banner";
-import { Link } from "@/components/footer/footer.style";
 import { Box, Container, Typography } from "@mui/material";
 
 const PreventionHarassment = async () => {

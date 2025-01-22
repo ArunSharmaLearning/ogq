@@ -5,7 +5,6 @@ module.exports = {
 	output: 'export',
 	distDir: 'dist',
 	assetPrefix: '',
-
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')],
 	},

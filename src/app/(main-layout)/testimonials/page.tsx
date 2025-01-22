@@ -1,4 +1,5 @@
 "use client";
+
 import Banner from "@/components/banner/banner";
 import { CarouselWrapper } from "@/components/carousel";
 import Iconify from "@/components/iconify";

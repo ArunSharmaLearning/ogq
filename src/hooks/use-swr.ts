@@ -10,10 +10,7 @@ export default async function callApi(endpoint: string): {
   message: string;
 } {
   try {
-    const res = await fetch(`${API_URL}/api/${endpoint}`, {
-      cache: "no-cache",
-      next: { revalidate: 0 },
-    });
+    const res = await fetch(`${API_URL}/api/${endpoint}`);
     if (res.ok) return { error: false, data: await res.json() };
     else return { error: true, message: res.statusText };
   } catch (e) {

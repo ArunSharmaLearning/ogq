@@ -1,19 +1,26 @@
+'use client'
 import Banner from "@/components/banner/banner";
-import callApi from "@/hooks/use-swr";
+import Loading from "@/components/loader";
+import { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
-const SelectionProcess = async () => {
-	const { data: selection } = await callApi("selection");
+const SelectionProcess = () => {
+	const { data: selection, isLoading } = useAPI("selection");
 
 	return (
 		<Box>
 			<Banner image="editable/selection.jpg" text="Selection Process" />
 
 			<Container>
-				<Typography variant="h6">Analyzing Potential,</Typography>
-				<Typography variant="h4" mt={0} className="underlineAfter">Adapting Methods</Typography>
-				<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
+				{isLoading ?
+					<Loading /> :
+					<>
+						<Typography variant="h6">Analyzing Potential,</Typography>
+						<Typography variant="h4" mt={0} className="underlineAfter">Adapting Methods</Typography>
+						<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
+					</>
+				}
 			</Container>
 
 			<Box

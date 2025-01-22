@@ -32,12 +32,6 @@ export default function OlympicResultLayout({
 
 	const { data: sportCategory, isLoading: isLoadingSportCat } = useAPI("dropdown");
 
-	// let resultApi = "olympics_result";
-
-	// if (params.sport == "paralympic-result") {
-	// 	resultApi = "paralympics_result";
-	// }
-
 	const handleChange = (event: SelectChangeEvent<string>) => {
 		const name = event.target.name;
 		const value = event.target.value;

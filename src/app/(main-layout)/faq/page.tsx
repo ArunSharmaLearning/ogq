@@ -65,7 +65,7 @@ const FAQ = async () => {
 							id="panel2-header"
 						>
 							<Typography>
-								What are the organisational capabilities of Olympic Gold Quest?
+								What are the organizational capabilities of Olympic Gold Quest?
 							</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
