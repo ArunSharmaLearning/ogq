@@ -74,9 +74,17 @@ const DonationUsa = () => {
 				/>
 
 				<Box sx={{ width: '100%', textAlign: 'center' }}>
-					<CommonButton link={DONATE_NOW} type="submit">
-						Donate Now
-					</CommonButton>
+					<form
+						action="https://www.paypal.com/cgi-bin/webscr"
+						method="post"
+						target="_blank"
+					>
+						<input type="hidden" name="cmd" value="_s-xclick" />
+						<input type="hidden" name="hosted_button_id" value={DONATE_NOW} />
+						<CommonButton type="submit">
+							Donate Now
+						</CommonButton>
+					</form>
 				</Box>
 
 
@@ -123,7 +131,7 @@ const DonationUsa = () => {
 				</Box>
 			</Stack>
 			<Typography textAlign={"center"} mt={1} padding={2.5} pt={0} variant="h6">
-				For any queries please contact neha@ogq.org
+				For any queries please contact accounts@ogq.org
 			</Typography>
 		</Paper>
 	);
