@@ -1,11 +1,9 @@
 "use client";
 import ProfileCard from "@/components/cards/profile/profile-card";
 import NoResults from "@/components/loader/no-results";
-import callApi, { useAPI } from "@/hooks/use-swr";
-import { FormControl, MenuItem, Select, SelectChangeEvent, Stack, Typography } from "@mui/material";
+import { useAPI } from "@/hooks/use-swr";
+import { Stack } from "@mui/material";
 import Loading from "@/components/loader";
-import { useState } from "react";
-import { useRouter } from "@/hooks/use-router";
 
 
 export const ResultComponent = ({ params }: { params: { sport: string, year: string } }) => {
@@ -34,7 +32,7 @@ export const ResultComponent = ({ params }: { params: { sport: string, year: str
 								key={profile.id}
 								image={profile.image}
 								name={profile.name}
-								title={profile.event}
+								title={profile.caption}
 							/>
 						))}
 					</Stack>

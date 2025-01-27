@@ -7,10 +7,12 @@ import {
 	Tab,
 	Tabs,
 	Typography,
+	useTheme,
 } from "@mui/material";
 import { useState } from "react";
 import CommonButton from "@/components/button/common/common-button";
 import { DONATE_NOW } from "@/constants/api";
+import Link from "next/link";
 
 const DonationUsa = () => {
 	const [value, setValue] = useState(0);
@@ -19,10 +21,7 @@ const DonationUsa = () => {
 		setValue(newValue);
 	};
 
-	const handleSubmit = (values: any) => {
-		//TODO
-
-	};
+	const theme = useTheme()
 
 	const a11yProps = (index: number) => {
 		return {
@@ -131,7 +130,9 @@ const DonationUsa = () => {
 				</Box>
 			</Stack>
 			<Typography textAlign={"center"} mt={1} padding={2.5} pt={0} variant="h6">
-				For any queries please contact accounts@ogq.org
+				For any queries please contact {" "}
+				<Link style={{ color: theme.palette.primary.dark }} href={"mailto:neha@ogq.org"}>
+					neha@ogq.org</Link>
 			</Typography>
 		</Paper>
 	);
