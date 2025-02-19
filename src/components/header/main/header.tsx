@@ -35,6 +35,7 @@ type AccordionState = {
 const Header = () => {
   const { data } = useAPI("csr");
   const { data: posh } = useAPI("posh");
+  const { data: dropdown } = useAPI("dropdown");
 
   const states = [
     {
@@ -129,11 +130,11 @@ const Header = () => {
       childrens: [
         {
           title: "Olympics",
-          href: "/results/olympic-result/rio%202016",
+          href: `/results/olympic-result/${dropdown?.olympic_result[0].toString()}`,
         },
         {
           title: "Paralympics",
-          href: "/results/paralympic-result/rio%202016",
+          href: `/results/paralympic-result/${dropdown?.olympic_result[0].toString()}`
         },
       ]
     },
@@ -447,10 +448,10 @@ const Header = () => {
                     Results <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
-                    <Styles.Link href="/results/olympic-result/rio%202016">
+                    <Styles.Link href={`/results/olympic-result/${dropdown?.olympic_result[0].toString()}`}>
                       Olympics
                     </Styles.Link>
-                    <Styles.Link href="/results/paralympic-result/rio%202016">
+                    <Styles.Link href={`/results/paralympic-result/${dropdown?.olympic_result[0].toString()}`}>
                       Paralympics
                     </Styles.Link>
                   </Styles.DropdownContent>
@@ -483,7 +484,7 @@ const Header = () => {
             </IconButton>
           </Toolbar>
         </Container>
-      </AppBar>
+      </AppBar >
       <Box component="nav">
         <Drawer
           anchor="right"
