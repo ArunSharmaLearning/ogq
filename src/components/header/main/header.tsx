@@ -35,7 +35,8 @@ type AccordionState = {
 const Header = () => {
   const { data } = useAPI("csr");
   const { data: posh } = useAPI("posh");
-  const { data: dropdown } = useAPI("dropdown");
+  const { data: dropdownOlympics } = useAPI("dropdown?page=olympics");
+  const { data: dropdownParalympics } = useAPI("dropdown?page=paralympics");
 
   const states = [
     {
@@ -130,11 +131,11 @@ const Header = () => {
       childrens: [
         {
           title: "Olympics",
-          href: `/results/olympic-result/${dropdown?.olympic_result[0].toString()}`,
+          href: `/results/olympic-result/${dropdownOlympics?.olympic_result[0].toString()}`,
         },
         {
           title: "Paralympics",
-          href: `/results/paralympic-result/${dropdown?.olympic_result[0].toString()}`
+          href: `/results/paralympic-result/${dropdownParalympics?.olympic_result[0].toString()}`
         },
       ]
     },
@@ -448,10 +449,10 @@ const Header = () => {
                     Results <Iconify icon={"gridicons:dropdown"} />
                   </Styles.Link>
                   <Styles.DropdownContent>
-                    <Styles.Link href={`/results/olympic-result/${dropdown?.olympic_result[0].toString()}`}>
+                    <Styles.Link href={`/results/olympic-result/${dropdownOlympics?.olympic_result[0].toString()}`}>
                       Olympics
                     </Styles.Link>
-                    <Styles.Link href={`/results/paralympic-result/${dropdown?.olympic_result[0].toString()}`}>
+                    <Styles.Link href={`/results/paralympic-result/${dropdownParalympics?.olympic_result[0].toString()}`}>
                       Paralympics
                     </Styles.Link>
                   </Styles.DropdownContent>

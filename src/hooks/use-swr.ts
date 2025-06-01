@@ -26,6 +26,9 @@ export const useAPI = (endpoint, fetcher = defaultFetcher) => {
     {
       revalidateIfStale: true,
       refetchOnMount: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      dedupingInterval: 90000,
     }
   );
 

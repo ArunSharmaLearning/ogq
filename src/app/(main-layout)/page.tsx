@@ -17,7 +17,6 @@ import { useEffect } from "react";
 import CountUp from "react-countup";
 
 import CountDownSlider from "@/components/count-down/count-down-slider";
-import Iconify from "@/components/iconify";
 import "aos/dist/aos.css";
 
 export default function Home() {
@@ -73,9 +72,9 @@ export default function Home() {
                   width: !isMobile ? "auto" : "100%",
                 }}
               >
-                <Typography variant="h6" ml={{ lg: -2, xs: 0 }}>
+                {/* <Typography variant="h6" ml={{ lg: -2, xs: 0 }}>
                   <Iconify icon={"charm:quote"} width={14} ml={0} />
-                </Typography>
+                </Typography> */}
                 <Typography variant="h4" className="underlineAfter" mt={{ md: -1.1, xs: 0 }}>
                   It takes just 6 grams of Gold to lift <br />
                   the worth of a Nation
@@ -174,19 +173,21 @@ export default function Home() {
           <Box data-aos="fade-up">
             {medalStats?.olympics > 0 && (
               <Typography variant="h4" display={'flex'} alignItems={'center'}>
-                <CountUp
-                  style={{
-                    color: theme.palette.primary.main,
-                    width: theme.spacing(maxMedalStatLength + 4),
-                    display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
-                  }}
-                  enableScrollSpy
-                  scrollSpyOnce
-                  end={medalStats.olympics}
-                  duration={2}
-                  formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
-                />
+                {medalStats.olympics &&
+                  <CountUp
+                    style={{
+                      color: theme.palette.primary.main,
+                      width: theme.spacing(maxMedalStatLength + 4),
+                      display: "inline-block",
+                      fontSize: isMobile && '1.45rem'
+                    }}
+                    enableScrollSpy
+                    scrollSpyOnce
+                    preserveValue
+                    end={medalStats.olympics}
+                    duration={2}
+                    formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
+                  />}
                 Olympics
               </Typography>
             )}

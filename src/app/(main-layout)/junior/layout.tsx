@@ -29,7 +29,7 @@ export default function JuniorLayout({
 			<Banner image="editable/junior_olympic.jpg" text={state.sport.toLocaleUpperCase()} />
 			<Container>
 				<Stack direction='row' alignItems={'center'} spacing={3} mb={3}>
-					<Typography variant='h4' className="underlineAfter">Choose Sport</Typography>
+					<Typography variant='h4' className="underlineAfter">Select Sport</Typography>
 					<FormControl
 						variant="outlined"
 						sx={{

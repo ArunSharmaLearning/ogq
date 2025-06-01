@@ -14,7 +14,7 @@ const PreventionHarassment = async () => {
 					<Typography variant="body1">
 						The Foundation for Promotion of Sports and Games (“FPSG”) shall
 						Endeavour to put up only such information on the site,
-						www.olympicgoldquest.in, as being true to the best of their
+						www.ogq.org, as being true to the best of their
 						knowledge and belief. However, the FPSG does not accept any
 						liability due to inaccuracy of information or data provided on this
 						site. Any liabilities arising out of any act or omission by a
@@ -37,7 +37,7 @@ const PreventionHarassment = async () => {
 						Terms of Use
 					</Typography>
 					<Typography variant="body1">
-						Your use of the www.olympicgoldquest.in web site (the “Site”) is
+						Your use of the www.ogq.org web site (the “Site”) is
 						governed by the policies, terms, and conditions set forth below.
 						Please read the following information carefully. By using this Site
 						or donating through the site, you indicate your acceptance of, and
@@ -102,7 +102,7 @@ const PreventionHarassment = async () => {
 						Privacy Policy
 					</Typography>
 					<Typography variant="body1">
-						User information on this site, www.olympicgoldquest.in, is kept
+						User information on this site, www.ogq.org, is kept
 						strictly confidential. The site may, however, use this information
 						from time to time for purposes such as corresponding with the users
 						for various issues. We shall duly seek permission of the users in
@@ -128,7 +128,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 					<Typography variant="body1">
 						If you wish to donate / pay through this site,
-						www.olympicgoldquest.in, you will be asked to supply certain
+						www.ogq.org, you will be asked to supply certain
 						information. We do not accept anonymous donation / payments. You
 						agree that all information that you provide to the Foundation for
 						Promotion of Sports and Games (“FPSG”) will be accurate, complete
@@ -180,7 +180,7 @@ const PreventionHarassment = async () => {
 					</Typography>
 					<Typography variant="body1">
 						Any dispute arising out of use of this website,
-						www.olympicgoldquest.in shall be governed by and construed in
+						www.ogq.org shall be governed by and construed in
 						accordance with the laws of Republic of India and the courts of
 						Mumbai shall have exclusive jurisdiction in respect to any such a
 						dispute.

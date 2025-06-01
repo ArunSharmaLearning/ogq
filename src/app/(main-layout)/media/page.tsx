@@ -6,7 +6,7 @@ import Link from "next/link";
 const History = () => {
 	return (
 		<Box>
-			<Banner image="test.jpg" text="Olympic Gold Quest In Media" />
+			<Banner image="test.jpg" text="OGQ In Media" />
 
 			<Container>
 				<Stack direction='column' spacing={2}>
@@ -16,7 +16,7 @@ const History = () => {
 						</Box>
 						<Stack justifyContent={'start'}>
 							<Box>
-								<Typography variant='h6'>Olympic Gold Quest has acted as a catalyst in my career: Gagan Narang
+								<Typography variant='h6'>OGQ has acted as a catalyst in my career: Gagan Narang
 								</Typography>
 
 								<Link href={'https://www.google.com'}>Read More</Link>
@@ -31,7 +31,7 @@ const History = () => {
 						</Box>
 						<Stack justifyContent={'start'} >
 							<Box>
-								<Typography variant='h6'>Olympic Gold Quest has acted as a catalyst in my career: Gagan Narang
+								<Typography variant='h6'>OGQ has acted as a catalyst in my career: Gagan Narang
 								</Typography>
 
 								<Link href={'https://www.google.com'}>Read More</Link>

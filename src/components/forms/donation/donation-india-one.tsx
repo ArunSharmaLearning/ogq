@@ -166,17 +166,17 @@ const DonationIndiaOne = () => {
 										<FormControlLabel
 											value="100000"
 											control={<Radio />}
-											label="100,000"
+											label="1,00,000"
 										/>
 										<FormControlLabel
 											value="200000"
 											control={<Radio />}
-											label="200,000"
+											label="2,00,000"
 										/>
 										<FormControlLabel
 											value="500000"
 											control={<Radio />}
-											label="500,000"
+											label="5,00,000"
 										/>
 										<FormControlLabel
 											value="other"
@@ -227,7 +227,7 @@ const DonationIndiaOne = () => {
 				</Typography>
 				<Typography>
 					Yatin Bhatkar,
-					Olympic Gold Quest, 401, 5th floor, Anand Building,
+					OGQ, 401, 5th floor, Anand Building,
 					Ambedkar road, Bandra West, Mumbai - 400050</Typography>
 			</Stack>
 

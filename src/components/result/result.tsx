@@ -33,6 +33,7 @@ export const ResultComponent = ({ params }: { params: { sport: string, year: str
 								image={profile.image}
 								name={profile.name}
 								title={profile.caption}
+								description={profile.description}
 							/>
 						))}
 					</Stack>

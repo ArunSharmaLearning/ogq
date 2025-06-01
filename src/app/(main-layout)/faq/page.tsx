@@ -27,14 +27,14 @@ const FAQ = async () => {
 							aria-controls="panel2-content"
 							id="panel2-header"
 						>
-							<Typography>What is Olympic Gold Quest? </Typography>
+							<Typography>What is OGQ? </Typography>
 						</AccordionSummary>
 						<AccordionDetails>
 							<Typography>
-								Olympic Gold Quest (OGQ) is a program of the Foundation for
+								OGQ is a program of the Foundation for
 								Promotion of Sports and Games, a Not for Profit (Section 25)
 								company, which is committed to supporting deserving and talented
-								Indian sportspersons with an aim to help them win Olympic Gold
+								Indian sports persons with an aim to help them win Olympic Gold
 								Medals for India.
 							</Typography>
 						</AccordionDetails>
@@ -46,11 +46,11 @@ const FAQ = async () => {
 							aria-controls="panel2-content"
 							id="panel2-header"
 						>
-							<Typography>What is Olympic Gold Quest objective?</Typography>
+							<Typography>What is OGQ objective?</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
 							<Typography>
-								Olympic Gold Quest aims to scout for sports talent in the
+								OGQ aims to scout for sports talent in the
 								country who can go on to win Olympic Gold Medals. It also
 								identifies areas of support for each athlete and works with all
 								stakeholders in the process of aiding the deserving talent.
@@ -65,7 +65,7 @@ const FAQ = async () => {
 							id="panel2-header"
 						>
 							<Typography>
-								What are the organizational capabilities of Olympic Gold Quest?
+								What are the organizational capabilities of OGQ?
 							</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
@@ -154,7 +154,7 @@ const FAQ = async () => {
 							id="panel2-header"
 						>
 							<Typography>
-								What are the disciplines Olympic Gold Quest is looking to
+								What are the disciplines OGQ is looking to
 								support?
 							</Typography>
 						</AccordionSummary>

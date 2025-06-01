@@ -124,7 +124,7 @@ const Footer = () => {
 										<Link
 											aria-label="facebook"
 											target="_blank"
-											href="https://www.facebook.com/olympicgoldquest"
+											href="https://www.facebook.com/OGQFoundation/"
 										>
 											<Iconify icon={"bi:meta"} ml={0} />
 										</Link>
@@ -151,7 +151,7 @@ const Footer = () => {
 										<Link
 											aria-label="Instagram"
 											target="_blank"
-											href="https://www.instagram.com/olympicgoldquest/"
+											href="https://www.instagram.com/ogq_india"
 										>
 											<Iconify icon="mdi:instagram" ml={0} />
 										</Link>
@@ -173,7 +173,7 @@ const Footer = () => {
 							All Rights Reserved
 						</Typography>
 						<Typography variant="body2" color={"white"}>
-							Copyright 2020 © Olympic Gold Quest
+							Copyright 2020 © OGQ
 						</Typography>
 						<Typography variant="body2" color={"white"}>
 							OGQ&apos;s In-House Maintenance

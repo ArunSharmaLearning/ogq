@@ -51,7 +51,7 @@ export default function OlympicResultLayout({
 			<Container>
 				<Stack direction="row" alignItems={"center"} spacing={3} mb={3}>
 					<Typography variant="h4" className="underlineAfter">
-						Choose Event
+						Select Event
 					</Typography>
 					<FormControl
 						variant="outlined"

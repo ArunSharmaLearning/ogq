@@ -53,11 +53,10 @@ export default function TeamLayout({
 			/>
 			<Container>
 
-				{nation == 'usa' && <Typography className="underlineAfter" variant="h4" mb={3}>Meet Our Team</Typography>}
-				{nation == 'india' && <Typography variant="h6">Meet Our Team</Typography>}
-				{nation == 'india' && <Stack direction="row" alignItems={"center"} gap={3} mb={3}>
-					<Typography variant="h4" className="underlineAfter" mt={0} mb={2}>
-						Choose Team
+				{nation == 'usa' && <Typography className="underlineAfter" variant="h4" mb={3}>Team OGQ, USA</Typography>}
+				{nation == 'india' && <Stack direction="row" alignItems={"center"} gap={3} mb={4}>
+					<Typography variant="h4" className="underlineAfter">
+						Team OGQ
 					</Typography>
 					<FormControl
 						variant="outlined"
@@ -68,7 +67,7 @@ export default function TeamLayout({
 						}}
 					>
 						<Select
-							sx={{ height: "100%", textAlign: "left", p: 0, mt: '-1rem' }}
+							sx={{ height: "100%", textAlign: "left", p: 0, mt: '0' }}
 							value={state.team}
 							className="input-label-select"
 							onChange={handleChange}
