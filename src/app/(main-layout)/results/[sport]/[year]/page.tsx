@@ -9,8 +9,6 @@ export async function generateStaticParams() {
 	const olympicResults = sportsOlympic?.data?.olympic_result ?? [];
 	const paralympicResults = sportsParalympic?.data?.olympic_result ?? [];
 
-	console.log('Params for Olympic Results:', olympicResults);
-	console.log('Params for Paralympic Results:', paralympicResults);
 	return [
 		...olympicResults.flatMap((year: string) => [
 			{ sport: 'olympic-result', year: encodeURIComponent(year) },
