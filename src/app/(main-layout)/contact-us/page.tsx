@@ -10,7 +10,7 @@ const ContactUs = () => {
 
 	return (
 		<Box>
-			<Banner image="editable/contact.jpg" text="Contact Us" />
+			<Banner image="editable/contact-1.jpg" text="Contact Us" />
 
 			<Container>
 				{isLoading ?

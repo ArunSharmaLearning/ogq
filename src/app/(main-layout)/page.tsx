@@ -557,7 +557,7 @@ export default function Home() {
               title="HISTORY"
               text="OGQ has supported the training of more than 300 athletes since its inception"
               link="/history"
-              image="track.jpg"
+              image="editable/history.jpg"
             />
             <GeneralCard
               title="TEAM OGQ"

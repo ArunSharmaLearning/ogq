@@ -26,7 +26,7 @@ export default function JuniorLayout({
 
 	return (
 		<>
-			<Banner image="editable/junior_olympic.jpg" text={state.sport.toLocaleUpperCase()} />
+			<Banner image="editable/archery.jpg" text={state.sport.toLocaleUpperCase()} />
 			<Container>
 				<Stack direction='row' alignItems={'center'} spacing={3} mb={3}>
 					<Typography variant='h4' className="underlineAfter">Select Sport</Typography>

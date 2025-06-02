@@ -23,6 +23,7 @@ export const SportComponent = ({ params, category }: { params: { sports: string 
 							image={profile.image}
 							name={profile.name}
 							title={profile.event}
+							description={profile.description}
 						/>
 					))}
 				</Stack>

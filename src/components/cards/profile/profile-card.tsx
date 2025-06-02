@@ -4,7 +4,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { OverlayBox } from "../description/description.style";
 import { API_URL } from "@/constants/api";
 
-const ProfileCard = ({ name, title, image, description }: { name: string, title: string, image: string, description: string }) => {
+const ProfileCard = ({ name, title, image, description }: { name: string, title: string, image: string, description?: string }) => {
 
 	return (
 		<Box sx={{ flex: 1, maxWidth: { sm: "30%", xs: '100%' }, minWidth: '20rem' }}>

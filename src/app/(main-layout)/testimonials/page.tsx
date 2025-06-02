@@ -14,7 +14,7 @@ const Testimonial = () => {
 	const { data: testimonials, isLoading } = useAPI("testimonial");
 	return (
 		<Box mb={4}>
-			<Banner image="editable/testimonials.jpg" text="TESTIMONIAL" />
+			<Banner image="editable/testimonial.jpg" text="TESTIMONIAL" />
 
 			<Container>
 				<Typography

@@ -442,7 +442,7 @@ const Header = () => {
 
                 <Styles.ListItem>
                   <Styles.Link
-                    className={`parent-link ${isActive(["olympic-result/*"]) && "active"
+                    className={`parent-link ${isActive(["olympic-result/*", "paralympic-result/*"]) && "active"
                       }`}
                     href={{}}
                   >
