@@ -60,6 +60,7 @@ const DescriptionCard = ({ team }: { team: any }) => {
 					variant="h5"
 				>{team.name}</Typography>
 				<Typography variant="h5" sx={(theme) => ({ color: theme.palette.primary.main })}>{team.designation}</Typography>
+				<Typography variant="h5" sx={(theme) => ({ color: theme.palette.primary.main })}>{team.caption}</Typography>
 			</Stack>
 			<Dialog
 				sx={{
@@ -101,6 +102,7 @@ const DescriptionCard = ({ team }: { team: any }) => {
 							</Stack>
 							<Typography variant="h6">{team.designation}</Typography>
 							<Typography variant="h6">{team.qualification}</Typography>
+							<Typography variant="h6">{team.caption}</Typography>
 
 							<Typography variant="h6">
 								{team.sporting_achivements}

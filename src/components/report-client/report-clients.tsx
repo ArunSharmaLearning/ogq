@@ -2,7 +2,7 @@
 
 import Banner from "@/components/banner/banner";
 import DownloadButton from "@/components/button/download/download-button";
-import callApi, { useAPI } from "@/hooks/use-swr";
+import { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 
 

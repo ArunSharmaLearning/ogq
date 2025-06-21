@@ -15,6 +15,7 @@ const DownloadButton = ({ text, file, index }: { text: string, file: string, ind
 			<Button id={index} sx={{
 				width: '20rem', mr: '1rem', mb: '1rem',
 				paddingLeft: 5,
+				justifyContent: 'space-between', // 👈 this pushes text left & icon right
 				'&::before': {
 					position: 'absolute',
 					content: '""',
@@ -26,7 +27,7 @@ const DownloadButton = ({ text, file, index }: { text: string, file: string, ind
 			}} variant="contained"
 				target="_blank"
 				href={`${API_URL}${file}`}
-				endIcon={< Iconify width={22} icon={'line-md:download-loop'} ml={1} />}
+				endIcon={< Iconify width={22} icon={'line-md:download-loop'} />}
 			>
 				{truncatedText}
 			</Button >

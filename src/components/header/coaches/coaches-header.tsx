@@ -201,7 +201,7 @@ const CoachesHeader = () => {
 							>
 
 								<Styles.ListItem>
-									<Styles.Link className={`parent-link ${isActive(['coaches']) && 'active'}`} href="/programs/coaches">
+									<Styles.Link className={`parent-link ${isActive(['coaches']) && 'active'}`} href="/coaches">
 										Coaches Program
 									</Styles.Link>
 								</Styles.ListItem>
@@ -224,19 +224,6 @@ const CoachesHeader = () => {
 										CLP
 									</Styles.Link>
 								</Styles.ListItem>
-
-
-								<Styles.ListItem className="dropdown">
-									<Styles.Link className="parent-link" href="/about-us">
-										About Us<Iconify icon={"gridicons:dropdown"} />
-									</Styles.Link>
-									<Box className="dropdown-content">
-										<Styles.Link href="/about-us">Trainers</Styles.Link>
-										<Styles.Link href="/about-us">Partners</Styles.Link>
-										<Styles.Link href="/executives">Program Team</Styles.Link>
-									</Box>
-								</Styles.ListItem>
-
 							</List>
 						</Box>
 					</Toolbar>

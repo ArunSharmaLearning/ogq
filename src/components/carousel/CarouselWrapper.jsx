@@ -18,7 +18,7 @@ const CarouselWrapper = ({ children, slides = 1 }) => {
     autoplay: children?.length > 1,
     dots: false,
     pauseOnHover: false,
-    arrows: children?.length > 1,
+    arrows: false,
     responsive: [
       {
         breakpoint: 600,
@@ -36,7 +36,7 @@ const CarouselWrapper = ({ children, slides = 1 }) => {
       <Slider {...setting}
       >
         {React.Children.map(children, (child) => (
-          <Box>{child}</Box>
+          <>{child}</>
         ))}
       </Slider >
     </Box >

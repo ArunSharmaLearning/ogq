@@ -4,13 +4,20 @@ import useSWR from "swr";
 
 const defaultFetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default async function callApi(endpoint: string): {
+export default async function callApi(
+  endpoint: string,
+  type = 1
+): {
   data: any;
   error: boolean;
   message: string;
 } {
   try {
-    const res = await fetch(`${API_URL}/api/${endpoint}`);
+    let res = await fetch(`${API_URL}/api/${endpoint}`);
+    if (type === 2) {
+      res = await fetch(`${API_URL}/coaches_program/${endpoint}`);
+    }
+    console.log("API Call:", res.url);
     if (res.ok) return { error: false, data: await res.json() };
     else return { error: true, message: res.statusText };
   } catch (e) {
@@ -19,9 +26,9 @@ export default async function callApi(endpoint: string): {
   }
 }
 
-export const useAPI = (endpoint, fetcher = defaultFetcher) => {
+export const useAPI = (endpoint, type = 1, fetcher = defaultFetcher) => {
   const { data, error, isLoading, isValidating } = useSWR(
-    `${API_URL}/api/${endpoint}`,
+    `${API_URL}${type === 1 ? "/api/" : "/coaches_program/"}${endpoint}`,
     fetcher,
     {
       revalidateIfStale: true,
