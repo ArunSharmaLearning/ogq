@@ -17,7 +17,7 @@ export default async function callApi(
     if (type === 2) {
       res = await fetch(`${API_URL}/coaches_program/${endpoint}`);
     }
-    console.log("API Call:", res.url);
+
     if (res.ok) return { error: false, data: await res.json() };
     else return { error: true, message: res.statusText };
   } catch (e) {
@@ -27,6 +27,10 @@ export default async function callApi(
 }
 
 export const useAPI = (endpoint, type = 1, fetcher = defaultFetcher) => {
+  const url = `${API_URL}${
+    type === 1 ? "/api/" : "/coaches_program/"
+  }${endpoint}`;
+
   const { data, error, isLoading, isValidating } = useSWR(
     `${API_URL}${type === 1 ? "/api/" : "/coaches_program/"}${endpoint}`,
     fetcher,

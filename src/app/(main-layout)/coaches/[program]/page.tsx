@@ -27,21 +27,18 @@ const Program = async ({ params }: { params: { program: string } }) => {
 	const alumni = await callApi(
 		`alumni?cp_type=${params.program}`, 2);
 
+
 	return (
 		<>
 			<Banner
-				image={`${API_URL}/${program.data.back_image}`}
-				text={program.data.caption}
+				image={`${API_URL}/${program?.data?.back_image}`} text=""
 			/>
 			<Container>
 				<Typography className="underlineAfter" variant="h2">Coaches Program - {params.program.toUpperCase()}</Typography>
 				<Typography variant="body1" dangerouslySetInnerHTML={{ __html: program.data.content }} />
 
-
-
 				<Box>
-
-					{trainers && trainers.data.length > 0 && <Typography mb={3} className="underlineAfter" variant="h2">Coaches</Typography>}
+					{trainers && trainers.data.length > 0 && <Typography mb={3} className="underlineAfter" variant="h2">Trainers</Typography>}
 					{trainers && trainers.data.length > 0 && (
 						<Stack
 							direction={"row"}
@@ -66,8 +63,6 @@ const Program = async ({ params }: { params: { program: string } }) => {
 					</Stack>
 				</Box>
 			</Container>
-
-
 		</>
 	)
 };

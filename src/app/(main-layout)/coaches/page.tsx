@@ -6,12 +6,14 @@ import { API_URL } from "@/constants/api";
 import { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Typography, Stack, useTheme } from "@mui/material";
 import Image from "next/image";
+import './page.scss';
 
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Link from "next/link";
 
 const CoachesProgram = () => {
 	const theme = useTheme();
@@ -45,23 +47,8 @@ const CoachesProgram = () => {
 		2
 	);
 
-	const { data: execPartner, isLoading: execPartnerLoading } = {
-		data: [
-			{
-				image: "/editable/contact-1.jpg",
-				id: 1,
-			},
-			{
-				image: "/editable/contact.jpg",
-				id: 2,
-			},
-			{
-				image: "/editable/impact.jpg",
-				id: 3,
-			}],
-		isLoading: false,
-	}
-	
+	const { data: execPartner, isLoading: execPartnerLoading } = useAPI("execution-partners", 2);
+
 	const programCFP = useAPI('cfp', 2);
 	const programCEP = useAPI('cep', 2);
 	const programCLP = useAPI('clp', 2);
@@ -76,10 +63,6 @@ const CoachesProgram = () => {
 			/>
 
 			<Container>
-				{/* <Typography variant="h4" mt={0} className="underlineAfter">
-					About the Program
-				</Typography> */}
-
 				<Typography
 					dangerouslySetInnerHTML={{ __html: aboutCoaches?.content }}
 				></Typography>
@@ -199,8 +182,7 @@ const CoachesProgram = () => {
 							link="cep"
 							image={`${API_URL}/${programCEP?.data?.front_image}`}
 							heading="Stage 1"
-							subHeading1="Self Study"
-							subHeading2=" 4 Months + Short residential  camp"
+							subHeading={programCEP?.data?.caption}
 							bgColor="#e8bedd"
 						/>
 
@@ -208,8 +190,7 @@ const CoachesProgram = () => {
 							link="cfp"
 							image={`${API_URL}/${programCFP?.data?.front_image}`}
 							heading="Stage 2"
-							subHeading1="Residential + Online "
-							subHeading2="1 year"
+							subHeading={programCFP?.data?.caption}
 							bgColor="#d2e0b4"
 						/>
 
@@ -217,8 +198,7 @@ const CoachesProgram = () => {
 							link="clp"
 							image={`${API_URL}/${programCLP?.data?.front_image}`}
 							heading="Stage 3"
-							subHeading1="One on One Mentoring + Residential"
-							subHeading2=" Multi year"
+							subHeading={programCLP?.data?.caption}
 							bgColor="#d9f1ff"
 						/>
 					</Stack>
@@ -241,7 +221,7 @@ const CoachesProgram = () => {
 						Coaches Program Impact over {cpStats?.number_of_years} years
 					</Typography>
 
-					<VerticalTimeline layout="1-column-Left">
+					<VerticalTimeline layout="1-column-Left" className="custom-vertical-timeline">
 						<VerticalTimelineElement
 							visible
 							iconStyle={{
@@ -332,9 +312,11 @@ const CoachesProgram = () => {
 				<Box sx={{ padding: { xs: "0 10vw", sm: "0 20vw" } }}>
 					<CarouselWrapper slides={2}>
 						{!execPartnerLoading && (
-							execPartner.map((partner) => (
+							execPartner?.map((partner) => (
 								<Box key={partner.id} sx={{ maxHeight: '200px', minHeight: '120px', position: 'relative' }}>
-									<Image src={partner.image} fill unoptimized alt="partner" />
+									<Link title={partner.name} href={partner.url} target="_blank">
+										<Image src={API_URL + "/" + partner.image} fill unoptimized alt="partner" />
+									</Link>
 								</Box>
 							))
 						)}
@@ -344,5 +326,6 @@ const CoachesProgram = () => {
 		</Box >
 	);
 };
+
 
 export default CoachesProgram;

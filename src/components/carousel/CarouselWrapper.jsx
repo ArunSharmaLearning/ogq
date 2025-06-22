@@ -12,10 +12,10 @@ import "slick-carousel/slick/slick-theme.css";
 const CarouselWrapper = ({ children, slides = 1 }) => {
   const setting = {
     infinite: children?.length > 1,
-    slidesToShow: children?.length > 1 ? slides : 0,
+    slidesToShow: children?.length > 1 ? slides : 1,
     speed: 1000,
     autoplaySpeed: 4000,
-    autoplay: children?.length > 1,
+    autoplay: true,
     dots: false,
     pauseOnHover: false,
     arrows: false,

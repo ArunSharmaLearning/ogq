@@ -64,10 +64,6 @@ const Header = () => {
           href: "/team/usa",
         },
         {
-          title: "Coaches Program",
-          href: "/coaches/",
-        },
-        {
           title: "Careers",
           href: "/careers",
         },
@@ -124,6 +120,10 @@ const Header = () => {
     {
       title: "Paralympics",
       href: "/paralympics/archery",
+    },
+    {
+      title: "Coaches Program",
+      href: "/coaches",
     },
     {
       title: "Results",
@@ -344,7 +344,6 @@ const Header = () => {
                       "team/usa/*",
                       "contact-us",
                       "vision-and-mission",
-                      "coaches",
                     ]) && "active"
                       }`}
                   >
@@ -359,9 +358,7 @@ const Header = () => {
                       Team OGQ
                     </Styles.Link>
                     <Styles.Link href="/team/usa">Team OGQ USA</Styles.Link>
-                    <Styles.Link href="/coaches">
-                      Coaches Program
-                    </Styles.Link>
+
                     <Styles.Link href="/careers">
                       Careers
                     </Styles.Link>
@@ -437,6 +434,16 @@ const Header = () => {
                     href="/paralympics/archery"
                   >
                     Paralympics
+                  </Styles.Link>
+                </Styles.ListItem>
+
+                <Styles.ListItem>
+                  <Styles.Link
+                    className={`parent-link  ${isActive(["coaches/*"]) && "active"
+                      }`}
+                    href="/coaches"
+                  >
+                    Coaches Program
                   </Styles.Link>
                 </Styles.ListItem>
 
