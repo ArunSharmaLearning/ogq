@@ -60,7 +60,6 @@ export const typography = {
     ...responsiveFontSizes({ sm: 14, md: 18 }),
   },
   h6: {
-
     fontWeight: 600,
     lineHeight: 1.4,
     fontSize: pxToRem(13),

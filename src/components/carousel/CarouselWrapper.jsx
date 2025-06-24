@@ -9,7 +9,7 @@ import "./CarouselWrapper.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CarouselWrapper = ({ children, slides = 1 }) => {
+const CarouselWrapper = ({ children, slides = 1, arrows = false }) => {
   const setting = {
     infinite: children?.length > 1,
     slidesToShow: children?.length > 1 ? slides : 1,
@@ -18,7 +18,7 @@ const CarouselWrapper = ({ children, slides = 1 }) => {
     autoplay: true,
     dots: false,
     pauseOnHover: false,
-    arrows: false,
+    arrows: arrows,
     responsive: [
       {
         breakpoint: 600,

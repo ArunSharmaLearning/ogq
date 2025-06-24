@@ -3,16 +3,13 @@ import Banner from "@/components/banner/banner";
 import Iconify from "@/components/iconify";
 import {
 	Box,
-	Container,
 	Dialog,
-	DialogContent,
 	IconButton,
 	Stack,
 	TextField,
 	Typography,
 	alpha,
 	useTheme,
-	styled,
 	Button,
 } from "@mui/material";
 import Image from "next/image";

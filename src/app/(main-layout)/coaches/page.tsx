@@ -63,9 +63,12 @@ const CoachesProgram = () => {
 			/>
 
 			<Container>
-				<Typography
-					dangerouslySetInnerHTML={{ __html: aboutCoaches?.content }}
-				></Typography>
+				<Typography variant="h4" fontSize={'1.2rem'} textAlign={"center"} maxWidth={{ sm: '65%' }} mx={'auto'} my={3}>
+					The OGQ Coaches Program
+					is a comprehensive learning and training initiative
+					aimed at developing high-performance Indian coaches
+					across Olympic and Paralympic sports.
+				</Typography>
 
 				<Box
 					sx={{

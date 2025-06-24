@@ -1,17 +1,15 @@
-"use client";
-
 import Banner from "@/components/banner/banner";
 import { CarouselWrapper } from "@/components/carousel";
 import Iconify from "@/components/iconify";
 import Loading from "@/components/loader";
 import { API_URL } from "@/constants/api";
-import { useAPI } from "@/hooks/use-swr";
+import callApi, { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 
-const Testimonial = () => {
+const Testimonial = async () => {
 
-	const { data: testimonials, isLoading } = useAPI("testimonial");
+	const { data: testimonials } = await callApi("testimonial");
 	return (
 		<Box mb={4}>
 			<Banner image="editable/testimonial.jpg" text="TESTIMONIAL" />
@@ -25,8 +23,8 @@ const Testimonial = () => {
 				>
 					What People Are Saying
 				</Typography>
-				<CarouselWrapper>
-					{!isLoading ? testimonials.map((testimonial) =>
+				<CarouselWrapper arrows={true}>
+					{testimonials && testimonials.map((testimonial) =>
 						<Box
 							className="slide_image"
 							sx={{
@@ -52,16 +50,16 @@ const Testimonial = () => {
 
 								<Box
 									component="span"
-									sx={(theme) => ({
+									sx={{
 										position: "absolute",
 										bottom: "0",
-										backgroundColor: theme.palette.primary.main,
+										backgroundColor: '#ffcd0c',
 										borderRadius: "50%",
 										right: "8px",
-										color: theme.palette.common.white,
+										color: '#ffffff',
 										zIndex: 2,
 										padding: "2px 4px",
-									})}
+									}}
 								>
 									<Iconify icon="fa6-solid:quote-right" ml={0} />
 								</Box>
@@ -76,8 +74,8 @@ const Testimonial = () => {
 							<Typography variant="body1">
 								{testimonial.extra_info}
 							</Typography>
-						</Box>) :
-						<Loading />
+						</Box>
+					)
 					}
 				</CarouselWrapper>
 			</Container>
