@@ -7,6 +7,7 @@ import { Box, Container, Typography } from "@mui/material";
 const History = () => {
 
 	const { data, isLoading } = useAPI('history');
+	
 	return (
 		<Box>
 			<Banner image="editable/history.jpg" text="HISTORY" />

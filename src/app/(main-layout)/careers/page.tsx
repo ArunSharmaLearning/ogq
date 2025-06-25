@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 
 const Career = () => {
+	
 	const { data: careers, isLoading } = useAPI("announcement");
 
 	return (
@@ -27,7 +28,7 @@ const Career = () => {
 						<Typography variant="h3" mb={3} className="underlineAfter">
 							Join Us
 						</Typography>
-						<CarouselWrapper slides={3}>
+						<CarouselWrapper arrows={true} slides={3}>
 							{
 								careers?.map((career) =>
 									<AnnouncementCard key={career.id} image={career.image} link={career.url} />
