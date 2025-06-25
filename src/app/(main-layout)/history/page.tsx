@@ -12,7 +12,7 @@ const History = async () => {
 			<Container>
 				<Typography variant="h4" className="underlineAfter">
 					Transforming Indian Athlete Support</Typography>
-				<Box dangerouslySetInnerHTML={{ __html: data?.content }}></Box>
+				{data && data?.content && <Box dangerouslySetInnerHTML={{ __html: data?.content }}></Box>}
 			</Container>
 		</Box>
 	);

@@ -14,7 +14,7 @@ export default async function callApi(
 } {
   try {
     let res = await fetch(`${API_URL}/api/${endpoint}`, {
-      next: { revalidate: 90 },
+      cache: "no-store",
     });
     if (type === 2) {
       res = await fetch(`${API_URL}/coaches_program/${endpoint}`);

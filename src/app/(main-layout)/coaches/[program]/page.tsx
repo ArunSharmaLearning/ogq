@@ -34,30 +34,34 @@ const Program = async ({ params }: { params: { program: string } }) => {
 				image={`${API_URL}/${program?.data?.back_image}`} text=""
 			/>
 			<Container>
-				<Typography className="underlineAfter" variant="h2">Coaches Program - {params.program.toUpperCase()}</Typography>
-				<Typography variant="body1" dangerouslySetInnerHTML={{ __html: program.data.content }} />
-
+				{program?.data?.content && (
+					<>
+						<Typography className="underlineAfter" variant="h2">Coaches Program - {params.program.toUpperCase()}</Typography>
+						<Typography variant="body1" dangerouslySetInnerHTML={{ __html: program?.data?.content }} />
+					</>
+				)}
+				
 				<Box>
-					{trainers && trainers.data.length > 0 && <Typography mb={3} className="underlineAfter" variant="h2">Trainers</Typography>}
-					{trainers && trainers.data.length > 0 && (
+					{trainers && trainers?.data?.length > 0 && <Typography mb={3} className="underlineAfter" variant="h2">Trainers</Typography>}
+					{trainers && trainers?.data?.length > 0 && (
 						<Stack
 							direction={"row"}
 							flexWrap={"wrap"}
 							gap={2}
 							justifyContent={"flex-start"}
 						>
-							{trainers.data.map((trainee) => (
+							{trainers?.data?.map((trainee) => (
 								<DescriptionCard key={trainee.id} team={trainee} />
 							))}
 						</Stack>
 					)}
 
-					{alumni.data.length > 0 &&
+					{alumni?.data?.length > 0 &&
 						<Typography mb={3} className="underlineAfter" variant="h2">Alumni</Typography>
 					}
 
 					<Stack direction={'row'} spacing={0} flexWrap={'wrap'}>
-						{alumni && alumni.data.map((report: any) => (
+						{alumni && alumni?.data?.map((report: any) => (
 							<DownloadButton key={report.name + "_" + report.id} index={report.name + "_" + report.id} text={report.name} file={report.file} />
 						))}
 					</Stack>
