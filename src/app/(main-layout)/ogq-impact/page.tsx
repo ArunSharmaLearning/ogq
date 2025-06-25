@@ -1,6 +1,5 @@
 import Banner from "@/components/banner/banner"
 import DescriptionCard from "@/components/cards/description/description-card"
-import Loading from "@/components/loader"
 import callApi from "@/hooks/use-swr"
 import { Container, Stack, Typography } from "@mui/material"
 
