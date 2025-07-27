@@ -31,12 +31,115 @@ const FAQ = async () => {
 						</AccordionSummary>
 						<AccordionDetails>
 							<Typography>
-								OGQ is a program of the Foundation for
-								Promotion of Sports and Games, a Not for Profit (Section 25)
-								company, which is committed to supporting deserving and talented
-								Indian sports persons with an aim to help them win Olympic Gold
-								Medals for India.
+								OGQ is a program of the Foundation for Promotion of Sports and
+								Games, a Not for Profit (Section 8) company, founded by India’s
+								sports legends Geet Sethi and Prakash Padukone with a mission to
+								help Indian athletes win Gold Medals for India at the Olympics
+								and Paralympics.
 							</Typography>
+						</AccordionDetails>
+					</Accordion>
+
+					<Accordion>
+						<AccordionSummary
+							expandIcon={<Iconify icon="ep:arrow-down" />}
+							aria-controls="panel2-content"
+							id="panel2-header"
+						>
+							<Typography>What sports are supported by OGQ??</Typography>
+						</AccordionSummary>
+						<AccordionDetails>
+							<Typography>
+								OGQ currently supports athletes and para athletes in 11 Olympic
+								Sports (Archery, Badminton, Boxing, Shooting, Wrestling,
+								Athletics, Swimming, Table Tennis, Weightlifting, Squash,
+								Tennis) and 9 Paralympic Sports (Para Athletics, Para Archery,
+								Para Badminton, Para Shooting, Para Table Tennis, Para Canoe,
+								Blind Judo, Para Swimming, Powerlifting)
+							</Typography>
+						</AccordionDetails>
+					</Accordion>
+
+					<Accordion>
+						<AccordionSummary
+							expandIcon={<Iconify icon="ep:arrow-down" />}
+							aria-controls="panel2-content"
+							id="panel2-header"
+						>
+							<Typography>
+								What are the parameters of support to athletes and para athletes
+								implemented by OGQ?
+							</Typography>
+						</AccordionSummary>
+						<AccordionDetails>
+							<Typography>
+								1) Domestic and International Training and Tournaments
+								<br />
+								2) Foreign and Domestic Coaching Support
+								<br />
+								3) Sports Science Support
+								<br />
+								4) Equipment and Sports Kit Support
+								<br />
+								5) Monthly Stipend to Athletes and Para Athletes
+							</Typography>
+						</AccordionDetails>
+					</Accordion>
+
+					<Accordion>
+						<AccordionSummary
+							expandIcon={<Iconify icon="ep:arrow-down" />}
+							aria-controls="panel2-content"
+							id="panel2-header"
+						>
+							<Typography>
+								What has been the performance of athletes supported by OGQ at
+								the Olympics?
+							</Typography>
+						</AccordionSummary>
+						<AccordionDetails>
+							<Typography>
+								13 out of the 21 medal winners for India at the London 2012, Rio
+								2016, Tokyo 2020 and Paris 2024 were supported by OGQ
+							</Typography>
+						</AccordionDetails>
+					</Accordion>
+
+					<Accordion>
+						<AccordionSummary
+							expandIcon={<Iconify icon="ep:arrow-down" />}
+							aria-controls="panel2-content"
+							id="panel2-header"
+						>
+							<Typography>
+								What has been the performance of para athletes supported by OGQ
+								at the Paralympics?
+							</Typography>
+						</AccordionSummary>
+						<AccordionDetails>
+							<Typography>
+								OGQ began support to para athletes in 2019. Since then, 35 out
+								of the 48 medals for India at the Tokyo 2020 & Paris 2024
+								Paralympics were won by para athletes supported by OGQ
+							</Typography>
+						</AccordionDetails>
+					</Accordion>
+
+					<Accordion>
+						<AccordionSummary
+							expandIcon={<Iconify icon="ep:arrow-down" />}
+							aria-controls="panel2-content"
+							id="panel2-header"
+						>
+							<Typography>Who are the board of directors of OGQ?</Typography>
+						</AccordionSummary>
+						<AccordionDetails>
+							<Link
+								href="/team/india/board%20of%20directors"
+								sx={{ color: "black", width: "fit-content" }}
+							>
+								Click here to see our Board of Directors
+							</Link>
 						</AccordionDetails>
 					</Accordion>
 
@@ -50,10 +153,10 @@ const FAQ = async () => {
 						</AccordionSummary>
 						<AccordionDetails>
 							<Typography>
-								OGQ aims to scout for sports talent in the
-								country who can go on to win Olympic Gold Medals. It also
-								identifies areas of support for each athlete and works with all
-								stakeholders in the process of aiding the deserving talent.
+								OGQ aims to scout for sports talent in the country who can go on
+								to win Olympic Gold Medals. It also identifies areas of support
+								for each athlete and works with all stakeholders in the process
+								of aiding the deserving talent.
 							</Typography>
 						</AccordionDetails>
 					</Accordion>
@@ -154,8 +257,7 @@ const FAQ = async () => {
 							id="panel2-header"
 						>
 							<Typography>
-								What are the disciplines OGQ is looking to
-								support?
+								What are the disciplines OGQ is looking to support?
 							</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
@@ -173,10 +275,15 @@ const FAQ = async () => {
 							aria-controls="panel2-content"
 							id="panel2-header"
 						>
-							<Typography>Who are the athletes on Board?</Typography>
+							<Typography>Who are the athletes supported by OGQ?</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
-							<Link sx={{ color: 'black', width: 'fit-content' }} href="sd">Click here to see our athletes profile</Link>
+							<Link
+								sx={{ color: "black", width: "fit-content" }}
+								href="/olympics/archery"
+							>
+								Click here to see our Athletes profile
+							</Link>
 						</AccordionDetails>
 					</Accordion>
 
@@ -186,15 +293,17 @@ const FAQ = async () => {
 							aria-controls="panel2-content"
 							id="panel2-header"
 						>
-							<Typography>Who are the athletes on Board?</Typography>
+							<Typography>
+								Who are the para athletes supported by OGQ?
+							</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
-							<Typography>
-								Short-listing potential athletes with credentials Thorough
-								research on athletes, their sport and potential to win an
-								Olympic Medal Final selection of athletes post board clearance
-								Entire process monitored & reviewed constantly
-							</Typography>
+							<Link
+								sx={{ color: "black", width: "fit-content" }}
+								href="/paralympics/archery"
+							>
+								Click here to see our Para Athletes profile
+							</Link>
 						</AccordionDetails>
 					</Accordion>
 
@@ -207,7 +316,10 @@ const FAQ = async () => {
 							<Typography>How are the funds utilized?</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
-							<Link sx={{ color: 'black', width: 'fit-content' }} href="/areas-of-support">
+							<Link
+								sx={{ color: "black", width: "fit-content" }}
+								href="/areas-of-support"
+							>
 								Click here to see the areas of support for funds utilization
 							</Link>
 						</AccordionDetails>
@@ -240,7 +352,12 @@ const FAQ = async () => {
 							<Typography>How can you contribute?</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
-							<Link sx={{ color: 'black', width: 'fit-content' }} href="/donate-now">Please click here to contribute</Link>
+							<Link
+								sx={{ color: "black", width: "fit-content" }}
+								href="/donate-now"
+							>
+								Please click here to donate
+							</Link>
 						</AccordionDetails>
 					</Accordion>
 
@@ -250,12 +367,16 @@ const FAQ = async () => {
 							aria-controls="panel2-content"
 							id="panel2-header"
 						>
-							<Typography>What are the Tax Benefits for contributors?
+							<Typography>
+								What are the Tax Benefits for contributors?
 							</Typography>
 						</AccordionSummary>
 						<AccordionDetails>
 							<Typography>
-								For Indian Tax Payers: u/s 35AC of the IT Act up to 100% of your donation or u/s 80G of the IT Act up to 50% of your donation is deductible.
+								- Donations to OGQ are eligible for 50% tax deduction under
+								Section 80G of the Indian Income Tax Act.
+								<br />- OGQ is recognized as a tax-exempt nonprofit under
+								section 501(c)(3) of the US Internal Revenue Code.
 							</Typography>
 						</AccordionDetails>
 					</Accordion>

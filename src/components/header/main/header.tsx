@@ -123,7 +123,8 @@ const Header = () => {
     },
     {
       title: "Coaches Program",
-      href: "/coaches",
+      // href: "/coaches",
+      href: "https://ogq.org/cep/",
     },
     {
       title: "Results",
@@ -441,7 +442,8 @@ const Header = () => {
                   <Styles.Link
                     className={`parent-link  ${isActive(["coaches/*"]) && "active"
                       }`}
-                    href="/coaches"
+                    // href="/coaches"
+                    href="https://ogq.org/cep/"
                   >
                     Coaches Program
                   </Styles.Link>
