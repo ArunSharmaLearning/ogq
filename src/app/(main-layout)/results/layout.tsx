@@ -30,7 +30,9 @@ export default function OlympicResultLayout({
 				?.replace(/%20|-/g, " ") || "",
 	});
 
-	const { data: sportCategory, isLoading: isLoadingSportCat } = useAPI("dropdown");
+	const sportType = router.pathname().includes('olympic') ? 'olympic' : 'paralympics';
+
+	const { data: sportCategory, isLoading: isLoadingSportCat } = useAPI(`dropdown?page=${sportType}`);
 
 	const handleChange = (event: SelectChangeEvent<string>) => {
 		const name = event.target.name;

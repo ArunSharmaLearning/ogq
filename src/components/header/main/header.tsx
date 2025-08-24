@@ -102,7 +102,7 @@ const Header = () => {
           href: `${API_URL}/${data?.file}`,
         },
         {
-          title: "Posh Policy",
+          title: "POSH Policy",
           href: `${API_URL}/${posh?.file}`,
         },
       ],
@@ -123,8 +123,7 @@ const Header = () => {
     },
     {
       title: "Coaches Program",
-      // href: "/coaches",
-      href: "https://ogq.org/cep/",
+      href: "/coaches",
     },
     {
       title: "Results",
@@ -405,7 +404,7 @@ const Header = () => {
                       target="_blank"
                       href={`${API_URL}/${posh?.file}`}
                     >
-                      Posh Policy
+                      POSH Policy
                     </Styles.Link>
                   </Styles.DropdownContent>
                 </Styles.ListItem>
@@ -442,8 +441,7 @@ const Header = () => {
                   <Styles.Link
                     className={`parent-link  ${isActive(["coaches/*"]) && "active"
                       }`}
-                    // href="/coaches"
-                    href="https://ogq.org/cep/"
+                    href="/coaches"
                   >
                     Coaches Program
                   </Styles.Link>
