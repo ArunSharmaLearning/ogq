@@ -22,3 +22,18 @@
 		}
 	}
 }
+
+.vision-mission {
+	background-color: #d7e700;
+
+	& .header-underline {
+		display: inline-block; /* or block depending on layout */
+		border-bottom: 4px solid white; /* thickness and color */
+		padding-bottom: 1px; /* spacing between text and line */
+		width: 50%; /* makes it stretch across */
+
+		@media (max-width: 600px) {
+			width: 100%;
+		}
+	}
+}

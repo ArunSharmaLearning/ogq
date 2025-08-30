@@ -226,6 +226,7 @@
 
 .underlineAfter {
 	position: relative;
+	height: fit-content;
 }
 
 .underlineAfter::after {

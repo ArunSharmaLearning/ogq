@@ -14,6 +14,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import Link from "next/link";
+import CountUp from "react-countup";
 
 const CoachesProgram = () => {
 	const theme = useTheme();
@@ -57,9 +58,9 @@ const CoachesProgram = () => {
 	return (
 		<Box>
 			<Banner
-				image={`${API_URL}${carouselData?.image}`}
-				text={carouselData?.heading}
-				subText={carouselData?.sub_heading}
+				image="CP-1.gif"
+				text={""}
+				subText={""}
 			/>
 
 			<Container>
@@ -93,6 +94,8 @@ const CoachesProgram = () => {
 						display: "flex",
 						flexDirection: { xs: "column", sm: "row" },
 						justifyContent: "space-between",
+						backgroundColor: "#cfcfcf",
+						padding: 3,
 						gap: 2,
 						mt: 4,
 					}}
@@ -107,7 +110,7 @@ const CoachesProgram = () => {
 					>
 						<Typography
 							variant="h2"
-							sx={{ textAlign: "center" }}
+							sx={{ textAlign: "center", margin: "auto" }}
 							className="underlineAfter"
 						>
 							About the Program
@@ -121,37 +124,30 @@ const CoachesProgram = () => {
 				</Box>
 
 				<Stack
-					direction={{ xs: "column", sm: "row" }}
+					direction="column"
+					className="vision-mission"
 					justifyContent={"space-between"}
 					gap={2}
 					mt={4}
+					padding={{ xs: 3, sm: 10 }}
 				>
-					<Stack flex={1}>
-						<Typography variant="h4" mt={4} className="underlineAfter">
+					<Stack direction={{ xs: 'column', sm: 'row' }} flex={1} justifyContent={{ xs: 'flex-start', sm: 'space-between' }} gap={{ sm: 6, xs: 1 }} alignItems={'flex-start'}>
+						<Typography variant="h3" color='white' className="header-underline">
 							VISION
 						</Typography>
 
-						<Typography
+						<Typography fontWeight={600} width={{ sm: '65%', xs: '100%' }}
 							dangerouslySetInnerHTML={{ __html: vision?.content }}
 						></Typography>
 					</Stack>
 
-					<Stack flex={1}>
-						<Typography variant="h4" mt={4} className="underlineAfter">
+					<Stack direction={{ xs: 'column', sm: 'row' }} flex={1} justifyContent={'space-between'} gap={{ sm: 6, xs: 1 }} alignItems={'flex-start'}>
+						<Typography color='white' variant="h3" className="header-underline">
 							MISSION
 						</Typography>
 
-						<Typography
+						<Typography fontWeight={600} width={{ sm: '65%', xs: '100%' }}
 							dangerouslySetInnerHTML={{ __html: mission?.content }}
-						></Typography>
-					</Stack>
-					<Stack flex={1}>
-						<Typography variant="h4" mt={4} className="underlineAfter">
-							History
-						</Typography>
-
-						<Typography
-							dangerouslySetInnerHTML={{ __html: history?.content }}
 						></Typography>
 					</Stack>
 				</Stack>
@@ -206,99 +202,127 @@ const CoachesProgram = () => {
 						/>
 					</Stack>
 				</Box>
-			</Container>
 
-			<Box
-				sx={{
-					mt: 6,
-					mb: 4,
-					py: 4,
-					border: "5px solid #000000",
-					borderWidth: "5px 0",
-					paddingTop: 2,
-					backgroundColor: theme.palette.primary.dark,
-				}}
-			>
-				<Container>
-					<Typography variant="h2" mb={4} maxWidth={400} lineHeight={1.25}>
-						Coaches Program Impact over {cpStats?.number_of_years} years
+				<Box
+					sx={{
+						mt: 6,
+						mb: 4,
+						backgroundColor: '#2c018f',
+						color: 'white',
+						padding: { xs: "2rem", sm: "3rem 6rem" }
+					}}
+				>
+					<Typography variant="h4" lineHeight={1.5} textTransform={'uppercase'} mb={{ xs: 5, sm: 8 }} className="underlineAfter">
+						Impact over the last {cpStats?.number_of_years} years -
 					</Typography>
 
-					<VerticalTimeline layout="1-column-Left" className="custom-vertical-timeline">
-						<VerticalTimelineElement
-							visible
-							iconStyle={{
-								background: theme.palette.primary.main,
-								color: "#fff",
-							}}
-						>
-							<Box>
-								<Typography className="underlineAfter"
-									sx={{
-										lineHeight: 1.25,
-										mb: 1,
-										fontSize: theme => `${theme.typography.h2.fontSize} !important`,
-									}}
-									variant="h2">{cpStats?.coaches_upskilled}</Typography>
-
-								<Typography variant="h5">
-									Coaches upskilled through Coaches Program
-								</Typography>
-							</Box>
-						</VerticalTimelineElement>
-
-						<VerticalTimelineElement
-							visible
-							iconStyle={{
-								background: theme.palette.primary.main,
-								color: "#fff",
-							}}
-						>
-							<Typography className="underlineAfter" sx={{
-								lineHeight: 1.25,
-								mb: 1,
-								fontSize: theme => `${theme.typography.h2.fontSize} !important`,
-							}} variant="h2">{cpStats?.athletes_impacted}</Typography>
-
-							<Typography variant="h5">
-								Athletes Impacted through Coaches Program
-							</Typography>
-						</VerticalTimelineElement>
-
-						<VerticalTimelineElement
-							visible
-							iconStyle={{
-								background: theme.palette.primary.main,
-								color: "#fff",
-							}}
-						>
-							<Typography variant="h2" className="underlineAfter" sx={{
-								lineHeight: 1.25,
-								mb: 1,
-								fontSize: theme => `${theme.typography.h2.fontSize} !important`,
-							}}>
-								{cpStats?.athletes_represented}
-							</Typography>
-							{/* <hr
-								style={{
-									border: "none",
-									height: "2px",
-									backgroundColor: theme.palette.primary.main,
-									margin: "-2px",
-									width: "25%",
+					<Stack direction={{ xs: 'column', sm: 'row' }} justifyContent={'space-between'} gap={6} mb={4}>
+						<Stack justifyContent={'center'} alignItems={'center'}>
+							<Typography
+								sx={{
+									lineHeight: 0.7,
+									mb: 1,
+									fontSize: theme => `${theme.typography.h1.fontSize} !important`,
 								}}
-							/> */}
-							<Typography variant="h5">
-								Coaches trainees represented India at Paris Olympics &
-								Paralympics
+								variant="h2">
+								{!cpStatLoading && <CountUp
+									style={{
+										display: "inline-block",
+										fontSize: 'inherit'
+									}}
+									enableScrollSpy
+									scrollSpyOnce
+									preserveValue
+									start={0}
+									end={cpStats.coaches_upskilled}
+									duration={2}
+									formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
+								/>
+								}
 							</Typography>
-						</VerticalTimelineElement>
-					</VerticalTimeline>
 
-				</Container>
 
-			</Box>
-			<Container>
+							<Typography variant="h5" borderBottom={'2px solid #b5b5b5'} pb={0} mb={0.5}>
+								coaches trained
+							</Typography>
+
+							<Typography variant="h6">
+								across programs
+							</Typography>
+						</Stack>
+
+						<Stack justifyContent={'center'} alignItems={'center'}>
+							<Typography
+								sx={{
+									lineHeight: 0.7,
+									mb: 1,
+									fontSize: theme => `${theme.typography.h1.fontSize} !important`,
+								}}
+								variant="h2">
+
+								{!cpStatLoading && <CountUp
+									style={{
+										display: "inline-block",
+										fontSize: 'inherit'
+									}}
+									enableScrollSpy
+									scrollSpyOnce
+									preserveValue
+									start={0}
+									end={cpStats.athletes_impacted}
+									duration={2}
+									formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}+`)}
+								/>
+								}
+							</Typography>
+
+
+							<Typography variant="h5" borderBottom={'2px solid #b5b5b5'} pb={0} mb={0.5}>
+								athletes impacted
+							</Typography>
+
+							<Typography variant="h6">
+								indirectly
+							</Typography>
+						</Stack>
+
+						<Stack justifyContent={'center'} alignItems={'center'}>
+							<Typography
+								sx={{
+									lineHeight: 0.7,
+									mb: 1,
+									fontSize: theme => `${theme.typography.h1.fontSize} !important`,
+								}}
+								variant="h2">
+								{!cpStatLoading && <CountUp
+									style={{
+										display: "inline-block",
+										fontSize: 'inherit'
+									}}
+									enableScrollSpy
+									scrollSpyOnce
+									preserveValue
+									start={0}
+									end={cpStats.athletes_represented}
+									duration={2}
+									formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
+								/>
+								}
+							</Typography>
+
+
+							<Typography variant="h5" borderBottom={'2px solid #b5b5b5'} pb={0} mb={0.5}>
+								states represented
+							</Typography>
+
+							<Typography variant="h6">
+								ensuring national outreach
+							</Typography>
+						</Stack>
+					</Stack>
+				</Box>
+
+
 				<Box>
 					<Typography mx={'auto'} textAlign={'center'} width={{ sm: '45%', xs: '100%' }}
 						variant="h1">
