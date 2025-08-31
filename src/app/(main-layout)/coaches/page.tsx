@@ -59,8 +59,11 @@ const CoachesProgram = () => {
 		<Box>
 			<Banner
 				image="CP-1.gif"
+				height={{ xs: "30rem", sm: "40rem" }}
 				text={""}
 				subText={""}
+				transparent={true}
+				sx={{ backgroundAttachment: 'unset', backgroundPosition: 'center center' }}
 			/>
 
 			<Container>
