@@ -24,7 +24,7 @@ const Footer = () => {
 			>
 				<Container>
 					<Stack direction={{ sm: "column", md: "row" }} gap={{ xs: 3, md: 5 }}>
-						<Stack flex={1} data-aos="fade-up">
+						<Stack flex={1} >
 							<Box>
 								<Typography
 									color={"white"}
@@ -48,7 +48,7 @@ const Footer = () => {
 							</Box>
 						</Stack>
 
-						<Stack flex={1} data-aos="fade-up" data-aos-delay={100}>
+						<Stack flex={1}  >
 							<Box>
 								<Typography
 									className="underlineAfter"
@@ -77,7 +77,7 @@ const Footer = () => {
 							</Box>
 						</Stack>
 
-						<Stack flex={1} data-aos="fade-up" data-aos-delay={300}>
+						<Stack flex={1}  >
 							<Box>
 								<Typography
 									className="underlineAfter"
@@ -110,7 +110,7 @@ const Footer = () => {
 							</Box>
 						</Stack>
 
-						<Stack flex={1} data-aos="fade-up" data-aos-delay={200}>
+						<Stack flex={1}>
 							<Box>
 								<Typography
 									className="underlineAfter"
