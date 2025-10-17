@@ -183,6 +183,7 @@ const DonationIndiaRecurring = () => {
 									>
 										<MenuItem value={"monthly"}>Monthly</MenuItem>
 										<MenuItem value={"quarterly"}>Quarterly</MenuItem>
+										<MenuItem value={"annually"}>Annually</MenuItem>
 									</Select>
 								</FormControl>
 
