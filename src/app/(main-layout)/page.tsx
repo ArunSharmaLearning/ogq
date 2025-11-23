@@ -32,6 +32,8 @@ export default function Home() {
   const { data: medalStats, isLoading: medalStatsLoading } =
     useAPI("medal_stats");
 
+  console.log('data', carouselData, sportEvents, athleteStats, medalStats);
+
   const maxAthleteStatLength = athleteStats?.total_athletes?.length || 2;
   const maxMedalStatLength =
     Math.max(
