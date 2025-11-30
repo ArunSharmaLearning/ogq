@@ -17,6 +17,15 @@ const Career = () => {
 
 	return (
 		<Box>
+			<head>
+				<title>{careers?.seo_meta_title}</title>
+				<meta name="description" content={careers?.seo_meta_description} />
+				<link rel="canonical" href={careers?.seo_canonical_uri} />
+				<meta property="og:title" content={careers?.seo_meta_title} />
+				<meta property="og:description" content={careers?.seo_meta_description} />
+				<meta property="og:url" content={careers?.seo_canonical_uri} />
+				<meta property="og:type" content="website" />
+			</head>
 			<Banner image="editable/career.jpg" text="CAREERS" />
 			<Container>
 				{isLoading ?

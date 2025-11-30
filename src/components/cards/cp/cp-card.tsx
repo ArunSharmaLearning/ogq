@@ -9,13 +9,14 @@ const CPCard = ({ link, image, heading, subHeading, bgColor }: { link: string, i
 	// create a simple card with an image, heading and a subheading and learn more button at the end
 	return (
 		<Box sx={{ flex: 1 }}>
-			<Box sx={{ height: '24rem', borderRadius: 3, overflow: 'hidden', boxShadow: 2, }}>
+			<Box sx={{ height: '22rem', borderRadius: 3, overflow: 'hidden', boxShadow: 2, }}>
 				<Box sx={{ height: '50%', position: 'relative' }}>
 					<Image priority unoptimized src={`${image}`} alt={heading} fill style={{ objectFit: 'cover' }} />
 				</Box>
 				<Stack height={'50%'} bgcolor={bgColor} direction={'column'} justifyContent={'center'} alignItems={'center'} textAlign={'center'} className="overlay-text">
-					<Typography variant="h5" sx={{ my: 2 }}>{heading}</Typography>
-					<Typography variant="body1" sx={{ mb: 'auto' }}>{subHeading}</Typography>
+					<Typography className="underlineAfter"
+						variant="h5" sx={{ my: 2 }}>{heading}</Typography>
+					<Typography variant="body1" sx={{ mb: 'auto' }}>◆ {subHeading}</Typography>
 					<Link href={`/coaches/${link}`} style={{ textDecoration: 'none' }}>
 						<Button variant="contained" sx={{ marginBottom: 3 }}> Learn More </Button>
 					</Link>

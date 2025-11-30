@@ -38,7 +38,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+              {children}
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

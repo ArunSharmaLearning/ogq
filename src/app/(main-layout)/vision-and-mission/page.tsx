@@ -4,26 +4,21 @@ import Banner from "@/components/banner/banner";
 import { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Loading from "@/components/loader";
-import Head from "next/head";
 
 const VisionAndMission = () => {
 	const { data: post, isLoading } = useAPI("vission");
-	console.log('post', post);
 
 	return (
 		<>
 			<head>
-				<title>{post?.seo_meta_title || "Vision and Mission - OGQ"}</title>
+				<title>{post?.seo_meta_title}</title>
 				<meta name="description" content={
-					post?.seo_meta_description ||
-					"Learn about OGQ's vision to scout for potential medal talent and our mission to support Indian athletes in winning Olympic and Paralympic gold medals."
-				} />
+					post?.seo_meta_description} />
 				<link rel="canonical" href={post?.seo_canonical_uri} />
-				<meta property="og:title" content={post?.seo_meta_title || "Vision and Mission - OGQ"} />
-				<meta property="og:description" content={post?.seo_meta_description || "Learn about OGQ's vision..."} />
-				<meta property="og:url" content={post?.seo_canonical_uri || "https://yourdomain.com/vision-and-mission"} />
+				<meta property="og:title" content={post?.seo_meta_title} />
+				<meta property="og:description" content={post?.seo_meta_description} />
+				<meta property="og:url" content={post?.seo_canonical_uri} />
 				<meta property="og:type" content="website" />
-				<meta property="og:image" content={'/icon.ico'} />
 			</head>
 
 			<Box component={"main"}>
