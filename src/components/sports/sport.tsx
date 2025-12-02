@@ -11,6 +11,7 @@ export const SportComponent = ({ params, category }: { params: { sports: string 
 	const { data: profiles, isLoading } = useAPI(
 		`${category}?sport=${params.sports}`
 	);
+	console.log('profiles component', profiles);
 	return (
 		<>
 			{isLoading ? (

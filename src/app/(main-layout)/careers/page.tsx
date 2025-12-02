@@ -1,34 +1,56 @@
-'use client'
+// 'use client'
 
 import Banner from "@/components/banner/banner";
 import AnnouncementCard from "@/components/cards/announcement/announcement-card";
 import { CarouselWrapper } from "@/components/carousel";
 import Loading from "@/components/loader";
-import { useAPI } from "@/hooks/use-swr";
+import callApi from "@/hooks/use-swr";
 import {
 	Box,
 	Container,
 	Typography,
 } from "@mui/material";
 
-const Career = () => {
-	
-	const { data: careers, isLoading } = useAPI("announcement");
+async function fetchCareers() {
+	const res = await callApi("announcement");
+	console.log('careers data', res);
+	if (res.error) return [];
+	return res.data;
+}
+
+// SEO metadata
+export async function generateMetadata() {
+	const careers = await fetchCareers();
+	// Use the first career's SEO fields if available, or fallback
+	return {
+		title: careers?.[0]?.seo_meta_title,
+		description: careers?.[0]?.seo_meta_description || "Take the next step in your career with OGQ.",
+		alternates: {
+			canonical: careers?.[0]?.seo_canonical_uri || "https://yourdomain.com/careers",
+		},
+		openGraph: {
+			title: careers?.[0]?.seo_meta_title || "Careers - OGQ",
+			description: careers?.[0]?.seo_meta_description || "Take the next step in your career with OGQ.",
+			url: careers?.[0]?.seo_canonical_uri || "https://yourdomain.com/careers",
+			type: "website",
+			images: [
+				{
+					url: careers?.[0]?.seo_og_image || "https://yourdomain.com/og-image.jpg",
+				},
+			],
+		},
+	};
+}
+
+const Career = async () => {
+
+	const careers = await callApi("announcement");
 
 	return (
 		<Box>
-			<head>
-				<title>{careers?.seo_meta_title}</title>
-				<meta name="description" content={careers?.seo_meta_description} />
-				<link rel="canonical" href={careers?.seo_canonical_uri} />
-				<meta property="og:title" content={careers?.seo_meta_title} />
-				<meta property="og:description" content={careers?.seo_meta_description} />
-				<meta property="og:url" content={careers?.seo_canonical_uri} />
-				<meta property="og:type" content="website" />
-			</head>
 			<Banner image="editable/career.jpg" text="CAREERS" />
 			<Container>
-				{isLoading ?
+				{!careers ?
 					<Loading /> :
 					<Box sx={{ mb: 5 }}>
 						<Typography variant="h6">
@@ -39,7 +61,7 @@ const Career = () => {
 						</Typography>
 						<CarouselWrapper arrows={true} slides={3}>
 							{
-								careers?.map((career) =>
+								careers.data?.map((career) =>
 									<AnnouncementCard key={career.id} image={career.image} link={career.url} />
 								)
 							}

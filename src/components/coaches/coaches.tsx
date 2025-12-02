@@ -18,7 +18,7 @@ const CoachesProgram = ({ params }: { params: { program: string } }) => {
 	return (
 		<>
 			<Banner
-				height={"28rem"}
+				height={{ sm: "28rem", xs: "16rem" }}
 				sx={{ backgroundAttachment: "contain" }}
 				image={`${API_URL}/${program?.back_image}`}
 				text={""}
