@@ -11,33 +11,40 @@ import {
 	Typography,
 } from "@mui/material";
 
-async function fetchCareers() {
-	const res = await callApi("announcement");
-	console.log('careers data', res);
-	if (res.error) return [];
-	return res.data;
-}
-
 // SEO metadata
 export async function generateMetadata() {
-	const careers = await fetchCareers();
+	const { data: seo } = await callApi("announcement");
 	// Use the first career's SEO fields if available, or fallback
 	return {
-		title: careers?.[0]?.seo_meta_title,
-		description: careers?.[0]?.seo_meta_description || "Take the next step in your career with OGQ.",
-		alternates: {
-			canonical: careers?.[0]?.seo_canonical_uri || "https://yourdomain.com/careers",
-		},
+		title: "Careers | OGQ",
+		...(seo?.seo_meta_description && {
+			description: seo.seo_meta_description,
+		}),
+
+		...(seo?.seo_canonical_uri && {
+			alternates: {
+				canonical: seo.seo_canonical_uri,
+			},
+		}),
+
 		openGraph: {
-			title: careers?.[0]?.seo_meta_title || "Careers - OGQ",
-			description: careers?.[0]?.seo_meta_description || "Take the next step in your career with OGQ.",
-			url: careers?.[0]?.seo_canonical_uri || "https://yourdomain.com/careers",
+			...(seo?.seo_meta_title && {
+				title: seo.seo_meta_title,
+			}),
+
+			...(seo?.seo_meta_description && {
+				description: seo.seo_meta_description,
+			}),
+
+			...(seo?.seo_canonical_uri && {
+				url: seo.seo_canonical_uri,
+			}),
+
 			type: "website",
-			images: [
-				{
-					url: careers?.[0]?.seo_og_image || "https://yourdomain.com/og-image.jpg",
-				},
-			],
+
+			...(seo?.seo_og_image && {
+				images: [{ url: seo.seo_og_image }],
+			}),
 		},
 	};
 }

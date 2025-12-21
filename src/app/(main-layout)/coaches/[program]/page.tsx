@@ -1,13 +1,6 @@
 import CoachesProgram from "@/components/coaches/coaches";
 import callApi from "@/hooks/use-swr";
 
-function fetchProgramSeo(program: string) {
-	const { data, error } = callApi(`trainers?cp_type=${program}`);
-	if (error) return null;
-	return data;
-}
-
-
 export async function generateStaticParams() {
 
 	return [
@@ -18,27 +11,42 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { program: string } }) {
-	const seo = await fetchProgramSeo(params.program);
+	const { data: seo } = await callApi(`trainers?cp_type=${params.program}`);
 
 	return {
-		title: seo?.seo_meta_title || "Coaches Program - OGQ",
-		description: seo?.seo_meta_description || "Explore OGQ's coaching programs.",
-		alternates: {
-			canonical: seo?.seo_canonical_uri || undefined,
-		},
+		title: `Coaches Program - ${params.program.toUpperCase()} | OGQ`,
+		...(seo?.seo_meta_description && {
+			description: seo.seo_meta_description,
+		}),
+
+		...(seo?.seo_canonical_uri && {
+			alternates: {
+				canonical: seo.seo_canonical_uri,
+			},
+		}),
+
 		openGraph: {
-			title: seo?.seo_meta_title || "Coaches Program - OGQ",
-			description: seo?.seo_meta_description || "Explore OGQ's coaching programs.",
-			url: seo?.seo_canonical_uri || `https://yourdomain.com/coaches/${params.program}`,
+			...(seo?.seo_meta_title && {
+				title: seo.seo_meta_title,
+			}),
+
+			...(seo?.seo_meta_description && {
+				description: seo.seo_meta_description,
+			}),
+
+			...(seo?.seo_canonical_uri && {
+				url: seo.seo_canonical_uri,
+			}),
+
 			type: "website",
-			images: [
-				{
-					url: seo?.seo_og_image || "https://yourdomain.com/og-image.jpg",
-				},
-			],
+
+			...(seo?.seo_og_image && {
+				images: [{ url: seo.seo_og_image }],
+			}),
 		},
 	};
 }
+
 
 
 const Program = ({ params }: { params: { program: string } }) =>

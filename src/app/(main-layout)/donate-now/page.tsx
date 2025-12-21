@@ -4,6 +4,11 @@ import DonationUsa from "@/components/forms/donation/donation-usa";
 import DonationIndiaRecurring from "@/components/forms/donation/dontaion-india-recurring";
 import { Container, Stack, Typography } from "@mui/material";
 
+export async function generateMetadata() {
+	return {
+		title: "Donate Now | OGQ",
+	}
+}
 
 const DontateNow = () => {
 

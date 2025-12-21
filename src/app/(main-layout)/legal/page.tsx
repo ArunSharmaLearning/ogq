@@ -1,6 +1,12 @@
 import Banner from "@/components/banner/banner";
 import { Box, Container, Typography } from "@mui/material";
 
+export async function generateMetadata() {
+	return {
+		title: `Legal | OGQ`,
+	}
+}
+
 const PreventionHarassment = async () => {
 	return (
 		<Box>

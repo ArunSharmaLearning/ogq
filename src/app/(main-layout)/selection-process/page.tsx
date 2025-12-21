@@ -1,26 +1,59 @@
-'use client'
 import Banner from "@/components/banner/banner";
 import Loading from "@/components/loader";
-import { useAPI } from "@/hooks/use-swr";
+import callApi, { useAPI } from "@/hooks/use-swr";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
-const SelectionProcess = () => {
-	const { data: selection, isLoading } = useAPI("selection");
+
+export async function generateMetadata() {
+	const { data: seo } = await callApi(`selection`);
+	return {
+		...(seo?.seo_meta_title && {
+			title: seo.seo_meta_title,
+		}),
+		...(seo?.seo_meta_description && {
+			description: seo.seo_meta_description,
+		}),
+
+		...(seo?.seo_canonical_uri && {
+			alternates: {
+				canonical: seo.seo_canonical_uri,
+			},
+		}),
+
+		openGraph: {
+			...(seo?.seo_meta_title && {
+				title: seo.seo_meta_title,
+			}),
+
+			...(seo?.seo_meta_description && {
+				description: seo.seo_meta_description,
+			}),
+
+			...(seo?.seo_canonical_uri && {
+				url: seo.seo_canonical_uri,
+			}),
+
+			type: "website",
+
+			...(seo?.seo_og_image && {
+				images: [{ url: seo.seo_og_image }],
+			}),
+		},
+	};
+}
+
+const SelectionProcess = async () => {
+	const { data: selection } = await callApi("selection");
 
 	return (
 		<Box>
 			<Banner image="editable/selection.jpg" text="Selection Process" />
 
 			<Container>
-				{isLoading ?
-					<Loading /> :
-					<>
-						<Typography variant="h6">Analyzing Potential,</Typography>
-						<Typography variant="h4" mt={0} className="underlineAfter">Adapting Methods</Typography>
-						<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
-					</>
-				}
+				<Typography variant="h6">Analyzing Potential,</Typography>
+				<Typography variant="h4" mt={0} className="underlineAfter">Adapting Methods</Typography>
+				<Box dangerouslySetInnerHTML={{ __html: selection.content }}></Box>
 			</Container>
 
 			<Box

@@ -11,37 +11,50 @@ export async function generateStaticParams() {
 	]));
 
 }
- async function fetchProfiles(param: string) {
-	const res = await callApi(`junior?sport=${param}`);
-	const sports = await res;
-	return sports
-}
 
 export async function generateMetadata({ params }: { params: { sports: string } }) {
-	const profiles = await fetchProfiles(params.sports);
+	const { data: seo } = await callApi(params.sports);
 	// You can customize these fields based on your API response
+
+	const sport =
+		params.sports.charAt(0).toUpperCase() + params.sports.slice(1);
+
 	return {
-		title: profiles.data[0]?.seo_meta_title || `${JSON.stringify(profiles)} - Junior | OGQ`,
-		description: profiles.data[0]?.seo_meta_description || `Explore junior athletes for ${params.sports} at OGQ.`,
-		alternates: {
-			canonical: profiles.data[0]?.seo_canonical_uri || `https://yourdomain.com/junior/${params.sports}`,
-		},
+		title: `Olympics ${sport} Junior Athletes | OGQ`,
+		...(seo?.seo_meta_description && {
+			description: seo.seo_meta_description,
+		}),
+
+		...(seo?.seo_canonical_uri && {
+			alternates: {
+				canonical: seo.seo_canonical_uri,
+			},
+		}),
+
 		openGraph: {
-			title: profiles.data[0]?.seo_meta_title || `${params.sports} - Junior | OGQ`,
-			description: profiles.data[0]?.seo_meta_description || `Explore junior athletes for ${params.sports} at OGQ.`,
-			url: profiles.data[0]?.seo_canonical_uri || `https://yourdomain.com/junior/${params.sports}`,
+			...(seo?.seo_meta_title && {
+				title: seo.seo_meta_title,
+			}),
+
+			...(seo?.seo_meta_description && {
+				description: seo.seo_meta_description,
+			}),
+
+			...(seo?.seo_canonical_uri && {
+				url: seo.seo_canonical_uri,
+			}),
+
 			type: "website",
-			images: [
-				{
-					url: profiles.data[0]?.seo_og_image || "https://yourdomain.com/og-image.jpg",
-				},
-			],
+
+			...(seo?.seo_og_image && {
+				images: [{ url: seo.seo_og_image }],
+			}),
 		},
 	};
 }
 
+
 const JuniorSport = async ({ params }: { params: { sports: string } }) => {
-	const profiles = await fetchProfiles(params.sports);
 	return (
 		<>
 			<SportComponent params={params} category="junior" />

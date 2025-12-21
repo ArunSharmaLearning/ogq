@@ -11,6 +11,13 @@ import {
 	Typography,
 } from "@mui/material";
 
+
+export async function generateMetadata() {
+	return {
+		title: `FAQ | OGQ`,
+	}
+}
+
 const FAQ = async () => {
 	return (
 		<Box>
