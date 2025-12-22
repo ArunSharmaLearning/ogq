@@ -6,6 +6,7 @@ import { useResponsive } from "@/hooks/use-responsive";
 import { useAPI } from "@/hooks/use-swr";
 import {
   Box,
+  Collapse,
   Container,
   Dialog,
   DialogActions,
@@ -495,93 +496,50 @@ export default function Home() {
       </Stack>
 
       <Container>
-        <Box sx={{ paddingTop: 7 }}>
+        <Box sx={{ py: 7 }}>
           <Stack direction="column" mb={3}>
             <Typography className="underlineAfter" variant="h1" sx={{ mb: 2 }}>
               Leading Sports NGO in India Supporting Talent & Creating
 
             </Typography>
-            <CommonButton sx={{ px: 6.2, py: 1.2, width: 'fit-content' }} type="submit" onClick={() => setOpen(!open)}>Read more</CommonButton>
           </Stack>
-          <Dialog
-            open={open}
-            onClose={() => setOpen(false)}
-            maxWidth="sm"
-            fullWidth
-            sx={{ '& .MuiPaper-root': { p: 3 } }}
-            aria-labelledby="read-more-title"
-          >
-            <DialogActions sx={{ textAlign: "end", p: 0 }}>
-              <IconButton sx={{ color: theme.palette.primary.main }} onClick={() => setOpen(false)}><Iconify ml={0} width={26} icon="material-symbols:close" /></IconButton>
-            </DialogActions>
 
+          <Box>
 
-            <Typography variant="body1" sx={{ mb: 3, mt: 2 }}>
-              Sports in India is growing rapidly, and thousands of young athletes are looking for the right platform to showcase their potential.
-              This is why <strong>Sports NGO India</strong> initiatives have become essential for nurturing talent, building strong sports communities, and promoting Olympic-level preparation.
-              If you are searching for the right place to contribute, the rise of NGO sports organizations in India offers powerful opportunities for long-term impact.
-              <br />
-              <br />
-              As one of the <strong>NGO sports organizations</strong> in India, our mission is to empower athletes by giving them access to training, nutrition, equipment, and world-class guidance.
-              Many families struggle to support their children&apos;s sports dreams due to financial limitations.
-              This is where sports donation in India plays a crucial role.
-              <br />
-              <br />
-              Your support can directly help deserving talent participate in national and international events.
-              Companies today are also increasingly aware of the importance of sports development under CSR.
-              Through <strong>CSR Donations</strong> for Sports, organizations are contributing to athlete training, infrastructure development, and grassroots sports programs.
-            </Typography>
-
-
-            <Box
-              sx={{
-                bgcolor: "#f5f5f5",
-                borderRadius: "8px",
-                p: 3,
-                mb: 2,
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  color: "#37322F",
-                  mb: 2,
-                }}
-              >
-                Our Impact Areas
+            <Stack direction="column" flexWrap={"nowrap"}>
+              <Typography variant="body1" >
+                Sports in India is growing rapidly, and thousands of young athletes are looking for the right platform to showcase their potential.
+                {"  "}
+                This is why Sports NGO India initiatives have become essential for nurturing talent, building strong sports communities, and promoting Olympic-level preparation. {" "}
+                If you are searching for the right place to contribute, the rise of NGO sports organizations in India offers powerful opportunities for long-term impact.
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
-                {[
-                  "Athlete Training Programs",
-                  "Olympic-Level Preparation",
-                  "Grassroots Development",
-                  "Equipment & Nutrition",
-                  "Infrastructure Support",
-                ].map((item) => (
-                  <Box key={item} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <Box
-                      sx={{
-                        width: 6,
-                        height: 6,
-                        borderRadius: "50%",
-                        bgcolor: "#37322F",
-                      }}
-                    />
-                    <Typography sx={{ fontSize: "0.8rem", color: "#605A57" }}>{item}</Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Box>
+              {!open && (
+                <CommonButton sx={{ px: 6.2, py: 1.2, width: 'fit-content', mt: 2 }} type="submit" onClick={() => setOpen(!open)}>Read more</CommonButton>
+              )}
+            </Stack>
+            <Collapse in={open} timeout="auto" unmountOnExit>
 
-            <Box sx={{ mt: 3 }}>
+              <Typography><strong>Sports NGO India</strong> initiatives have become essential for nurturing talent, building strong sports communities, and promoting Olympic-level preparation.
+                If you are searching for the right place to contribute, the rise of NGO sports organizations in India offers powerful opportunities for long-term impact.
+                <br />
+                <br />
+                As one of the <strong>NGO sports organizations</strong> in India, our mission is to empower athletes by giving them access to training, nutrition, equipment, and world-class guidance.
+                Many families struggle to support their children&apos;s sports dreams due to financial limitations.
+                This is where sports donation in India plays a crucial role.
+                <br />
+                <br />
+                Your support can directly help deserving talent participate in national and international events.
+                Companies today are also increasingly aware of the importance of sports development under CSR.
+                Through <strong>CSR Donations</strong> for Sports, organizations are contributing to athlete training, infrastructure development, and grassroots sports programs.
+              </Typography>
+
+
               <Box
                 sx={{
-                  bgcolor: "#37322F",
+                  bgcolor: "#ffffffff",
                   borderRadius: "8px",
                   p: 3,
-                  color: "white",
+                  my: 2,
                 }}
               >
                 <Typography
@@ -589,35 +547,84 @@ export default function Home() {
                   sx={{
                     fontSize: "1rem",
                     fontWeight: 600,
-                    mb: 1.5,
+                    color: "#37322F",
+                    mb: 2,
                   }}
                 >
-                  Join the Movement
+                  Our Impact Areas
                 </Typography>
-                <Typography sx={{ fontSize: "0.8rem", lineHeight: 1.6, opacity: 0.95 }}>
-                  Be part of India&apos;s journey towards sporting excellence through transparent and impactful
-                  contributions.
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+                  {[
+                    "Athlete Training Programs",
+                    "Olympic-Level Preparation",
+                    "Grassroots Development",
+                    "Equipment & Nutrition",
+                    "Infrastructure Support",
+                  ].map((item) => (
+                    <Box key={item} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                      <Box
+                        sx={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: "50%",
+                          bgcolor: "#37322F",
+                        }}
+                      />
+                      <Typography sx={{ fontSize: "0.8rem", color: "#605A57" }}>{item}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+
+              <Box sx={{ mt: 2 }}>
+                <Box
+                  sx={{
+                    bgcolor: "#37322F",
+                    borderRadius: "8px",
+                    p: 3,
+                    color: "white",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      mb: 1.5,
+                    }}
+                  >
+                    Join the Movement
+                  </Typography>
+                  <Typography sx={{ fontSize: "0.8rem", lineHeight: 1.6, opacity: 0.95 }}>
+                    Be part of India&apos;s journey towards sporting excellence through transparent and impactful
+                    contributions.
+                  </Typography>
+                </Box>
+
+                <Typography variant="body1" sx={{ mt: 3 }}>
+                  These contributions not only uplift the community but also align perfectly with India&apos;s vision of becoming a global sports powerhouse.
+                  If you are looking for trustworthy partners, several sports sponsorship companies in India collaborate with NGO&apos;s to support athletes at various levels.
+                  We work closely with brands to create structured programs where every rupee donated brings measurable outcomes.
+                  <br />
+                  <br />
+                  Whether you&apos;re an individual donor or a corporate brand, your involvement strengthens India&apos;s sports ecosystem.
+                  For donors seeking credibility, <strong>choosing the best NGO</strong> for Indian sports is crucial. Transparency, athlete success stories, training quality, and fund utilization are the benchmarks of a reputable organization.
+                  <br />
+                  <br />
+                  As an established NGO for Sports in India, we ensure that every contribution is channelled towards real athlete development.
+                  Specialized programs are also designed for elite competitors, making us a preferred NGO for <strong>Olympic athletes</strong>.
+                  These athletes require advanced training and financial support to compete on the world stage, and your donations help bridge this gap.
+                  In a country full of talent, your participation in sports donation in India can change careers, shape futures, and empower champions.
+                  Join hands with one of the leading NGO for Sports in India and be part of India&apos;s journey towards sporting excellence.
                 </Typography>
               </Box>
 
-              <Typography variant="body1" sx={{ mt: 3 }}>
-                These contributions not only uplift the community but also align perfectly with India&apos;s vision of becoming a global sports powerhouse.
-                If you are looking for trustworthy partners, several sports sponsorship companies in India collaborate with NGO&apos;s to support athletes at various levels.
-                We work closely with brands to create structured programs where every rupee donated brings measurable outcomes.
-                <br />
-                <br />
-                Whether you&apos;re an individual donor or a corporate brand, your involvement strengthens India&apos;s sports ecosystem.
-                For donors seeking credibility, <strong>choosing the best NGO</strong> for Indian sports is crucial. Transparency, athlete success stories, training quality, and fund utilization are the benchmarks of a reputable organization.
-                <br />
-                <br />
-                As an established NGO for Sports in India, we ensure that every contribution is channelled towards real athlete development.
-                Specialized programs are also designed for elite competitors, making us a preferred NGO for <strong>Olympic athletes</strong>.
-                These athletes require advanced training and financial support to compete on the world stage, and your donations help bridge this gap.
-                In a country full of talent, your participation in sports donation in India can change careers, shape futures, and empower champions.
-                Join hands with one of the leading NGO for Sports in India and be part of India&apos;s journey towards sporting excellence.
-              </Typography>
-            </Box>
-          </Dialog>
+              {open && (
+                <CommonButton sx={{ px: 6.2, py: 1.2, mt: 2, width: 'fit-content' }} type="submit" onClick={() => setOpen(!open)}>Show Less</CommonButton>
+              )}
+
+            </Collapse>
+          </Box>
         </Box>
 
       </Container >
