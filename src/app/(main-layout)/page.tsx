@@ -11,6 +11,8 @@ import {
   Dialog,
   DialogActions,
   IconButton,
+  List,
+  ListItem,
   Stack,
   Typography,
   alpha,
@@ -48,8 +50,7 @@ export default function Home() {
       medalStats?.paralympics,
       medalStats?.junior_world_championships,
       medalStats?.para_world_championships,
-      medalStats?.asian_para_games,
-
+      medalStats?.asian_para_games
     )?.toString()?.length || 3;
 
   useEffect(() => {
@@ -81,7 +82,11 @@ export default function Home() {
                 {/* <Typography variant="h6" ml={{ lg: -2, xs: 0 }}>
                   <Iconify icon={"charm:quote"} width={14} ml={0} />
                 </Typography> */}
-                <Typography variant="h4" className="underlineAfter" mt={{ md: -1.1, xs: 0 }}>
+                <Typography
+                  variant="h4"
+                  className="underlineAfter"
+                  mt={{ md: -1.1, xs: 0 }}
+                >
                   It takes just 6 grams of Gold to lift <br />
                   the worth of a Nation
                 </Typography>
@@ -119,7 +124,7 @@ export default function Home() {
         <Box
           sx={{
             height: isMobile ? "80vh" : "auto",
-            minHeight: '80vh',
+            minHeight: "80vh",
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",
@@ -178,14 +183,14 @@ export default function Home() {
           </Typography>
           <Box data-aos="fade-up">
             {medalStats?.olympics > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
-                {medalStats.olympics &&
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
+                {medalStats.olympics && (
                   <CountUp
                     style={{
                       color: theme.palette.primary.main,
                       width: theme.spacing(maxMedalStatLength + 4),
                       display: "inline-block",
-                      fontSize: isMobile && '1.45rem'
+                      fontSize: isMobile && "1.45rem",
                     }}
                     enableScrollSpy
                     scrollSpyOnce
@@ -193,20 +198,20 @@ export default function Home() {
                     end={medalStats.olympics}
                     duration={2}
                     formattingFn={(num) => (num < 10 ? ` 0${num} ` : ` ${num}`)}
-                  />}
+                  />
+                )}
                 Olympics
               </Typography>
             )}
 
-
             {medalStats?.paralympics > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -219,13 +224,13 @@ export default function Home() {
             )}
 
             {medalStats?.para_world_championships > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -238,13 +243,13 @@ export default function Home() {
             )}
 
             {medalStats?.world_championships > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -257,13 +262,13 @@ export default function Home() {
             )}
 
             {medalStats?.asian_games > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -276,13 +281,13 @@ export default function Home() {
             )}
 
             {medalStats?.asian_para_games > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -295,13 +300,13 @@ export default function Home() {
             )}
 
             {medalStats?.commonwealth_games > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -314,13 +319,13 @@ export default function Home() {
             )}
 
             {medalStats?.youth_olympics > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -332,13 +337,13 @@ export default function Home() {
               </Typography>
             )}
             {medalStats?.junior_world_championships > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxMedalStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -349,7 +354,6 @@ export default function Home() {
                 Junior World Championships
               </Typography>
             )}
-
           </Box>
         </Box>
       </Stack>
@@ -369,13 +373,13 @@ export default function Home() {
           </Typography>
           <Box data-aos="fade-up">
             {athleteStats?.total_athletes > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -388,13 +392,13 @@ export default function Home() {
             )}
 
             {athleteStats?.senior_athletes > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -406,13 +410,13 @@ export default function Home() {
               </Typography>
             )}
             {athleteStats?.junior_athletes > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -424,13 +428,13 @@ export default function Home() {
               </Typography>
             )}
             {athleteStats?.para_athletes > 0 && (
-              <Typography variant="h4" display={'flex'} alignItems={'center'}>
+              <Typography variant="h4" display={"flex"} alignItems={"center"}>
                 <CountUp
                   style={{
                     color: theme.palette.primary.main,
                     width: theme.spacing(maxAthleteStatLength + 4),
                     display: "inline-block",
-                    fontSize: isMobile && '1.45rem'
+                    fontSize: isMobile && "1.45rem",
                   }}
                   enableScrollSpy
                   scrollSpyOnce
@@ -448,7 +452,7 @@ export default function Home() {
           order={isMobile && 0}
           sx={{
             height: isMobile ? "80vh" : "100vh",
-            minHeight: '80vh',
+            minHeight: "80vh",
             position: "relative",
             flex: !isMobile && "0 0 50%",
             maxWidth: !isMobile ? "50%" : "100%",
@@ -487,52 +491,58 @@ export default function Home() {
                 variant="h2"
                 sx={{ color: theme.palette.primary.main }}
               >
-                OGQ supports athletes and para athletes across 10 Olympic Sports and 8 Paralympic Sports
+                OGQ supports athletes and para athletes across 10 Olympic Sports
+                and 8 Paralympic Sports
               </Typography>
             </Box>
           </Box>
         </Box>
-
       </Stack>
 
       <Container>
         <Box sx={{ py: 7 }}>
           <Stack direction="column" mb={3}>
             <Typography className="underlineAfter" variant="h1" sx={{ mb: 2 }}>
-              Leading Sports NGO in India Supporting Talent & Creating
-
+              Trusted Sports NGO in India Building India&apos;s Next Generation
+              of Olympic and Paralympic Champions
             </Typography>
           </Stack>
 
           <Box>
-
             <Stack direction="column" flexWrap={"nowrap"}>
-              <Typography variant="body1" >
-                Sports in India is growing rapidly, and thousands of young athletes are looking for the right platform to showcase their potential.
-                {"  "}
-                This is why Sports NGO India initiatives have become essential for nurturing talent, building strong sports communities, and promoting Olympic-level preparation. {" "}
-                If you are searching for the right place to contribute, the rise of NGO sports organizations in India offers powerful opportunities for long-term impact.
+              <Typography variant="body1">
+                The landscape of Indian sports is undergoing a historic
+                transformation. With a massive surge in young athletes now
+                pursuing sports professionally, the need for a structured
+                ecosystem has never been more urgent.
               </Typography>
               {!open && (
-                <CommonButton sx={{ px: 6.2, py: 1.2, width: 'fit-content', mt: 2 }} type="submit" onClick={() => setOpen(!open)}>Read more</CommonButton>
+                <CommonButton
+                  sx={{ px: 6.2, py: 1.2, width: "fit-content", mt: 2 }}
+                  type="submit"
+                  onClick={() => setOpen(!open)}
+                >
+                  Read more
+                </CommonButton>
               )}
             </Stack>
             <Collapse in={open} timeout="auto" unmountOnExit>
-
-              <Typography><strong>Sports NGO India</strong> initiatives have become essential for nurturing talent, building strong sports communities, and promoting Olympic-level preparation.
-                If you are searching for the right place to contribute, the rise of NGO sports organizations in India offers powerful opportunities for long-term impact.
+              <Typography>
+                We at OGQ, as a <strong>Sports NGO in India</strong>, work in
+                close synergy with the Government of India, the Sports Authority
+                of India (SAI), and various National Sports Federations (NSFs)
+                to bridge the structural gaps that exist between a talented
+                athlete and an Olympic podium.
                 <br />
                 <br />
-                As one of the <strong>NGO sports organizations</strong> in India, our mission is to empower athletes by giving them access to training, nutrition, equipment, and world-class guidance.
-                Many families struggle to support their children&apos;s sports dreams due to financial limitations.
-                This is where sports donation in India plays a crucial role.
-                <br />
-                <br />
-                Your support can directly help deserving talent participate in national and international events.
-                Companies today are also increasingly aware of the importance of sports development under CSR.
-                Through <strong>CSR Donations</strong> for Sports, organizations are contributing to athlete training, infrastructure development, and grassroots sports programs.
+                OGQ is one of the leading{" "}
+                <strong> NGO sports organizations in India.</strong> We
+                currently support over 470 of India’s best Olympic and
+                Paralympic athletes, who are selected based on a well-laid down
+                process that has been developed by experts and has been
+                chiselled with experience. Once selected, OGQ provides support
+                in the following broad parameters:-
               </Typography>
-
 
               <Box
                 sx={{
@@ -542,26 +552,20 @@ export default function Home() {
                   my: 2,
                 }}
               >
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontSize: "1rem",
-                    fontWeight: 600,
-                    color: "#37322F",
-                    mb: 2,
-                  }}
+                <Box
+                  sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}
                 >
-                  Our Impact Areas
-                </Typography>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
                   {[
-                    "Athlete Training Programs",
-                    "Olympic-Level Preparation",
-                    "Grassroots Development",
-                    "Equipment & Nutrition",
-                    "Infrastructure Support",
+                    "Domestic and international tournament exposure",
+                    "Domestic and foreign coaching & training",
+                    "World class equipment",
+                    "Sports Science support",
+                    "Monthly stipend",
                   ].map((item) => (
-                    <Box key={item} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <Box
+                      key={item}
+                      sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                    >
                       <Box
                         sx={{
                           width: 6,
@@ -570,64 +574,128 @@ export default function Home() {
                           bgcolor: "#37322F",
                         }}
                       />
-                      <Typography sx={{ fontSize: "0.8rem", color: "#605A57" }}>{item}</Typography>
+                      <Typography sx={{ fontSize: "0.8rem", color: "#605A57" }}>
+                        {item}
+                      </Typography>
                     </Box>
                   ))}
                 </Box>
               </Box>
+              <Box mt={2}>
+                <Typography variant="h6">
+                  OGQ’s position as one of the leading NGO sports organizations
+                  in India is highlighted by the following: -
+                </Typography>
 
+                <List sx={{ listStyleType: "disc", pl: 0, mt: 0 }}>
+                  <ListItem sx={{ py: 0.5 }}>
+                    - In the last 4 Olympics, 13 out of 21 medals won by India
+                    were athletes supported by OGQ; including 4 out of 6 medal
+                    winners at the 2024 Paris Olympics.
+                  </ListItem>
+
+                  <ListItem sx={{ py: 0.5 }}>
+                    - In the last 2 Paralympics, 35 out of 48 medals won by
+                    India were para-athletes supported by OGQ; including 25 out
+                    of 29 medal winners at the 2024 Paris Paralympics
+                  </ListItem>
+                </List>
+              </Box>
               <Box sx={{ mt: 2 }}>
+                <Typography variant="body1" sx={{ mt: 2 }}>
+                  OGQ has also identified the need to scout for talent at a
+                  young age and providing them with structured support, to
+                  convert potential into a pipeline of future champions. This
+                  vision is implemented through the OGQ Junior Program, which
+                  currently supports 164 athletes across disciplines. It has
+                  been instrumental in producing some of the best Indian
+                  athletes, including Olympic medalists such as: -
+                </Typography>
+
                 <Box
                   sx={{
                     bgcolor: "#37322F",
+                    color: "white",
                     borderRadius: "8px",
                     p: 3,
-                    color: "white",
+                    my: 2,
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      mb: 1.5,
-                    }}
+                  <Box
+                    sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}
                   >
-                    Join the Movement
-                  </Typography>
-                  <Typography sx={{ fontSize: "0.8rem", lineHeight: 1.6, opacity: 0.95 }}>
-                    Be part of India&apos;s journey towards sporting excellence through transparent and impactful
-                    contributions.
-                  </Typography>
+                    {[
+                      "P.V. Sindhu (Badminton) - Supported by OGQ since the age of 14",
+                      "Manu Bhaker (Shooting) - Supported by OGQ since the age of 15",
+                      "Aman Sehrawat (Wrestling) - Supported by OGQ since the age of 15",
+                      "Ravi Kumar (Wrestling) - Supported by OGQ since the age of 17",
+                    ].map((item) => (
+                      <Box
+                        key={item}
+                        sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                      >
+                        <Box
+                          sx={{
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            bgcolor: "white",
+                          }}
+                        />
+                        <Typography sx={{ fontSize: "0.8rem", color: "white" }}>
+                          {item}
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Box>
                 </Box>
 
-                <Typography variant="body1" sx={{ mt: 3 }}>
-                  These contributions not only uplift the community but also align perfectly with India&apos;s vision of becoming a global sports powerhouse.
-                  If you are looking for trustworthy partners, several sports sponsorship companies in India collaborate with NGO&apos;s to support athletes at various levels.
-                  We work closely with brands to create structured programs where every rupee donated brings measurable outcomes.
-                  <br />
-                  <br />
-                  Whether you&apos;re an individual donor or a corporate brand, your involvement strengthens India&apos;s sports ecosystem.
-                  For donors seeking credibility, <strong>choosing the best NGO</strong> for Indian sports is crucial. Transparency, athlete success stories, training quality, and fund utilization are the benchmarks of a reputable organization.
-                  <br />
-                  <br />
-                  As an established NGO for Sports in India, we ensure that every contribution is channelled towards real athlete development.
-                  Specialized programs are also designed for elite competitors, making us a preferred NGO for <strong>Olympic athletes</strong>.
-                  These athletes require advanced training and financial support to compete on the world stage, and your donations help bridge this gap.
-                  In a country full of talent, your participation in sports donation in India can change careers, shape futures, and empower champions.
-                  Join hands with one of the leading NGO for Sports in India and be part of India&apos;s journey towards sporting excellence.
-                </Typography>
+                <Box mt={3}>
+                  <Typography>
+                    All of our work is only possible through the generosity of
+                    our donors, primarily through companies engaging in{" "}
+                    <strong>CSR Donations for Sports</strong>. Our donors
+                    include some of India’s leading companies/organization, who
+                    recognize the importance of sport development through CSR,
+                    both in driving high performance at the global level and in
+                    creating a positive impact on Indian society.
+                    <br />
+                    <br />
+                    For donors seeking credibility, choosing the{" "}
+                    <strong>best NGO for Indian sports</strong> is crucial. OGQ
+                    is a program of the Foundation for Promotion of Sports and
+                    Games, a Not for Profit (Section 8) company. We are fully
+                    CSR compliant, and every donation made to OGQ qualifies for
+                    a 50% tax benefit under Section 80G.
+                    <br />
+                    <br />
+                    As an established <strong>NGO for Sports in India</strong>,
+                    we pride ourselves on our transparency, detailed proposals
+                    and Fund Utilization Reports, and donor engagement. Every
+                    contribution of a donor is accounted for, and channelled
+                    towards real development.
+                    <br />
+                    <br />
+                    In a country full of talent, your participation in{" "}
+                    <strong>sports donation in India</strong> can shape
+                    champions, and empower India’s journey to become a sporting
+                    powerhouse. Contribute, and become a part of history.
+                  </Typography>
+                </Box>
               </Box>
-
               {open && (
-                <CommonButton sx={{ px: 6.2, py: 1.2, mt: 2, width: 'fit-content' }} type="submit" onClick={() => setOpen(!open)}>Show Less</CommonButton>
+                <CommonButton
+                  sx={{ px: 6.2, py: 1.2, mt: 2, width: "fit-content" }}
+                  type="submit"
+                  onClick={() => setOpen(!open)}
+                >
+                  Show Less
+                </CommonButton>
               )}
-
             </Collapse>
           </Box>
         </Box>
-
-      </Container >
+      </Container>
 
       <Box
         sx={{
